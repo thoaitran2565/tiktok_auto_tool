@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Studio Video - Render Hàng Loạt</title>
-    <!-- Font & Icon -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -21,12 +20,7 @@
             --text-muted: #9ca3af;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
 
         body { 
             background: var(--bg-main);
@@ -45,7 +39,6 @@
         .container { 
             background: var(--panel-bg); 
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             padding: 35px; 
             border-radius: 20px; 
             box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
@@ -59,58 +52,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 15px;
         }
 
-        .header h2 { 
-            font-size: 28px;
+        .header-title h2 { 
+            font-size: 24px;
             font-weight: 700;
             background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-        }
-
-        .header p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-top: 6px;
-        }
-
-        .form-group { margin-bottom: 20px; }
-
-        label { 
-            display: flex; 
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px; 
-            font-weight: 600; 
-            color: var(--text-main); 
-            font-size: 14px; 
-        }
-
-        label i { color: var(--primary); }
-
-        input[type="text"] { 
-            width: 100%;
-            padding: 12px 16px; 
-            background-color: rgba(15, 23, 42, 0.6); 
-            border: 1px solid var(--panel-border); 
-            border-radius: 10px; 
-            color: #fff; 
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        input[type="text"]:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
-            background-color: rgba(15, 23, 42, 0.9);
+            gap: 10px;
         }
 
         .btn { 
@@ -120,7 +79,7 @@
             gap: 8px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
             color: white; 
-            padding: 12px 24px; 
+            padding: 10px 20px; 
             border: none; 
             border-radius: 10px; 
             font-size: 14px; 
@@ -128,179 +87,117 @@
             cursor: pointer; 
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            text-decoration: none;
         }
 
-        .btn:hover { 
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+
+        .form-group { margin-bottom: 20px; }
+
+        label { 
+            display: flex; align-items: center; gap: 8px; margin-bottom: 8px; 
+            font-weight: 600; color: var(--text-main); font-size: 14px; 
         }
 
-        .btn:active { transform: translateY(0); }
+        label i { color: var(--primary); }
 
-        .btn-success {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-        .btn-success:hover { box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
-
-        .btn-danger { 
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-        }
-        .btn-danger:hover { box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4); }
-
-        .btn:disabled { 
-            background: #374151 !important; 
-            color: #9ca3af !important; 
-            cursor: not-allowed; 
-            transform: none !important;
-            box-shadow: none !important;
+        input[type="text"] { 
+            width: 100%; padding: 12px 16px; background-color: rgba(15, 23, 42, 0.6); 
+            border: 1px solid var(--panel-border); border-radius: 10px; color: #fff; font-size: 14px;
         }
 
-        .section { 
-            margin-top: 30px; 
-            padding-top: 25px; 
-            border-top: 1px solid var(--panel-border); 
-            display: none; 
-            animation: fadeIn 0.4s ease-out;
-        }
+        .section { margin-top: 20px; display: none; }
 
         .table-container {
-            max-height: 520px; 
-            overflow-y: auto;
+            max-height: 500px; 
+            overflow-y: auto; 
             border-radius: 12px;
-            border: 1px solid var(--panel-border);
+            border: 1px solid var(--panel-border); 
             background: rgba(15, 23, 42, 0.4);
+            
+            /* --- TÙY CHỈNH THANH CUỘN HIỆN ĐẠI --- */
+            scrollbar-width: thin; /* Dành cho Firefox */
+            scrollbar-color: rgba(99, 102, 241, 0.5) rgba(15, 23, 42, 0.2);
         }
 
-        /* Scrollbar Styling */
-        .table-container::-webkit-scrollbar { width: 6px; }
-        .table-container::-webkit-scrollbar-track { background: transparent; }
-        .table-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        /* Dành cho Chrome, Edge, Safari */
+        .table-container::-webkit-scrollbar {
+            width: 8px; /* Độ rộng thanh cuộn vừa phải */
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.3); /* Màu nền rãnh trượt */
+            border-radius: 8px;
+            margin: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); /* Hiệu ứng màu gradient bắt mắt */
+            border-radius: 8px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            transition: background 0.3s ease;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%); /* Sáng lên khi rê chuột vào thanh cuộn */
+        }
 
         table { width: 100%; border-collapse: collapse; text-align: left; }
-
-        th { 
-            background-color: rgba(30, 41, 59, 0.8); 
-            color: var(--text-muted); 
-            padding: 14px 16px;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            sticky: top;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        td { 
-            padding: 16px; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
-            vertical-align: middle; 
-            font-size: 13px;
-        }
-
-        tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+        th { background-color: rgba(30, 41, 59, 0.8); color: var(--text-muted); padding: 14px 16px; font-size: 13px; position: sticky; top: 0; }
+        td { padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; font-size: 13px; }
 
         select { 
-            background-color: rgba(15, 23, 42, 0.8); 
-            color: #fff; 
-            border: 1px solid var(--panel-border); 
-            padding: 8px 12px; 
-            border-radius: 8px; 
-            width: 100%; 
-            cursor: pointer; 
-            margin-top: 8px; 
-            font-size: 13px;
-            transition: all 0.2s ease;
+            background-color: rgba(15, 23, 42, 0.8); color: #fff; border: 1px solid var(--panel-border); 
+            padding: 8px 12px; border-radius: 8px; width: 100%; cursor: pointer; margin-top: 8px; font-size: 13px;
         }
 
-        select:focus { outline: none; border-color: var(--primary); }
+        video.input-video-preview { width: 240px; height: 135px; object-fit: cover; border-radius: 10px; background: #000; }
+        img.preview-image { width: 130px; height: 80px; object-fit: cover; border-radius: 8px; background: #000; margin-bottom: 6px; }
+        video.output-video-preview { width: 180px; height: 100px; object-fit: cover; border-radius: 8px; background: #000; border: 1px solid var(--success); }
 
-        video.input-video-preview {
-            width: 240px; height: 135px; object-fit: cover; border-radius: 10px; background: #000; display: block; margin-top: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        img.preview-image {
-            width: 130px; height: 80px; object-fit: cover; border-radius: 8px; background: #000; display: block; margin-bottom: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.2s ease;
-        }
-
-        img.preview-image:hover { transform: scale(1.03); }
-
-        video.output-video-preview {
-            width: 180px; height: 100px; object-fit: cover; border-radius: 8px; background: #000; display: block; margin-top: 6px;
-            border: 1px solid var(--success);
-        }
-
-        .status-badge {
-            padding: 6px 12px; 
-            border-radius: 20px; 
-            font-weight: 600; 
-            font-size: 11px; 
-            display: inline-flex; 
-            align-items: center;
-            gap: 6px;
-            width: fit-content;
-        }
+        .status-badge { padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; }
         .status-wait { background-color: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.3); }
         .status-running { background-color: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
         .status-done { background-color: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
         .status-error { background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
 
-        .progress-bar-wrapper {
-            width: 100%; background-color: rgba(255, 255, 255, 0.05); border-radius: 6px; height: 8px; overflow: hidden; display: none; margin-top: 6px;
-        }
-        .progress-bar-fill {
-            height: 100%; width: 0%; 
-            background: linear-gradient(90deg, #6366f1, #10b981);
-            background-size: 200% 100%;
-            animation: gradientMove 2s linear infinite;
-            transition: width 0.3s ease;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
+        .progress-bar-wrapper { width: 100%; background-color: rgba(255, 255, 255, 0.05); border-radius: 6px; height: 8px; overflow: hidden; display: none; margin-top: 6px; }
+        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #10b981); transition: width 0.3s ease; }
         .toolbar { display: flex; gap: 12px; margin-top: 25px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Studio Video Render</h2>
-            <p>Hệ thống ghép ảnh & trích xuất âm thanh tự động hàng loạt theo chuẩn TikTok / Reels / Shorts</p>
+        <div class="header-nav">
+            <div class="header-title">
+                <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Render Video</h2>
+            </div>
+            <!-- Nút chuyển sang trang Quản Lý -->
+            <a href="/manage" class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                <i class="fa-solid fa-list-check"></i> Trang Quản Lý Video
+            </a>
         </div>
         
         <!-- Setup Thư Mục -->
         <div id="setupSection">
             <div class="form-group">
-                <label><i class="fa-regular fa-image"></i> Đường dẫn thư mục chứa Ảnh nguồn:</label>
+                <label><i class="fa-regular fa-image"></i> Thư mục Ảnh nguồn:</label>
                 <input type="text" id="imageFolderPath" placeholder="Ví dụ: D:\Media\Images">
             </div>
 
             <div class="form-group">
-                <label><i class="fa-solid fa-film"></i> Đường dẫn thư mục chứa Video nguồn:</label>
+                <label><i class="fa-solid fa-film"></i> Thư mục Video nguồn:</label>
                 <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos">
             </div>
             
-            <button class="btn" onclick="loadFolders()" style="width: 100%; margin-top: 10px; padding: 14px; font-size: 15px;">
+            <button class="btn" onclick="loadFolders()" style="width: 100%; padding: 14px; font-size: 15px;">
                 <i class="fa-solid fa-folder-open"></i> Quét Thư Mục & Tạo Hàng Đợi
             </button>
         </div>
 
         <!-- Hàng Đợi & Render -->
         <div id="queueSection" class="section">
-            <h3 style="margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-list-check" style="color: var(--primary);"></i> Danh sách Video Chờ Xuất
-            </h3>
-            
             <div class="table-container">
                 <table id="queueTable">
                     <thead>
@@ -311,19 +208,18 @@
                             <th style="width: 20%;">Thành Phẩm</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
 
             <div class="toolbar">
-                <button id="startBtn" class="btn btn-success" onclick="startBatchRender()" style="flex: 2; padding: 14px;">
+                <button id="startBtn" class="btn" onclick="startBatchRender()" style="flex: 2; padding: 14px; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
                     <i class="fa-solid fa-rocket"></i> Bắt Đầu Render Tự Động
                 </button>
-                <button id="stopBtn" class="btn btn-danger" onclick="stopBatchRender()" style="flex: 1; display: none;">
+                <button id="stopBtn" class="btn" onclick="stopBatchRender()" style="flex: 1; display: none; background: #ef4444;">
                     <i class="fa-solid fa-hand"></i> Dừng Lại
                 </button>
-                <button class="btn btn-danger" onclick="location.reload()" style="flex: 1; background: rgba(239, 68, 68, 0.2); border: 1px solid var(--danger);">
+                <button class="btn" onclick="location.reload()" style="flex: 1; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444;">
                     <i class="fa-solid fa-rotate-right"></i> Làm Mới
                 </button>
             </div>
@@ -334,6 +230,18 @@
         let rawQueueData = [];
         let availableImages = [];
         let isRunning = false;
+
+        // Điền sẵn dữ liệu cấu hình cũ khi mở trang
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('/api/get-config');
+                const data = await res.json();
+                if (data.success && data.config) {
+                    if (data.config.image_folder) document.getElementById('imageFolderPath').value = data.config.image_folder;
+                    if (data.config.video_folder) document.getElementById('videoFolderPath').value = data.config.video_folder;
+                }
+            } catch (err) {}
+        });
 
         async function loadFolders() {
             const imageFolder = document.getElementById('imageFolderPath').value.trim();
@@ -369,7 +277,6 @@
         function renderQueueTable() {
             const tbody = document.querySelector('#queueTable tbody');
             tbody.innerHTML = '';
-
             const vidFolderPath = document.getElementById('videoFolderPath').value.trim();
 
             rawQueueData.forEach((item) => {
@@ -382,54 +289,34 @@
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>
-                        <div style="font-size: 13px; margin-bottom: 6px; font-weight: 600; color: #fff; word-break: break-all;">
-                            <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 4px;"></i>${item.video_name}
-                        </div>
+                        <div style="font-size: 13px; margin-bottom: 6px; font-weight: 600; color: #fff;">${item.video_name}</div>
                         <video class="input-video-preview" controls preload="metadata" src="/media/video?path=${encodeURIComponent(vidFullPath)}"></video>
                     </td>
                     <td>
                         <img class="preview-image" src="/media/image-by-name/${encodeURIComponent(item.image_name)}" id="img-preview-${item.id}">
-                        <select onchange="updateImage(${item.id}, this.value)">
-                            ${optionsHtml}
-                        </select>
+                        <select onchange="updateImage(${item.id}, this.value)">${optionsHtml}</select>
                     </td>
                     <td>
-                        <div style="display: flex; flex-direction: column; gap: 6px;">
-                            <span id="status-${item.id}" class="status-badge status-wait">
-                                <i class="fa-regular fa-clock"></i> ${item.status}
-                            </span>
-                            <div id="progress-wrapper-${item.id}" class="progress-bar-wrapper">
-                                <div id="progress-fill-${item.id}" class="progress-bar-fill"></div>
-                            </div>
-                            <span id="progress-text-${item.id}" style="font-size: 11px; color: var(--text-muted);"></span>
-                        </div>
+                        <span id="status-${item.id}" class="status-badge status-wait"><i class="fa-regular fa-clock"></i> ${item.status}</span>
+                        <div id="progress-wrapper-${item.id}" class="progress-bar-wrapper"><div id="progress-fill-${item.id}" class="progress-bar-fill"></div></div>
+                        <span id="progress-text-${item.id}" style="font-size: 11px; color: var(--text-muted);"></span>
                     </td>
-                    <td><div id="result-${item.id}" style="color: var(--text-muted); font-size: 12px;"><i class="fa-solid fa-hourglass-start"></i> Chưa xử lý</div></td>
+                    <td><div id="result-${item.id}" style="color: var(--text-muted); font-size: 12px;">Chưa xử lý</div></td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
         async function updateImage(id, imageName) {
-            try {
-                const res = await fetch('/api/update-queue', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: id, image_name: imageName })
-                });
-                const data = await res.json();
-                
-                if (data.success) {
-                    const imgItem = rawQueueData.find(x => x.id === id);
-                    if(imgItem) {
-                        imgItem.image_name = imageName;
-                        document.getElementById(`img-preview-${id}`).src = `/media/image-by-name/${encodeURIComponent(imageName)}?t=${new Date().getTime()}`;
-                    }
-                } else {
-                    alert('Lỗi cập nhật ảnh: ' + data.error);
-                }
-            } catch (err) {
-                console.error('Lỗi kết nối khi đổi ảnh:', err);
+            await fetch('/api/update-queue', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id, image_name: imageName })
+            });
+            const imgItem = rawQueueData.find(x => x.id === id);
+            if(imgItem) {
+                imgItem.image_name = imageName;
+                document.getElementById(`img-preview-${id}`).src = `/media/image-by-name/${encodeURIComponent(imageName)}?t=${new Date().getTime()}`;
             }
         }
 
@@ -455,7 +342,6 @@
 
                 let currentPercent = 5;
                 progressFill.style.width = currentPercent + '%';
-                progressText.innerText = 'Đang ghép & trích âm thanh...';
 
                 let progressInterval = setInterval(() => {
                     if (currentPercent < 92) {
@@ -472,46 +358,38 @@
                         body: JSON.stringify({ id: item.id })
                     });
                     const data = await res.json();
-
                     clearInterval(progressInterval);
 
                     if (data.success) {
                         progressFill.style.width = '100%';
                         progressText.innerText = 'Hoàn tất 100%';
-
                         badge.className = 'status-badge status-done';
                         badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Hoàn thành';
                         
                         document.getElementById(`result-${item.id}`).innerHTML = `
                             <video class="output-video-preview" controls src="/outputs/${data.output_file}"></video>
-                            <div style="margin-top: 8px;">
-                                <a href="/download/${data.output_file}" target="_blank" style="color: #34d399; font-weight: 600; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-                                    <i class="fa-solid fa-download"></i> Tải xuống
-                                </a>
+                            <div style="margin-top: 6px;">
+                                <a href="/download/${data.output_file}" target="_blank" style="color: #34d399; font-weight: 600; font-size: 12px; text-decoration: none;">📥 Tải xuống</a>
                             </div>
-                            <div style="font-size: 11px; color: #6b7280; margin-top: 2px;">(Đã giải phóng file nguồn)</div>
                         `;
                     } else {
-                        clearInterval(progressInterval);
                         progressWrapper.style.display = 'none';
                         badge.className = 'status-badge status-error';
-                        badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Lỗi';
-                        progressText.innerText = '';
-                        document.getElementById(`result-${item.id}`).innerHTML = `<span style="color: #f87171; font-size: 11px;">${data.error}</span>`;
+                        badge.innerHTML = 'Lỗi';
+                        document.getElementById(`result-${item.id}`).innerHTML = `<span style="color: #f87171;">${data.error}</span>`;
                     }
                 } catch (err) {
                     clearInterval(progressInterval);
                     progressWrapper.style.display = 'none';
                     badge.className = 'status-badge status-error';
-                    badge.innerHTML = '<i class="fa-solid fa-wifi"></i> Lỗi kết nối';
-                    progressText.innerText = '';
+                    badge.innerHTML = 'Lỗi kết nối';
                 }
             }
 
             isRunning = false;
             document.getElementById('startBtn').style.display = 'inline-flex';
             document.getElementById('startBtn').disabled = true;
-            document.getElementById('startBtn').innerHTML = '<i class="fa-solid fa-check-double"></i> Đã Render Hoàn Tất';
+            document.getElementById('startBtn').innerText = 'Đã Render Hoàn Tất';
             document.getElementById('stopBtn').style.display = 'none';
         }
 

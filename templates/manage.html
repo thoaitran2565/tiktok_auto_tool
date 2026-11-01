@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Video Thành Phẩm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #0a0c10;
+            --panel-bg: rgba(22, 27, 34, 0.75);
+            --panel-border: rgba(255, 255, 255, 0.1);
+            --primary: #6366f1;
+            --success: #10b981;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+        body { 
+            background: var(--bg-main);
+            background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main); 
+            min-height: 100vh;
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .container { 
+            background: var(--panel-bg); 
+            backdrop-filter: blur(16px);
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
+            width: 1100px; 
+            border: 1px solid var(--panel-border);
+        }
+
+        .header-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 25px; border-bottom: 1px solid var(--panel-border); padding-bottom: 15px;
+        }
+
+        .header-title h2 { 
+            font-size: 24px; font-weight: 700;
+            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .btn { 
+            display: inline-flex; align-items: center; gap: 8px; background: var(--primary);
+            color: white; padding: 10px 20px; border-radius: 10px; font-size: 14px; 
+            font-weight: 600; text-decoration: none; border: none; cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        /* Tabs Bar */
+        .tabs-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+        }
+
+        .tabs-bar { display: flex; gap: 10px; }
+
+        .tab-btn {
+            background: transparent; color: var(--text-muted); border: 1px solid transparent;
+            padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: rgba(99, 102, 241, 0.2); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .table-container {
+            max-height: 550px; overflow-y: auto; border-radius: 12px;
+            border: 1px solid var(--panel-border); background: rgba(15, 23, 42, 0.4);
+        }
+
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background-color: rgba(30, 41, 59, 0.8); color: var(--text-muted); padding: 14px 16px; font-size: 13px; position: sticky; top: 0; }
+        td { padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; font-size: 13px; }
+
+        /* Màu sắc cho Dropdown trạng thái */
+        select.status-select {
+            padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;
+            border: 1px solid var(--panel-border); outline: none; transition: all 0.2s;
+        }
+
+        /* Định màu sắc riêng cho từng trạng thái */
+        .status-chờ-duyệt { background: rgba(234, 179, 8, 0.15); color: #facc15; border-color: rgba(234, 179, 8, 0.3); }
+        .status-đã-duyệt { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-color: rgba(59, 130, 246, 0.3); }
+        .status-đã-đăng { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
+        .status-đã-xóa { background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3); }
+
+        /* Video Modal */
+        .modal {
+            display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center;
+        }
+
+        .modal-content {
+            background: #1e293b; padding: 20px; border-radius: 16px; position: relative; width: 360px; text-align: center;
+        }
+
+        .close-modal {
+            position: absolute; top: 10px; right: 15px; color: #fff; font-size: 20px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-nav">
+            <div class="header-title">
+                <h2><i class="fa-solid fa-folder-kanban"></i> Quản Lý Video Thành Phẩm</h2>
+            </div>
+            <a href="/" class="btn">
+                <i class="fa-solid fa-arrow-left"></i> Quay Lại Trang Render
+            </a>
+        </div>
+
+        <!-- Các Tab lọc và Nút Duyệt Tất Cả -->
+        <div class="tabs-wrapper">
+            <div class="tabs-bar">
+                <button class="tab-btn active" onclick="filterTab('Tất cả', this)">Tất cả (<span id="count-all">0</span>)</button>
+                <button class="tab-btn" onclick="filterTab('Chờ duyệt', this)">Chờ duyệt (<span id="count-wait">0</span>)</button>
+                <button class="tab-btn" onclick="filterTab('Đã duyệt', this)">Đã duyệt (<span id="count-approved">0</span>)</button>
+                <button class="tab-btn" onclick="filterTab('Đã đăng', this)">Đã đăng (<span id="count-posted">0</span>)</button>
+                <button class="tab-btn" onclick="filterTab('Đã xóa', this)">Đã xóa (<span id="count-deleted">0</span>)</button>
+            </div>
+            <button class="btn btn-success" id="btn-approve-all" onclick="approveAllPending()">
+                <i class="fa-solid fa-check-double"></i> Duyệt tất cả (<span id="btn-count-pending">0</span>)
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên Video</th>
+                        <th>Ngày Tạo</th>
+                        <th>Trạng Thái</th>
+                        <th>Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody id="videoTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal Xem Video -->
+    <div id="videoModal" class="modal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h4 id="modalTitle" style="margin-bottom: 10px; font-size: 14px; word-break: break-all;"></h4>
+            <video id="modalVideoPlayer" controls style="width: 100%; height: 480px; border-radius: 8px; background: #000; margin-bottom: 12px;"></video>
+            
+            <!-- Nút Duyệt hiển thị động khi video đang Chờ duyệt -->
+            <div id="modalActionContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        let allVideos = [];
+        let currentTab = 'Tất cả';
+        let currentModalVideoId = null;
+
+        window.addEventListener('DOMContentLoaded', loadVideos);
+
+        async function loadVideos() {
+            try {
+                const res = await fetch('/api/get-videos-db');
+                const data = await res.json();
+                if (data.success) {
+                    allVideos = data.videos;
+                    updateCounts();
+                    renderTable();
+                }
+            } catch (err) {
+                console.error('Lỗi load danh sách video:', err);
+            }
+        }
+
+        function updateCounts() {
+            const waitCount = allVideos.filter(v => v.status === 'Chờ duyệt').length;
+            document.getElementById('count-all').innerText = allVideos.length;
+            document.getElementById('count-wait').innerText = waitCount;
+            document.getElementById('count-approved').innerText = allVideos.filter(v => v.status === 'Đã duyệt').length;
+            document.getElementById('count-posted').innerText = allVideos.filter(v => v.status === 'Đã đăng').length;
+            document.getElementById('count-deleted').innerText = allVideos.filter(v => v.status === 'Đã xóa').length;
+            
+            document.getElementById('btn-count-pending').innerText = waitCount;
+            document.getElementById('btn-approve-all').disabled = waitCount === 0;
+        }
+
+        function filterTab(tabName, element) {
+            currentTab = tabName;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+            renderTable();
+        }
+
+        // Hàm ánh xạ tên trạng thái sang tên class CSS tương ứng
+        function getStatusClass(status) {
+            switch(status) {
+                case 'Chờ duyệt': return 'status-chờ-duyệt';
+                case 'Đã duyệt': return 'status-đã-duyệt';
+                case 'Đã đăng': return 'status-đã-đăng';
+                case 'Đã xóa': return 'status-đã-xóa';
+                default: return '';
+            }
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('videoTableBody');
+            tbody.innerHTML = '';
+
+            const filtered = currentTab === 'Tất cả' 
+                ? allVideos 
+                : allVideos.filter(v => v.status === currentTab);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">Không có video nào.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(vid => {
+                const statusClass = getStatusClass(vid.status);
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="font-weight: 600; color: #fff;">
+                        <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 6px;"></i>${vid.filename}
+                    </td>
+                    <td style="color: var(--text-muted);">${vid.created_at}</td>
+                    <td>
+                        <select class="status-select ${statusClass}" onchange="changeStatus('${vid.id}', this.value)">
+                            <option value="Chờ duyệt" ${vid.status === 'Chờ duyệt' ? 'selected' : ''} style="background: #1e293b; color: #facc15;">🟡 Chờ duyệt</option>
+                            <option value="Đã duyệt" ${vid.status === 'Đã duyệt' ? 'selected' : ''} style="background: #1e293b; color: #60a5fa;">🔵 Đã duyệt</option>
+                            <option value="Đã đăng" ${vid.status === 'Đã đăng' ? 'selected' : ''} style="background: #1e293b; color: #34d399;">🟢 Đã đăng</option>
+                            <option value="Đã xóa" ${vid.status === 'Đã xóa' ? 'selected' : ''} style="background: #1e293b; color: #f87171;">🔴 Đã xóa</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="playVideo('${vid.id}', '${vid.filename}', '${vid.status}')" style="padding: 6px 12px; font-size: 12px;">
+                            <i class="fa-solid fa-play"></i> Xem
+                        </button>
+                        <a href="/download/${vid.filename}" target="_blank" class="btn" style="padding: 6px 12px; font-size: 12px; background: rgba(16, 185, 129, 0.2); color: #34d399; text-decoration: none;">
+                            <i class="fa-solid fa-download"></i> Tải
+                        </a>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function changeStatus(id, newStatus) {
+            try {
+                const res = await fetch('/api/update-video-status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, status: newStatus })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    const target = allVideos.find(v => v.id === id);
+                    if (target) target.status = newStatus;
+                    updateCounts();
+                    renderTable(); // Vẽ lại bảng để cập nhật màu sắc mới ngay lập tức
+                }
+            } catch (err) {
+                alert('Lỗi cập nhật trạng thái!');
+            }
+        }
+
+        async function approveAllPending() {
+            const pendingCount = allVideos.filter(v => v.status === 'Chờ duyệt').length;
+            if (pendingCount === 0) return;
+
+            if (!confirm(`Bạn có chắc chắn muốn duyệt toàn bộ ${pendingCount} video đang chờ duyệt không?`)) {
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/approve-all-pending', { method: 'POST' });
+                const data = await res.json();
+                if (data.success) {
+                    await loadVideos();
+                } else {
+                    alert('Có lỗi xảy ra khi duyệt!');
+                }
+            } catch (err) {
+                alert('Lỗi kết nối máy chủ!');
+            }
+        }
+
+        function playVideo(id, filename, status) {
+            currentModalVideoId = id; // Lưu ID lại
+            document.getElementById('modalTitle').innerText = filename;
+            const player = document.getElementById('modalVideoPlayer');
+            player.src = `/outputs/${filename}`;
+            document.getElementById('videoModal').style.display = 'flex';
+            
+            // Nếu video đang ở trạng thái "Chờ duyệt", hiển thị nút Duyệt nhanh trong popup
+            const actionContainer = document.getElementById('modalActionContainer');
+            if (status === 'Chờ duyệt') {
+                actionContainer.innerHTML = `
+                    <button class="btn btn-success" onclick="approveCurrentVideo()" style="width: 100%; padding: 10px; justify-content: center; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <i class="fa-solid fa-check"></i> Duyệt video này
+                    </button>
+                `;
+            } else {
+                actionContainer.innerHTML = ''; // Ẩn đi nếu không phải chờ duyệt
+            }
+
+            player.play();
+        }
+
+        function closeModal() {
+            const player = document.getElementById('modalVideoPlayer');
+            player.pause();
+            player.src = '';
+            currentModalVideoId = null;
+            document.getElementById('videoModal').style.display = 'none';
+        }
+        // Bắt sự kiện click ra ngoài vùng modal-content để đóng popup
+        function closeModalOnOutsideClick(event) {
+            const modal = document.getElementById('videoModal');
+            // Nếu vị trí click chính là phần nền đen mờ (videoModal) chứ không phải nội dung bên trong
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Hàm thực hiện đổi trạng thái sang "Đã duyệt" và đóng popup ngay lập tức
+        async function approveCurrentVideo() {
+            if (!currentModalVideoId) return;
+
+            try {
+                const res = await fetch('/api/update-video-status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: currentModalVideoId, status: 'Đã duyệt' })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    const target = allVideos.find(v => v.id === currentModalVideoId);
+                    if (target) target.status = 'Đã duyệt';
+                    updateCounts();
+                    renderTable();
+                    closeModal(); // Tự động tắt popup sau khi duyệt thành công
+                }
+            } catch (err) {
+                alert('Lỗi cập nhật trạng thái!');
+            }
+        }
+    </script>
+</body>
+</html>
