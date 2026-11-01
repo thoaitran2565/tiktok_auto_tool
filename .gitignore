@@ -1,0 +1,29 @@
+Media & Processing directories
+
+data/
+outputs/
+uploads/
+inputs/
+
+Temporary audio & video files
+
+*.mp3
+*.mp4
+*.wav
+
+Python runtime & virtual environments
+
+pycache/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+IDEs & System files
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

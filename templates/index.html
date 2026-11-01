@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Studio Video - Render Hàng Loạt</title>
+    <!-- Font & Icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #0a0c10;
+            --panel-bg: rgba(22, 27, 34, 0.75);
+            --panel-border: rgba(255, 255, 255, 0.1);
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body { 
+            background: var(--bg-main);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main); 
+            min-height: 100vh;
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .container { 
+            background: var(--panel-bg); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
+            width: 1100px; 
+            border: 1px solid var(--panel-border);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h2 { 
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label { 
+            display: flex; 
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--text-main); 
+            font-size: 14px; 
+        }
+
+        label i { color: var(--primary); }
+
+        input[type="text"] { 
+            width: 100%;
+            padding: 12px 16px; 
+            background-color: rgba(15, 23, 42, 0.6); 
+            border: 1px solid var(--panel-border); 
+            border-radius: 10px; 
+            color: #fff; 
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+            background-color: rgba(15, 23, 42, 0.9);
+        }
+
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 10px; 
+            font-size: 14px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn:active { transform: translateY(0); }
+
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        .btn-success:hover { box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+
+        .btn-danger { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+        .btn-danger:hover { box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4); }
+
+        .btn:disabled { 
+            background: #374151 !important; 
+            color: #9ca3af !important; 
+            cursor: not-allowed; 
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .section { 
+            margin-top: 30px; 
+            padding-top: 25px; 
+            border-top: 1px solid var(--panel-border); 
+            display: none; 
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .table-container {
+            max-height: 520px; 
+            overflow-y: auto;
+            border-radius: 12px;
+            border: 1px solid var(--panel-border);
+            background: rgba(15, 23, 42, 0.4);
+        }
+
+        /* Scrollbar Styling */
+        .table-container::-webkit-scrollbar { width: 6px; }
+        .table-container::-webkit-scrollbar-track { background: transparent; }
+        .table-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+
+        th { 
+            background-color: rgba(30, 41, 59, 0.8); 
+            color: var(--text-muted); 
+            padding: 14px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            sticky: top;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td { 
+            padding: 16px; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+            vertical-align: middle; 
+            font-size: 13px;
+        }
+
+        tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+
+        select { 
+            background-color: rgba(15, 23, 42, 0.8); 
+            color: #fff; 
+            border: 1px solid var(--panel-border); 
+            padding: 8px 12px; 
+            border-radius: 8px; 
+            width: 100%; 
+            cursor: pointer; 
+            margin-top: 8px; 
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        select:focus { outline: none; border-color: var(--primary); }
+
+        video.input-video-preview {
+            width: 240px; height: 135px; object-fit: cover; border-radius: 10px; background: #000; display: block; margin-top: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        img.preview-image {
+            width: 130px; height: 80px; object-fit: cover; border-radius: 8px; background: #000; display: block; margin-bottom: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        img.preview-image:hover { transform: scale(1.03); }
+
+        video.output-video-preview {
+            width: 180px; height: 100px; object-fit: cover; border-radius: 8px; background: #000; display: block; margin-top: 6px;
+            border: 1px solid var(--success);
+        }
+
+        .status-badge {
+            padding: 6px 12px; 
+            border-radius: 20px; 
+            font-weight: 600; 
+            font-size: 11px; 
+            display: inline-flex; 
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+        }
+        .status-wait { background-color: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.3); }
+        .status-running { background-color: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+        .status-done { background-color: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .status-error { background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        .progress-bar-wrapper {
+            width: 100%; background-color: rgba(255, 255, 255, 0.05); border-radius: 6px; height: 8px; overflow: hidden; display: none; margin-top: 6px;
+        }
+        .progress-bar-fill {
+            height: 100%; width: 0%; 
+            background: linear-gradient(90deg, #6366f1, #10b981);
+            background-size: 200% 100%;
+            animation: gradientMove 2s linear infinite;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .toolbar { display: flex; gap: 12px; margin-top: 25px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Studio Video Render</h2>
+            <p>Hệ thống ghép ảnh & trích xuất âm thanh tự động hàng loạt theo chuẩn TikTok / Reels / Shorts</p>
+        </div>
+        
+        <!-- Setup Thư Mục -->
+        <div id="setupSection">
+            <div class="form-group">
+                <label><i class="fa-regular fa-image"></i> Đường dẫn thư mục chứa Ảnh nguồn:</label>
+                <input type="text" id="imageFolderPath" placeholder="Ví dụ: D:\Media\Images">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fa-solid fa-film"></i> Đường dẫn thư mục chứa Video nguồn:</label>
+                <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos">
+            </div>
+            
+            <button class="btn" onclick="loadFolders()" style="width: 100%; margin-top: 10px; padding: 14px; font-size: 15px;">
+                <i class="fa-solid fa-folder-open"></i> Quét Thư Mục & Tạo Hàng Đợi
+            </button>
+        </div>
+
+        <!-- Hàng Đợi & Render -->
+        <div id="queueSection" class="section">
+            <h3 style="margin-bottom: 15px; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-list-check" style="color: var(--primary);"></i> Danh sách Video Chờ Xuất
+            </h3>
+            
+            <div class="table-container">
+                <table id="queueTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">Video Nguồn</th>
+                            <th style="width: 25%;">Ảnh Ghép Mẫu</th>
+                            <th style="width: 20%;">Trạng Thái</th>
+                            <th style="width: 20%;">Thành Phẩm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="toolbar">
+                <button id="startBtn" class="btn btn-success" onclick="startBatchRender()" style="flex: 2; padding: 14px;">
+                    <i class="fa-solid fa-rocket"></i> Bắt Đầu Render Tự Động
+                </button>
+                <button id="stopBtn" class="btn btn-danger" onclick="stopBatchRender()" style="flex: 1; display: none;">
+                    <i class="fa-solid fa-hand"></i> Dừng Lại
+                </button>
+                <button class="btn btn-danger" onclick="location.reload()" style="flex: 1; background: rgba(239, 68, 68, 0.2); border: 1px solid var(--danger);">
+                    <i class="fa-solid fa-rotate-right"></i> Làm Mới
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let rawQueueData = [];
+        let availableImages = [];
+        let isRunning = false;
+
+        async function loadFolders() {
+            const imageFolder = document.getElementById('imageFolderPath').value.trim();
+            const videoFolder = document.getElementById('videoFolderPath').value.trim();
+
+            if (!imageFolder || !videoFolder) {
+                alert('Vui lòng nhập đầy đủ đường dẫn cả 2 thư mục!');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/load-folders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ image_folder: imageFolder, video_folder: videoFolder })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    availableImages = data.available_images;
+                    rawQueueData = data.queue;
+                    renderQueueTable();
+                    document.getElementById('setupSection').style.display = 'none';
+                    document.getElementById('queueSection').style.display = 'block';
+                } else {
+                    alert('Lỗi: ' + data.error);
+                }
+            } catch (err) {
+                alert('Không thể kết nối đến server!');
+            }
+        }
+
+        function renderQueueTable() {
+            const tbody = document.querySelector('#queueTable tbody');
+            tbody.innerHTML = '';
+
+            const vidFolderPath = document.getElementById('videoFolderPath').value.trim();
+
+            rawQueueData.forEach((item) => {
+                let optionsHtml = availableImages.map(img => 
+                    `<option value="${img}" ${img === item.image_name ? 'selected' : ''}>${img}</option>`
+                ).join('');
+
+                const vidFullPath = `${vidFolderPath}\\${item.video_name}`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>
+                        <div style="font-size: 13px; margin-bottom: 6px; font-weight: 600; color: #fff; word-break: break-all;">
+                            <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 4px;"></i>${item.video_name}
+                        </div>
+                        <video class="input-video-preview" controls preload="metadata" src="/media/video?path=${encodeURIComponent(vidFullPath)}"></video>
+                    </td>
+                    <td>
+                        <img class="preview-image" src="/media/image-by-name/${encodeURIComponent(item.image_name)}" id="img-preview-${item.id}">
+                        <select onchange="updateImage(${item.id}, this.value)">
+                            ${optionsHtml}
+                        </select>
+                    </td>
+                    <td>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <span id="status-${item.id}" class="status-badge status-wait">
+                                <i class="fa-regular fa-clock"></i> ${item.status}
+                            </span>
+                            <div id="progress-wrapper-${item.id}" class="progress-bar-wrapper">
+                                <div id="progress-fill-${item.id}" class="progress-bar-fill"></div>
+                            </div>
+                            <span id="progress-text-${item.id}" style="font-size: 11px; color: var(--text-muted);"></span>
+                        </div>
+                    </td>
+                    <td><div id="result-${item.id}" style="color: var(--text-muted); font-size: 12px;"><i class="fa-solid fa-hourglass-start"></i> Chưa xử lý</div></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function updateImage(id, imageName) {
+            try {
+                const res = await fetch('/api/update-queue', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, image_name: imageName })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    const imgItem = rawQueueData.find(x => x.id === id);
+                    if(imgItem) {
+                        imgItem.image_name = imageName;
+                        document.getElementById(`img-preview-${id}`).src = `/media/image-by-name/${encodeURIComponent(imageName)}?t=${new Date().getTime()}`;
+                    }
+                } else {
+                    alert('Lỗi cập nhật ảnh: ' + data.error);
+                }
+            } catch (err) {
+                console.error('Lỗi kết nối khi đổi ảnh:', err);
+            }
+        }
+
+        async function startBatchRender() {
+            isRunning = true;
+            document.getElementById('startBtn').style.display = 'none';
+            document.getElementById('stopBtn').style.display = 'inline-flex';
+
+            for (let i = 0; i < rawQueueData.length; i++) {
+                if (!isRunning) break;
+                
+                const item = rawQueueData[i];
+                if (item.status === 'Hoàn thành') continue;
+
+                const badge = document.getElementById(`status-${item.id}`);
+                const progressWrapper = document.getElementById(`progress-wrapper-${item.id}`);
+                const progressFill = document.getElementById(`progress-fill-${item.id}`);
+                const progressText = document.getElementById(`progress-text-${item.id}`);
+
+                badge.className = 'status-badge status-running';
+                badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang render...';
+                progressWrapper.style.display = 'block';
+
+                let currentPercent = 5;
+                progressFill.style.width = currentPercent + '%';
+                progressText.innerText = 'Đang ghép & trích âm thanh...';
+
+                let progressInterval = setInterval(() => {
+                    if (currentPercent < 92) {
+                        currentPercent += Math.floor(Math.random() * 6) + 2;
+                        progressFill.style.width = currentPercent + '%';
+                        progressText.innerText = `Đang xử lý (${currentPercent}%)`;
+                    }
+                }, 400);
+
+                try {
+                    const res = await fetch('/api/render-single', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: item.id })
+                    });
+                    const data = await res.json();
+
+                    clearInterval(progressInterval);
+
+                    if (data.success) {
+                        progressFill.style.width = '100%';
+                        progressText.innerText = 'Hoàn tất 100%';
+
+                        badge.className = 'status-badge status-done';
+                        badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Hoàn thành';
+                        
+                        document.getElementById(`result-${item.id}`).innerHTML = `
+                            <video class="output-video-preview" controls src="/outputs/${data.output_file}"></video>
+                            <div style="margin-top: 8px;">
+                                <a href="/download/${data.output_file}" target="_blank" style="color: #34d399; font-weight: 600; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                                    <i class="fa-solid fa-download"></i> Tải xuống
+                                </a>
+                            </div>
+                            <div style="font-size: 11px; color: #6b7280; margin-top: 2px;">(Đã giải phóng file nguồn)</div>
+                        `;
+                    } else {
+                        clearInterval(progressInterval);
+                        progressWrapper.style.display = 'none';
+                        badge.className = 'status-badge status-error';
+                        badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Lỗi';
+                        progressText.innerText = '';
+                        document.getElementById(`result-${item.id}`).innerHTML = `<span style="color: #f87171; font-size: 11px;">${data.error}</span>`;
+                    }
+                } catch (err) {
+                    clearInterval(progressInterval);
+                    progressWrapper.style.display = 'none';
+                    badge.className = 'status-badge status-error';
+                    badge.innerHTML = '<i class="fa-solid fa-wifi"></i> Lỗi kết nối';
+                    progressText.innerText = '';
+                }
+            }
+
+            isRunning = false;
+            document.getElementById('startBtn').style.display = 'inline-flex';
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('startBtn').innerHTML = '<i class="fa-solid fa-check-double"></i> Đã Render Hoàn Tất';
+            document.getElementById('stopBtn').style.display = 'none';
+        }
+
+        function stopBatchRender() {
+            isRunning = false;
+            document.getElementById('startBtn').style.display = 'inline-flex';
+            document.getElementById('stopBtn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
