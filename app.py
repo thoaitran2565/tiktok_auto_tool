@@ -200,7 +200,7 @@ def render_single():
                     pass
 
             try:
-                logo_clip = logo_clip.with_position((target_width - logo_clip.w - 50, 50))
+                logo_clip = logo_clip.with_position((target_width - logo_clip.w - 50, 220))
             except Exception:
                 pass
 
