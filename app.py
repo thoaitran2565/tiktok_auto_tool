@@ -33,6 +33,38 @@ session_data = {
     'queue': []
 }
 
+def generate_ai_caption(video_filename):
+    """
+    Tạo caption thu hút (có thể thay thế hoặc tích hợp API AI như Gemini/OpenAI ở đây).
+    Hiện tại dùng bộ từ khóa bắt trend kết hợp tên gốc để tạo sự đa dạng và hấp dẫn.
+    """
+    # Lấy tên gốc bỏ phần mở rộng và thay thế dấu gạch bằng khoảng trắng
+    base_name = os.path.splitext(video_filename)[0]
+    base_name = re.sub(r'[_.-]', ' ', base_name).strip()
+    
+    # Danh sách tiền tố bắt trend (Bạn có thể gọi API AI thay cho đoạn ngẫu nhiên này)
+    trending_vibes = [
+        "Xuhuong", "Cucchill", "Meman", "Sieupham", 
+        "Docquyen", "Trending", "Gocnhin", "Hoamyle"
+    ]
+    
+    prefix = random.choice(trending_vibes)
+    caption = f"{prefix}_{base_name}"
+    return caption
+
+def sanitize_filename(text):
+    """
+    Loại bỏ các ký tự đặc biệt không hợp lệ trong tên file hệ điều hành 
+    (như \, /, :, *, ?, ", <, >, |) và giới hạn độ dài.
+    """
+    # Xóa dấu tiếng Việt (tùy chọn, giúp tên file gọn gàng không lỗi font hệ thống)
+    # Hoặc giữ nguyên và chỉ lọc các ký tự cấm:
+    safe_text = re.sub(r'[\\/*?:"<>|#]', "", text)
+    # Thay khoảng trắng bằng dấu gạch dưới
+    safe_text = safe_text.strip().replace(" ", "_")
+    # Giới hạn độ dài tối đa 50 ký tự cho tên file đẹp mắt
+    return safe_text[:50]
+
 def load_video_db():
     try:
         with open(VIDEOS_DB_FILE, 'r', encoding='utf-8') as f:
@@ -263,7 +295,12 @@ def render_single():
             except AttributeError:
                 final_clip.audio = audio_clip
 
-        output_filename = f"rendered_{os.path.splitext(target_item['video_name'])[0]}.mp4"
+        # Tên file theo định dạng đơn giản hóa mới
+        now = datetime.now()
+        year_month = now.strftime("%Y.%m")
+        timestamp_str = int(now.timestamp() * 1000)
+        
+        output_filename = f"CuocSongChill - {year_month}.{timestamp_str}.mp4"
         output_path = os.path.join(app.config['OUTPUT_FOLDER'], output_filename)
 
         final_clip.write_videofile(
