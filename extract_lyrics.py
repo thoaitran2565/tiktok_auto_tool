@@ -1,6 +1,10 @@
 import os
 import whisper
 from google import genai
+from dotenv import load_dotenv
+
+# Tải các biến môi trường từ file .env lên
+load_dotenv()
 
 def extract_raw_lyrics(video_path):
     """
@@ -24,7 +28,14 @@ def clean_lyrics_with_ai(raw_lyrics):
     if not raw_lyrics:
         return "", "Original"
 
-    client = genai.Client(api_key="AQ.Ab8RN6JukEw4yg4f0L6zoNNEmuRATc9TPja_fSX348ix0qcqkw")
+    # Lấy API Key từ biến môi trường hệ thống
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        print("❌ Không tìm thấy GEMINI_API_KEY trong biến môi trường hoặc file .env!")
+        return raw_lyrics, "Original"
+
+    # Khởi tạo client với api_key vừa lấy
+    client = genai.Client(api_key=api_key)
 
     prompt = f"""
     Bạn là một biên tập viên văn bản âm nhạc. Dưới đây là phần lời thô (raw lyrics) do AI (Whisper) nhận diện từ âm thanh. 
