@@ -4,10 +4,12 @@ import random
 import threading
 import webbrowser
 from datetime import datetime
+import re
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from moviepy import ImageClip, AudioFileClip, VideoFileClip, ColorClip, CompositeVideoClip
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance, ImageDraw, ImageFont # Cập nhật thêm ImageDraw, ImageFont nếu chưa có
 import numpy as np
+from extract_lyrics import process_video_to_perfect_lyrics
 
 app = Flask(__name__)
 
@@ -33,37 +35,42 @@ session_data = {
     'queue': []
 }
 
-def generate_ai_caption(video_filename):
-    """
-    Tạo caption thu hút (có thể thay thế hoặc tích hợp API AI như Gemini/OpenAI ở đây).
-    Hiện tại dùng bộ từ khóa bắt trend kết hợp tên gốc để tạo sự đa dạng và hấp dẫn.
-    """
-    # Lấy tên gốc bỏ phần mở rộng và thay thế dấu gạch bằng khoảng trắng
-    base_name = os.path.splitext(video_filename)[0]
-    base_name = re.sub(r'[_.-]', ' ', base_name).strip()
-    
-    # Danh sách tiền tố bắt trend (Bạn có thể gọi API AI thay cho đoạn ngẫu nhiên này)
-    trending_vibes = [
-        "Xuhuong", "Cucchill", "Meman", "Sieupham", 
-        "Docquyen", "Trending", "Gocnhin", "Hoamyle"
-    ]
-    
-    prefix = random.choice(trending_vibes)
-    caption = f"{prefix}_{base_name}"
-    return caption
 
-def sanitize_filename(text):
+
+def create_lyrics_image_transparent(text, img_width=1080, font_size=20):
     """
-    Loại bỏ các ký tự đặc biệt không hợp lệ trong tên file hệ điều hành 
-    (như \, /, :, *, ?, ", <, >, |) và giới hạn độ dài.
+    Tạo ảnh chứa toàn bộ lyrics trong suốt (không nền), chữ nhỏ, màu trắng viền đen, hỗ trợ nhiều dòng.
     """
-    # Xóa dấu tiếng Việt (tùy chọn, giúp tên file gọn gàng không lỗi font hệ thống)
-    # Hoặc giữ nguyên và chỉ lọc các ký tự cấm:
-    safe_text = re.sub(r'[\\/*?:"<>|#]', "", text)
-    # Thay khoảng trắng bằng dấu gạch dưới
-    safe_text = safe_text.strip().replace(" ", "_")
-    # Giới hạn độ dài tối đa 50 ký tự cho tên file đẹp mắt
-    return safe_text[:50]
+    # Tăng chiều cao khung ảnh lên 400px để chứa được nhiều dòng lyrics
+    img_height = 400
+    txt_img = Image.new('RGBA', (img_width, img_height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(txt_img)
+    
+    try:
+        font = ImageFont.truetype("arial.ttf", font_size)
+    except:
+        font = ImageFont.load_default()
+        
+    # Vẽ text với khoảng cách dòng (spacing = 10)
+    # Góc trái (cách lề trái 80px) và canh giữa chiều dọc
+    x = 80
+    
+    # Tính toán để canh giữa toàn bộ khối text theo chiều dọc của khung 400px
+    # Dùng multiline_textbbox để đo kích thước của nhiều dòng
+    bbox = draw.multiline_textbbox((0, 0), text, font=font, spacing=10)
+    text_w = bbox[2] - bbox[0]
+    text_h = bbox[3] - bbox[1]
+    
+    y = (img_height - text_h) / 2
+
+    # Vẽ viền đen nhẹ xung quanh chữ trắng (tạo hiệu ứng shadow/outline 4 hướng) để dễ đọc trên nền video
+    for adj_x, adj_y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        draw.multiline_text((x + adj_x, y + adj_y), text, font=font, fill=(0, 0, 0, 255), spacing=10, align="left")
+    
+    # Vẽ chữ trắng chính giữa đè lên trên
+    draw.multiline_text((x, y), text, font=font, fill=(255, 255, 255, 255), spacing=10, align="left")
+    
+    return np.array(txt_img)
 
 def load_video_db():
     try:
@@ -113,7 +120,13 @@ def load_folders():
     video_extensions = ('.mp4', '.avi', '.mov', '.mkv', '.webm')
 
     images = [os.path.join(img_folder, f) for f in os.listdir(img_folder) if f.lower().endswith(image_extensions)]
-    videos = [os.path.join(vid_folder, f) for f in os.listdir(vid_folder) if f.lower().endswith(video_extensions)]
+    # Dùng os.scandir để quét cực nhanh
+    videos = [
+    os.path.join(vid_folder, entry.name) 
+    for entry in os.scandir(vid_folder) 
+    if entry.is_file() and entry.name.lower().endswith(video_extensions)
+    ]
+    videos.sort()
 
     if not images:
         return jsonify({'success': False, 'error': 'Thư mục ảnh không chứa file ảnh nào!'}), 400
@@ -202,18 +215,35 @@ def render_single():
         target_width = 1080
         target_height = 1920
 
+        # --- BƯỚC 1: TRÍCH XUẤT LYRICS TRƯỚC KHI RENDER ---
+        lyric_result = process_video_to_perfect_lyrics(vid_path, max_length=90)
+        lyric_title = lyric_result.get("first_line", "").strip()     # Dùng làm tên file
+        full_lyrics = lyric_result.get("full_lyrics", "").strip()    # Dùng để dán lên video
+        lyric_source = lyric_result.get("source", "Original")
+        
+        print(f"🎵 Đã nhận diện lyrics (Nguồn: {lyric_source}): {lyric_title}")
+
+        # --- BƯỚC 2: XỬ LÝ TÊN FILE ---
+        if lyric_title:
+            safe_lyric = re.sub(r'[\\/*?:"<>|#]', "", lyric_title)
+            safe_lyric = safe_lyric.strip()
+            file_prefix = safe_lyric
+        else:
+            file_prefix = "CuocSongChill"
+
+        output_filename = f"{file_prefix}.mp4"
+        output_path = os.path.join(app.config['OUTPUT_FOLDER'], output_filename)
+
+        # --- BƯỚC 3: DỰNG HÌNH NỀN & ẢNH ---
         bg_clip = ColorClip(size=(target_width, target_height), color=(0, 0, 0))
         try:
             bg_clip = bg_clip.with_duration(audio_duration)
         except AttributeError:
-            try:
-                bg_clip = bg_clip.set_duration(audio_duration)
-            except AttributeError:
-                bg_clip.duration = audio_duration
+            bg_clip.duration = audio_duration
 
         pil_img = Image.open(img_path).convert("RGB")
         enhancer = ImageEnhance.Brightness(pil_img)
-        dark_pil_img = enhancer.enhance(0.5) # Giảm 50% độ sáng
+        dark_pil_img = enhancer.enhance(0.5)
         
         img_array = np.array(dark_pil_img)
         image_clip = ImageClip(img_array)
@@ -221,10 +251,7 @@ def render_single():
         try:
             image_clip = image_clip.with_duration(audio_duration)
         except AttributeError:
-            try:
-                image_clip = image_clip.set_duration(audio_duration)
-            except AttributeError:
-                image_clip.duration = audio_duration
+            image_clip.duration = audio_duration
 
         img_w, img_h = image_clip.size
         ratio = min(target_width / img_w, target_height / img_h)
@@ -234,18 +261,12 @@ def render_single():
         try:
             image_clip = image_clip.resized(width=new_w, height=new_h)
         except AttributeError:
-            try:
-                image_clip = image_clip.resize((new_w, new_h))
-            except Exception:
-                pass
+            image_clip.resize((new_w, new_h))
 
         try:
             image_clip = image_clip.with_position(('center', 'center'))
         except AttributeError:
-            try:
-                image_clip = image_clip.set_position(('center', 'center'))
-            except AttributeError:
-                image_clip.position = ('center', 'center')
+            image_clip.position = ('center', 'center')
 
         clips_to_composite = [bg_clip, image_clip]
         logo_path = 'logo-text.png'
@@ -255,53 +276,54 @@ def render_single():
             try:
                 logo_clip = logo_clip.with_duration(audio_duration)
             except AttributeError:
-                try:
-                    logo_clip = logo_clip.set_duration(audio_duration)
-                except AttributeError:
-                    logo_clip.duration = audio_duration
+                logo_clip.duration = audio_duration
 
             try:
                 logo_clip = logo_clip.resized(width=250)
             except AttributeError:
-                try:
-                    logo_clip = logo_clip.resize(width=250)
-                except Exception:
-                    pass
+                logo_clip.resize(width=250)
 
             try:
-                # Cách lề phải 90px và lề trên 90px
-                logo_clip = logo_clip.with_position((target_width - logo_clip.w - 100, 220))
+                logo_clip = logo_clip.with_position((target_width - logo_clip.w - 100, 260))
             except Exception:
                 pass
 
             clips_to_composite.append(logo_clip)
+
+        # --- BƯỚC 4: NẾU NGUỒN TỪ AI MODEL THÌ THÊM LYRICS LÊN VIDEO ---
+        if lyric_source == "AI" and full_lyrics:
+            try:
+                lyric_array = create_lyrics_image_transparent(full_lyrics, img_width=target_width, font_size=20)
+                lyric_clip = ImageClip(lyric_array)
+                
+                try:
+                    lyric_clip = lyric_clip.with_duration(audio_duration)
+                except AttributeError:
+                    lyric_clip.duration = audio_duration
+                
+                # Cỡ chữ nhỏ, đặt ở góc trái (left) và canh giữa chiều dọc (center)
+                try:
+                    lyric_clip = lyric_clip.with_position(('left', 'center'))
+                except AttributeError:
+                    lyric_clip.position = ('left', 'center')
+                    
+                clips_to_composite.append(lyric_clip)
+                print("✨ Đã chèn lyrics AI lên video (Góc trái, canh giữa dọc, không nền).")
+            except Exception as ex:
+                print(f"⚠️ Lỗi khi chèn lyrics lên video: {ex}")
 
         final_clip = CompositeVideoClip(clips_to_composite)
         
         try:
             final_clip = final_clip.with_duration(audio_duration)
         except AttributeError:
-            try:
-                final_clip = final_clip.set_duration(audio_duration)
-            except AttributeError:
-                final_clip.duration = audio_duration
+            final_clip.duration = audio_duration
 
         audio_clip = AudioFileClip(temp_audio_path)
         try:
             final_clip = final_clip.with_audio(audio_clip)
         except AttributeError:
-            try:
-                final_clip = final_clip.set_audio(audio_clip)
-            except AttributeError:
-                final_clip.audio = audio_clip
-
-        # Tên file theo định dạng đơn giản hóa mới
-        now = datetime.now()
-        year_month = now.strftime("%Y.%m")
-        timestamp_str = int(now.timestamp() * 1000)
-        
-        output_filename = f"CuocSongChill - {year_month}.{timestamp_str}.mp4"
-        output_path = os.path.join(app.config['OUTPUT_FOLDER'], output_filename)
+            final_clip.audio = audio_clip
 
         final_clip.write_videofile(
             output_path,
@@ -322,10 +344,8 @@ def render_single():
         target_item['status'] = 'Hoàn thành'
         target_item['output_file'] = output_filename
 
-        # --- LƯU ĐƯỜNG DẪN TUYỆT ĐỐI ĐẦY ĐỦ VÀO JSON ---
         absolute_output_path = os.path.abspath(output_path)
 
-        # Ghi thông tin video thành phẩm mới vào file videos_db.json (Mặc định: Chờ duyệt)
         video_db = load_video_db()
         new_video_record = {
             'id': f"vid_{int(datetime.now().timestamp() * 1000)}",

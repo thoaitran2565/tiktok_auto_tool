@@ -1,5 +1,1223 @@
 [
     {
+        "id": "vid_1793617763328",
+        "filename": "Uống_thêm_một_chút_rồi_ta_sẽ_hôn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\Uống_thêm_một_chút_rồi_ta_sẽ_hôn.mp4",
+        "created_at": "2026-11-02 18:09:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793617091930",
+        "filename": "Uống_thêm_một_chút_rồi_ta_sẽ_hôn_1793616900023.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\Uống_thêm_một_chút_rồi_ta_sẽ_hôn_1793616900023.mp4",
+        "created_at": "2026-11-02 17:58:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793604022933",
+        "filename": "CuocSongChill - 2026.11.1793603861359.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793603861359.mp4",
+        "created_at": "2026-11-02 14:20:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793603860071",
+        "filename": "CuocSongChill - 2026.11.1793603688072.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793603688072.mp4",
+        "created_at": "2026-11-02 14:17:40",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793603685134",
+        "filename": "CuocSongChill - 2026.11.1793603398068.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793603398068.mp4",
+        "created_at": "2026-11-02 14:14:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793603395154",
+        "filename": "CuocSongChill - 2026.11.1793603233657.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793603233657.mp4",
+        "created_at": "2026-11-02 14:09:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793603231985",
+        "filename": "CuocSongChill - 2026.11.1793603053620.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793603053620.mp4",
+        "created_at": "2026-11-02 14:07:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793603051851",
+        "filename": "CuocSongChill - 2026.11.1793602848786.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793602848786.mp4",
+        "created_at": "2026-11-02 14:04:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793602846785",
+        "filename": "CuocSongChill - 2026.11.1793602558866.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793602558866.mp4",
+        "created_at": "2026-11-02 14:00:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793602556470",
+        "filename": "CuocSongChill - 2026.11.1793602488828.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793602488828.mp4",
+        "created_at": "2026-11-02 13:55:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793602487560",
+        "filename": "CuocSongChill - 2026.11.1793602296136.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793602296136.mp4",
+        "created_at": "2026-11-02 13:54:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793602294283",
+        "filename": "CuocSongChill - 2026.11.1793602052308.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793602052308.mp4",
+        "created_at": "2026-11-02 13:51:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793602050004",
+        "filename": "CuocSongChill - 2026.11.1793601694371.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793601694371.mp4",
+        "created_at": "2026-11-02 13:47:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793601691676",
+        "filename": "CuocSongChill - 2026.11.1793601507205.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793601507205.mp4",
+        "created_at": "2026-11-02 13:41:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793601505383",
+        "filename": "CuocSongChill - 2026.11.1793601287747.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793601287747.mp4",
+        "created_at": "2026-11-02 13:38:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793601285793",
+        "filename": "CuocSongChill - 2026.11.1793601104607.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793601104607.mp4",
+        "created_at": "2026-11-02 13:34:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793601102841",
+        "filename": "CuocSongChill - 2026.11.1793600918448.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793600918448.mp4",
+        "created_at": "2026-11-02 13:31:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793600916419",
+        "filename": "CuocSongChill - 2026.11.1793600639461.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793600639461.mp4",
+        "created_at": "2026-11-02 13:28:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793600637020",
+        "filename": "CuocSongChill - 2026.11.1793600430496.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793600430496.mp4",
+        "created_at": "2026-11-02 13:23:57",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793600428512",
+        "filename": "CuocSongChill - 2026.11.1793600126877.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793600126877.mp4",
+        "created_at": "2026-11-02 13:20:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793600124535",
+        "filename": "CuocSongChill - 2026.11.1793599917217.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793599917217.mp4",
+        "created_at": "2026-11-02 13:15:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793599915316",
+        "filename": "CuocSongChill - 2026.11.1793599752079.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793599752079.mp4",
+        "created_at": "2026-11-02 13:11:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793599750252",
+        "filename": "CuocSongChill - 2026.11.1793599439584.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793599439584.mp4",
+        "created_at": "2026-11-02 13:09:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793599437118",
+        "filename": "CuocSongChill - 2026.11.1793599239044.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793599239044.mp4",
+        "created_at": "2026-11-02 13:03:57",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793599237253",
+        "filename": "CuocSongChill - 2026.11.1793599040739.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793599040739.mp4",
+        "created_at": "2026-11-02 13:00:37",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793599038616",
+        "filename": "CuocSongChill - 2026.11.1793598878577.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793598878577.mp4",
+        "created_at": "2026-11-02 12:57:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793598876800",
+        "filename": "CuocSongChill - 2026.11.1793598695406.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793598695406.mp4",
+        "created_at": "2026-11-02 12:54:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793598693549",
+        "filename": "CuocSongChill - 2026.11.1793598412501.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793598412501.mp4",
+        "created_at": "2026-11-02 12:51:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793598410201",
+        "filename": "CuocSongChill - 2026.11.1793598144967.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793598144967.mp4",
+        "created_at": "2026-11-02 12:46:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793598142895",
+        "filename": "CuocSongChill - 2026.11.1793597966493.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793597966493.mp4",
+        "created_at": "2026-11-02 12:42:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793597964647",
+        "filename": "CuocSongChill - 2026.11.1793597628857.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793597628857.mp4",
+        "created_at": "2026-11-02 12:39:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793597626065",
+        "filename": "CuocSongChill - 2026.11.1793597341585.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793597341585.mp4",
+        "created_at": "2026-11-02 12:33:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793597338922",
+        "filename": "CuocSongChill - 2026.11.1793597048706.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793597048706.mp4",
+        "created_at": "2026-11-02 12:28:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793597044309",
+        "filename": "CuocSongChill - 2026.11.1793596757193.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793596757193.mp4",
+        "created_at": "2026-11-02 12:24:04",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793581331021",
+        "filename": "CuocSongChill - 2026.11.1793581057280.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793581057280.mp4",
+        "created_at": "2026-11-02 08:02:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793581054720",
+        "filename": "CuocSongChill - 2026.11.1793580803665.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793580803665.mp4",
+        "created_at": "2026-11-02 07:57:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793580801217",
+        "filename": "CuocSongChill - 2026.11.1793580591691.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793580591691.mp4",
+        "created_at": "2026-11-02 07:53:21",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793580589676",
+        "filename": "CuocSongChill - 2026.11.1793580404813.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793580404813.mp4",
+        "created_at": "2026-11-02 07:49:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793580403029",
+        "filename": "CuocSongChill - 2026.11.1793580191378.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793580191378.mp4",
+        "created_at": "2026-11-02 07:46:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793580189465",
+        "filename": "CuocSongChill - 2026.11.1793579978193.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793579978193.mp4",
+        "created_at": "2026-11-02 07:43:09",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793579976198",
+        "filename": "CuocSongChill - 2026.11.1793579739025.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793579739025.mp4",
+        "created_at": "2026-11-02 07:39:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793579736564",
+        "filename": "CuocSongChill - 2026.11.1793579516065.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793579516065.mp4",
+        "created_at": "2026-11-02 07:35:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793579513931",
+        "filename": "CuocSongChill - 2026.11.1793579304090.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793579304090.mp4",
+        "created_at": "2026-11-02 07:31:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793579302165",
+        "filename": "CuocSongChill - 2026.11.1793579112118.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793579112118.mp4",
+        "created_at": "2026-11-02 07:28:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793579110310",
+        "filename": "CuocSongChill - 2026.11.1793578904266.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793578904266.mp4",
+        "created_at": "2026-11-02 07:25:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793578902202",
+        "filename": "CuocSongChill - 2026.11.1793578771915.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793578771915.mp4",
+        "created_at": "2026-11-02 07:21:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793578770413",
+        "filename": "CuocSongChill - 2026.11.1793578550387.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793578550387.mp4",
+        "created_at": "2026-11-02 07:19:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793578546139",
+        "filename": "CuocSongChill - 2026.11.1793578365084.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793578365084.mp4",
+        "created_at": "2026-11-02 07:15:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793578363009",
+        "filename": "CuocSongChill - 2026.11.1793578147032.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793578147032.mp4",
+        "created_at": "2026-11-02 07:12:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793578144996",
+        "filename": "CuocSongChill - 2026.11.1793577946236.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793577946236.mp4",
+        "created_at": "2026-11-02 07:09:04",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793577944036",
+        "filename": "CuocSongChill - 2026.11.1793577748245.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793577748245.mp4",
+        "created_at": "2026-11-02 07:05:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793577745859",
+        "filename": "CuocSongChill - 2026.11.1793577580150.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793577580150.mp4",
+        "created_at": "2026-11-02 07:02:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793577578352",
+        "filename": "CuocSongChill - 2026.11.1793577418469.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793577418469.mp4",
+        "created_at": "2026-11-02 06:59:38",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793577416419",
+        "filename": "CuocSongChill - 2026.11.1793577162186.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793577162186.mp4",
+        "created_at": "2026-11-02 06:56:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793577159760",
+        "filename": "CuocSongChill - 2026.11.1793577009585.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793577009585.mp4",
+        "created_at": "2026-11-02 06:52:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793577008133",
+        "filename": "CuocSongChill - 2026.11.1793576865925.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793576865925.mp4",
+        "created_at": "2026-11-02 06:50:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793576864374",
+        "filename": "CuocSongChill - 2026.11.1793576651933.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793576651933.mp4",
+        "created_at": "2026-11-02 06:47:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793576649936",
+        "filename": "CuocSongChill - 2026.11.1793576430504.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793576430504.mp4",
+        "created_at": "2026-11-02 06:44:09",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793576428163",
+        "filename": "CuocSongChill - 2026.11.1793576159360.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793576159360.mp4",
+        "created_at": "2026-11-02 06:40:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793576156616",
+        "filename": "CuocSongChill - 2026.11.1793575995204.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575995204.mp4",
+        "created_at": "2026-11-02 06:35:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575993581",
+        "filename": "CuocSongChill - 2026.11.1793575862687.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575862687.mp4",
+        "created_at": "2026-11-02 06:33:13",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575861065",
+        "filename": "CuocSongChill - 2026.11.1793575716502.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575716502.mp4",
+        "created_at": "2026-11-02 06:31:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575714776",
+        "filename": "CuocSongChill - 2026.11.1793575531658.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575531658.mp4",
+        "created_at": "2026-11-02 06:28:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575529714",
+        "filename": "CuocSongChill - 2026.11.1793575401022.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575401022.mp4",
+        "created_at": "2026-11-02 06:25:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575399335",
+        "filename": "CuocSongChill - 2026.11.1793575204348.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575204348.mp4",
+        "created_at": "2026-11-02 06:23:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575202422",
+        "filename": "CuocSongChill - 2026.11.1793575084738.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793575084738.mp4",
+        "created_at": "2026-11-02 06:20:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793575083473",
+        "filename": "CuocSongChill - 2026.11.1793574876769.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793574876769.mp4",
+        "created_at": "2026-11-02 06:18:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793574874924",
+        "filename": "CuocSongChill - 2026.11.1793574656962.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793574656962.mp4",
+        "created_at": "2026-11-02 06:14:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793574650915",
+        "filename": "CuocSongChill - 2026.11.1793574506636.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793574506636.mp4",
+        "created_at": "2026-11-02 06:10:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793574504782",
+        "filename": "CuocSongChill - 2026.11.1793574169274.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793574169274.mp4",
+        "created_at": "2026-11-02 06:08:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793574166459",
+        "filename": "CuocSongChill - 2026.11.1793574006491.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793574006491.mp4",
+        "created_at": "2026-11-02 06:02:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793574002879",
+        "filename": "CuocSongChill - 2026.11.1793573809188.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793573809188.mp4",
+        "created_at": "2026-11-02 06:00:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793573807338",
+        "filename": "CuocSongChill - 2026.11.1793573655420.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793573655420.mp4",
+        "created_at": "2026-11-02 05:56:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793573653650",
+        "filename": "CuocSongChill - 2026.11.1793573450669.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793573450669.mp4",
+        "created_at": "2026-11-02 05:54:13",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793573448570",
+        "filename": "CuocSongChill - 2026.11.1793573305155.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793573305155.mp4",
+        "created_at": "2026-11-02 05:50:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793573303666",
+        "filename": "CuocSongChill - 2026.11.1793573096033.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793573096033.mp4",
+        "created_at": "2026-11-02 05:48:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793573093819",
+        "filename": "CuocSongChill - 2026.11.1793572941777.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793572941777.mp4",
+        "created_at": "2026-11-02 05:44:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793572939680",
+        "filename": "CuocSongChill - 2026.11.1793572774354.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793572774354.mp4",
+        "created_at": "2026-11-02 05:42:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793572772549",
+        "filename": "CuocSongChill - 2026.11.1793572562915.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793572562915.mp4",
+        "created_at": "2026-11-02 05:39:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793572559340",
+        "filename": "CuocSongChill - 2026.11.1793572428038.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793572428038.mp4",
+        "created_at": "2026-11-02 05:35:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793561896239",
+        "filename": "CuocSongChill - 2026.11.1793561703500.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793561703500.mp4",
+        "created_at": "2026-11-02 02:38:16",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793561701393",
+        "filename": "CuocSongChill - 2026.11.1793561474791.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793561474791.mp4",
+        "created_at": "2026-11-02 02:35:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793561472437",
+        "filename": "CuocSongChill - 2026.11.1793561299236.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793561299236.mp4",
+        "created_at": "2026-11-02 02:31:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793561297205",
+        "filename": "CuocSongChill - 2026.11.1793561008161.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793561008161.mp4",
+        "created_at": "2026-11-02 02:28:17",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793561005030",
+        "filename": "CuocSongChill - 2026.11.1793560809852.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793560809852.mp4",
+        "created_at": "2026-11-02 02:23:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793552516590",
+        "filename": "CuocSongChill - 2026.11.1793552180573.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793552180573.mp4",
+        "created_at": "2026-11-02 00:01:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793552178101",
+        "filename": "CuocSongChill - 2026.11.1793551811457.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793551811457.mp4",
+        "created_at": "2026-11-01 23:56:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793551808639",
+        "filename": "CuocSongChill - 2026.11.1793551651810.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793551651810.mp4",
+        "created_at": "2026-11-01 23:50:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793551650065",
+        "filename": "CuocSongChill - 2026.11.1793551397793.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793551397793.mp4",
+        "created_at": "2026-11-01 23:47:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793551395105",
+        "filename": "CuocSongChill - 2026.11.1793551251411.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793551251411.mp4",
+        "created_at": "2026-11-01 23:43:15",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793541028359",
+        "filename": "CuocSongChill - 2026.11.1793540800755.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793540800755.mp4",
+        "created_at": "2026-11-01 20:50:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793540796510",
+        "filename": "CuocSongChill - 2026.11.1793540577166.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793540577166.mp4",
+        "created_at": "2026-11-01 20:46:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793540573728",
+        "filename": "CuocSongChill - 2026.11.1793540414713.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793540414713.mp4",
+        "created_at": "2026-11-01 20:42:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793540411438",
+        "filename": "CuocSongChill - 2026.11.1793540198397.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793540198397.mp4",
+        "created_at": "2026-11-01 20:40:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793540195904",
+        "filename": "CuocSongChill - 2026.11.1793540081609.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793540081609.mp4",
+        "created_at": "2026-11-01 20:36:35",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793540079682",
+        "filename": "CuocSongChill - 2026.11.1793539866281.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793539866281.mp4",
+        "created_at": "2026-11-01 20:34:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793539861181",
+        "filename": "CuocSongChill - 2026.11.1793539678654.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793539678654.mp4",
+        "created_at": "2026-11-01 20:31:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793539675074",
+        "filename": "CuocSongChill - 2026.11.1793539393827.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793539393827.mp4",
+        "created_at": "2026-11-01 20:27:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793539388476",
+        "filename": "CuocSongChill - 2026.11.1793539218507.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793539218507.mp4",
+        "created_at": "2026-11-01 20:23:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793539214546",
+        "filename": "CuocSongChill - 2026.11.1793538942151.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793538942151.mp4",
+        "created_at": "2026-11-01 20:20:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793538937841",
+        "filename": "CuocSongChill - 2026.11.1793538739574.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793538739574.mp4",
+        "created_at": "2026-11-01 20:15:37",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793538735197",
+        "filename": "CuocSongChill - 2026.11.1793538547318.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793538547318.mp4",
+        "created_at": "2026-11-01 20:12:15",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793538543704",
+        "filename": "CuocSongChill - 2026.11.1793538396064.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793538396064.mp4",
+        "created_at": "2026-11-01 20:09:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793538347951",
+        "filename": "CuocSongChill - 2026.11.1793537977668.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793537977668.mp4",
+        "created_at": "2026-11-01 20:05:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793537971911",
+        "filename": "CuocSongChill - 2026.11.1793537826208.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793537826208.mp4",
+        "created_at": "2026-11-01 19:59:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793537822846",
+        "filename": "CuocSongChill - 2026.11.1793537511120.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793537511120.mp4",
+        "created_at": "2026-11-01 19:57:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793537506046",
+        "filename": "CuocSongChill - 2026.11.1793537241494.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793537241494.mp4",
+        "created_at": "2026-11-01 19:51:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793537237024",
+        "filename": "CuocSongChill - 2026.11.1793536955014.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793536955014.mp4",
+        "created_at": "2026-11-01 19:47:17",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793536950295",
+        "filename": "CuocSongChill - 2026.11.1793536781234.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793536781234.mp4",
+        "created_at": "2026-11-01 19:42:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793536777766",
+        "filename": "CuocSongChill - 2026.11.1793536537592.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793536537592.mp4",
+        "created_at": "2026-11-01 19:39:37",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793536533054",
+        "filename": "CuocSongChill - 2026.11.1793536360153.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793536360153.mp4",
+        "created_at": "2026-11-01 19:35:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793536355715",
+        "filename": "CuocSongChill - 2026.11.1793536194851.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793536194851.mp4",
+        "created_at": "2026-11-01 19:32:35",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793536190374",
+        "filename": "CuocSongChill - 2026.11.1793535974546.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793535974546.mp4",
+        "created_at": "2026-11-01 19:29:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793535969380",
+        "filename": "CuocSongChill - 2026.11.1793535797919.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793535797919.mp4",
+        "created_at": "2026-11-01 19:26:09",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793535792954",
+        "filename": "CuocSongChill - 2026.11.1793535591241.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793535591241.mp4",
+        "created_at": "2026-11-01 19:23:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793535587002",
+        "filename": "CuocSongChill - 2026.11.1793535356981.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793535356981.mp4",
+        "created_at": "2026-11-01 19:19:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793535353302",
+        "filename": "CuocSongChill - 2026.11.1793535181419.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793535181419.mp4",
+        "created_at": "2026-11-01 19:15:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793535178253",
+        "filename": "CuocSongChill - 2026.11.1793534991970.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793534991970.mp4",
+        "created_at": "2026-11-01 19:12:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793534592335",
+        "filename": "CuocSongChill - 2026.11.1793534157716.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793534157716.mp4",
+        "created_at": "2026-11-01 19:03:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793534155209",
+        "filename": "CuocSongChill - 2026.11.1793534042185.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793534042185.mp4",
+        "created_at": "2026-11-01 18:55:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793534040705",
+        "filename": "CuocSongChill - 2026.11.1793533795961.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793533795961.mp4",
+        "created_at": "2026-11-01 18:54:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793533793911",
+        "filename": "CuocSongChill - 2026.11.1793533588674.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793533588674.mp4",
+        "created_at": "2026-11-01 18:49:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793533586616",
+        "filename": "CuocSongChill - 2026.11.1793533365074.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793533365074.mp4",
+        "created_at": "2026-11-01 18:46:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793533363132",
+        "filename": "CuocSongChill - 2026.11.1793533234849.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793533234849.mp4",
+        "created_at": "2026-11-01 18:42:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793533233451",
+        "filename": "CuocSongChill - 2026.11.1793533052174.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793533052174.mp4",
+        "created_at": "2026-11-01 18:40:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793533049588",
+        "filename": "CuocSongChill - 2026.11.1793532927661.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793532927661.mp4",
+        "created_at": "2026-11-01 18:37:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793532925448",
+        "filename": "CuocSongChill - 2026.11.1793532807537.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793532807537.mp4",
+        "created_at": "2026-11-01 18:35:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793532805584",
+        "filename": "CuocSongChill - 2026.11.1793532634055.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793532634055.mp4",
+        "created_at": "2026-11-01 18:33:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793532631836",
+        "filename": "CuocSongChill - 2026.11.1793532395106.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793532395106.mp4",
+        "created_at": "2026-11-01 18:30:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793532392550",
+        "filename": "CuocSongChill - 2026.11.1793532164532.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793532164532.mp4",
+        "created_at": "2026-11-01 18:26:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793532161074",
+        "filename": "CuocSongChill - 2026.11.1793531897605.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793531897605.mp4",
+        "created_at": "2026-11-01 18:22:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793531893509",
+        "filename": "CuocSongChill - 2026.11.1793531693490.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793531693490.mp4",
+        "created_at": "2026-11-01 18:18:13",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793531687923",
+        "filename": "CuocSongChill - 2026.11.1793531464546.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793531464546.mp4",
+        "created_at": "2026-11-01 18:14:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793529579362",
+        "filename": "CuocSongChill - 2026.11.1793529405231.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793529405231.mp4",
+        "created_at": "2026-11-01 17:39:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793529403407",
+        "filename": "CuocSongChill - 2026.11.1793529284846.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793529284846.mp4",
+        "created_at": "2026-11-01 17:36:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793529283417",
+        "filename": "CuocSongChill - 2026.11.1793529155252.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793529155252.mp4",
+        "created_at": "2026-11-01 17:34:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793529153336",
+        "filename": "CuocSongChill - 2026.11.1793529007721.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793529007721.mp4",
+        "created_at": "2026-11-01 17:32:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793529005902",
+        "filename": "CuocSongChill - 2026.11.1793528785541.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793528785541.mp4",
+        "created_at": "2026-11-01 17:30:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793528783665",
+        "filename": "CuocSongChill - 2026.11.1793528596052.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793528596052.mp4",
+        "created_at": "2026-11-01 17:26:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793528594101",
+        "filename": "CuocSongChill - 2026.11.1793528435809.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793528435809.mp4",
+        "created_at": "2026-11-01 17:23:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793528434167",
+        "filename": "CuocSongChill - 2026.11.1793528234198.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793528234198.mp4",
+        "created_at": "2026-11-01 17:20:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793528232313",
+        "filename": "CuocSongChill - 2026.11.1793528008750.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793528008750.mp4",
+        "created_at": "2026-11-01 17:17:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793528006826",
+        "filename": "CuocSongChill - 2026.11.1793527849992.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793527849992.mp4",
+        "created_at": "2026-11-01 17:13:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793527848372",
+        "filename": "CuocSongChill - 2026.11.1793527724497.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793527724497.mp4",
+        "created_at": "2026-11-01 17:10:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793527723084",
+        "filename": "CuocSongChill - 2026.11.1793527434030.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793527434030.mp4",
+        "created_at": "2026-11-01 17:08:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793527430308",
+        "filename": "CuocSongChill - 2026.11.1793527100242.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793527100242.mp4",
+        "created_at": "2026-11-01 17:03:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793527096511",
+        "filename": "CuocSongChill - 2026.11.1793526871839.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793526871839.mp4",
+        "created_at": "2026-11-01 16:58:16",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793526869174",
+        "filename": "CuocSongChill - 2026.11.1793526610746.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793526610746.mp4",
+        "created_at": "2026-11-01 16:54:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793526607764",
+        "filename": "CuocSongChill - 2026.11.1793526341393.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793526341393.mp4",
+        "created_at": "2026-11-01 16:50:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793526338247",
+        "filename": "CuocSongChill - 2026.11.1793526062865.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793526062865.mp4",
+        "created_at": "2026-11-01 16:45:38",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793526059901",
+        "filename": "CuocSongChill - 2026.11.1793525846180.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793525846180.mp4",
+        "created_at": "2026-11-01 16:40:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793525842052",
+        "filename": "CuocSongChill - 2026.11.1793525588712.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793525588712.mp4",
+        "created_at": "2026-11-01 16:37:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793525585185",
+        "filename": "CuocSongChill - 2026.11.1793525327832.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793525327832.mp4",
+        "created_at": "2026-11-01 16:33:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793525322810",
+        "filename": "CuocSongChill - 2026.11.1793525000204.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793525000204.mp4",
+        "created_at": "2026-11-01 16:28:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793525168596",
+        "filename": "CuocSongChill - 2026.11.1793524952478.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793524952478.mp4",
+        "created_at": "2026-11-01 16:26:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793524948489",
+        "filename": "CuocSongChill - 2026.11.1793524723612.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793524723612.mp4",
+        "created_at": "2026-11-01 16:22:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793524720227",
+        "filename": "CuocSongChill - 2026.11.1793524561983.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793524561983.mp4",
+        "created_at": "2026-11-01 16:18:40",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793524558258",
+        "filename": "CuocSongChill - 2026.11.1793524368186.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793524368186.mp4",
+        "created_at": "2026-11-01 16:15:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793524365110",
+        "filename": "CuocSongChill - 2026.11.1793524166167.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793524166167.mp4",
+        "created_at": "2026-11-01 16:12:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793524162080",
+        "filename": "CuocSongChill - 2026.11.1793523996155.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793523996155.mp4",
+        "created_at": "2026-11-01 16:09:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793523993313",
+        "filename": "CuocSongChill - 2026.11.1793523748941.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793523748941.mp4",
+        "created_at": "2026-11-01 16:06:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793523744931",
+        "filename": "CuocSongChill - 2026.11.1793523612022.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793523612022.mp4",
+        "created_at": "2026-11-01 16:02:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793523608910",
+        "filename": "CuocSongChill - 2026.11.1793523405811.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793523405811.mp4",
+        "created_at": "2026-11-01 16:00:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793523401815",
+        "filename": "CuocSongChill - 2026.11.1793523238716.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793523238716.mp4",
+        "created_at": "2026-11-01 15:56:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793523235729",
+        "filename": "CuocSongChill - 2026.11.1793522967630.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793522967630.mp4",
+        "created_at": "2026-11-01 15:53:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793522963717",
+        "filename": "CuocSongChill - 2026.11.1793522715876.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793522715876.mp4",
+        "created_at": "2026-11-01 15:49:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793522820692",
+        "filename": "CuocSongChill - 2026.11.1793522320430.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793522320430.mp4",
+        "created_at": "2026-11-01 15:47:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793522710930",
+        "filename": "CuocSongChill - 2026.11.1793521922123.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793521922123.mp4",
+        "created_at": "2026-11-01 15:45:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793522420645",
+        "filename": "CuocSongChill - 2026.11.1793521724886.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793521724886.mp4",
+        "created_at": "2026-11-01 15:40:20",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793522339061",
+        "filename": "CuocSongChill - 2026.11.1793521670399.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793521670399.mp4",
+        "created_at": "2026-11-01 15:38:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793522317063",
+        "filename": "CuocSongChill - 2026.11.1793521860777.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793521860777.mp4",
+        "created_at": "2026-11-01 15:38:37",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793521914340",
+        "filename": "CuocSongChill - 2026.11.1793521602532.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793521602532.mp4",
+        "created_at": "2026-11-01 15:31:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793521595344",
+        "filename": "CuocSongChill - 2026.11.1793521284262.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793521284262.mp4",
+        "created_at": "2026-11-01 15:26:35",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1793521279434",
+        "filename": "CuocSongChill - 2026.11.1793520991927.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_tool\\outputs\\CuocSongChill - 2026.11.1793520991927.mp4",
+        "created_at": "2026-11-01 15:21:19",
+        "status": "Chờ duyệt"
+    },
+    {
         "created_at": "2026-11-01 10:24:15",
         "filename": "rendered_Download - 2026-11-01T013636.306.mp4",
         "id": "vid_1793503455165",

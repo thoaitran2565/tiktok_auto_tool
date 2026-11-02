@@ -91,6 +91,7 @@
         }
 
         .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
         .form-group { margin-bottom: 20px; }
 
@@ -114,34 +115,13 @@
             border-radius: 12px;
             border: 1px solid var(--panel-border); 
             background: rgba(15, 23, 42, 0.4);
-            
-            /* --- TÙY CHỈNH THANH CUỘN HIỆN ĐẠI --- */
-            scrollbar-width: thin; /* Dành cho Firefox */
+            scrollbar-width: thin;
             scrollbar-color: rgba(99, 102, 241, 0.5) rgba(15, 23, 42, 0.2);
         }
 
-        /* Dành cho Chrome, Edge, Safari */
-        .table-container::-webkit-scrollbar {
-            width: 8px; /* Độ rộng thanh cuộn vừa phải */
-        }
-
-        .table-container::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.3); /* Màu nền rãnh trượt */
-            border-radius: 8px;
-            margin: 4px;
-        }
-
-        .table-container::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); /* Hiệu ứng màu gradient bắt mắt */
-            border-radius: 8px;
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            transition: background 0.3s ease;
-        }
-
-        .table-container::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%); /* Sáng lên khi rê chuột vào thanh cuộn */
-        }
+        .table-container::-webkit-scrollbar { width: 8px; }
+        .table-container::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.3); border-radius: 8px; margin: 4px; }
+        .table-container::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); border-radius: 8px; border: 2px solid transparent; background-clip: padding-box; }
 
         table { width: 100%; border-collapse: collapse; text-align: left; }
         th { background-color: rgba(30, 41, 59, 0.8); color: var(--text-muted); padding: 14px 16px; font-size: 13px; position: sticky; top: 0; }
@@ -152,7 +132,7 @@
             padding: 8px 12px; border-radius: 8px; width: 100%; cursor: pointer; margin-top: 8px; font-size: 13px;
         }
 
-        video.input-video-preview { width: 240px; height: 135px; object-fit: cover; border-radius: 10px; background: #000; }
+        video.input-video-preview { width: 240px; height: 135px; object-fit: cover; border-radius: 10px; background: #000; display: none; margin-top: 8px; }
         img.preview-image { width: 130px; height: 80px; object-fit: cover; border-radius: 8px; background: #000; margin-bottom: 6px; }
         video.output-video-preview { width: 180px; height: 100px; object-fit: cover; border-radius: 8px; background: #000; border: 1px solid var(--success); }
 
@@ -165,6 +145,12 @@
         .progress-bar-wrapper { width: 100%; background-color: rgba(255, 255, 255, 0.05); border-radius: 6px; height: 8px; overflow: hidden; display: none; margin-top: 6px; }
         .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #10b981); transition: width 0.3s ease; }
         .toolbar { display: flex; gap: 12px; margin-top: 25px; }
+        
+        .btn-sm {
+            padding: 4px 10px; font-size: 11px; border-radius: 6px; margin-top: 6px;
+            background: rgba(99, 102, 241, 0.2); border: 1px solid var(--primary); color: #a5b4fc;
+        }
+        .btn-sm:hover { background: rgba(99, 102, 241, 0.4); color: #fff; }
     </style>
 </head>
 <body>
@@ -173,7 +159,6 @@
             <div class="header-title">
                 <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Render Video</h2>
             </div>
-            <!-- Nút chuyển sang trang Quản Lý -->
             <a href="/manage" class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
                 <i class="fa-solid fa-list-check"></i> Trang Quản Lý Video
             </a>
@@ -191,8 +176,8 @@
                 <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos">
             </div>
             
-            <button class="btn" onclick="loadFolders()" style="width: 100%; padding: 14px; font-size: 15px;">
-                <i class="fa-solid fa-folder-open"></i> Quét Thư Mục & Tạo Hàng Đợi
+            <button id="scanBtn" class="btn" onclick="loadFolders()" style="width: 100%; padding: 14px; font-size: 15px;">
+                <i id="scanIcon" class="fa-solid fa-folder-open"></i> <span id="scanText">Quét Thư Mục & Tạo Hàng Đợi</span>
             </button>
         </div>
 
@@ -231,7 +216,6 @@
         let availableImages = [];
         let isRunning = false;
 
-        // Điền sẵn dữ liệu cấu hình cũ khi mở trang
         window.addEventListener('DOMContentLoaded', async () => {
             try {
                 const res = await fetch('/api/get-config');
@@ -252,6 +236,14 @@
                 return;
             }
 
+            const scanBtn = document.getElementById('scanBtn');
+            const scanIcon = document.getElementById('scanIcon');
+            const scanText = document.getElementById('scanText');
+
+            scanBtn.disabled = true;
+            scanIcon.className = "fa-solid fa-spinner fa-spin";
+            scanText.innerText = "Đang quét thư mục...";
+
             try {
                 const res = await fetch('/api/load-folders', {
                     method: 'POST',
@@ -268,10 +260,18 @@
                     document.getElementById('queueSection').style.display = 'block';
                 } else {
                     alert('Lỗi: ' + data.error);
+                    resetScanButton(scanBtn, scanIcon, scanText);
                 }
             } catch (err) {
                 alert('Không thể kết nối đến server!');
+                resetScanButton(scanBtn, scanIcon, scanText);
             }
+        }
+
+        function resetScanButton(btn, icon, text) {
+            btn.disabled = false;
+            icon.className = "fa-solid fa-folder-open";
+            text.innerText = "Quét Thư Mục & Tạo Hàng Đợi";
         }
 
         function renderQueueTable() {
@@ -280,21 +280,23 @@
             const vidFolderPath = document.getElementById('videoFolderPath').value.trim();
 
             rawQueueData.forEach((item) => {
-                let optionsHtml = availableImages.map(img => 
-                    `<option value="${img}" ${img === item.image_name ? 'selected' : ''}>${img}</option>`
-                ).join('');
-
                 const vidFullPath = `${vidFolderPath}\\${item.video_name}`;
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
                     <td>
                         <div style="font-size: 13px; margin-bottom: 6px; font-weight: 600; color: #fff;">${item.video_name}</div>
-                        <video class="input-video-preview" controls preload="metadata" src="/media/video?path=${encodeURIComponent(vidFullPath)}"></video>
+                        <button class="btn btn-sm" id="btn-vid-toggle-${item.id}" onclick="toggleVideo(${item.id}, '${encodeURIComponent(vidFullPath)}')">
+                            <i class="fa-solid fa-eye"></i> Hiện video
+                        </button>
+                        <video class="input-video-preview" id="input-vid-${item.id}" controls preload="none"></video>
                     </td>
                     <td>
                         <img class="preview-image" src="/media/image-by-name/${encodeURIComponent(item.image_name)}" id="img-preview-${item.id}">
-                        <select onchange="updateImage(${item.id}, this.value)">${optionsHtml}</select>
+                        <!-- Lazy Load Select với sự kiện mousedown/focus -->
+                        <select id="select-img-${item.id}" onmousedown="populateSelect(${item.id}, '${item.image_name}')" onchange="updateImage(${item.id}, this.value)">
+                            <option value="${item.image_name}">${item.image_name}</option>
+                        </select>
                     </td>
                     <td>
                         <span id="status-${item.id}" class="status-badge status-wait"><i class="fa-regular fa-clock"></i> ${item.status}</span>
@@ -305,6 +307,49 @@
                 `;
                 tbody.appendChild(tr);
             });
+        }
+
+        // --- HÀM NẠP DANH SÁCH ẢNH VÀO SELECT KÈM LOADING TRẠNG THÁI ---
+        function populateSelect(id, currentImageName) {
+            const selectEl = document.getElementById(`select-img-${id}`);
+            
+            // 1. Kiểm tra nếu đã tải rồi hoặc đang tải thì không chạy lại nữa để tránh lặp
+            if (selectEl.dataset.loaded === "true" || selectEl.dataset.loading === "true") return;
+            console.log("vào");
+            
+            // Đánh dấu đang tải
+            selectEl.dataset.loading = "true";
+
+            // Hiển thị option loading tạm thời ngay lập tức
+            selectEl.innerHTML = `<option value="${currentImageName}">⏳ Đang tải danh sách ảnh...</option>`;
+
+            // Dùng setTimeout nhỏ để giao diện kịp render dòng loading trước khi JavaScript chạy vòng lặp nặng 20.000 phần tử
+            setTimeout(() => {
+                let optionsHtml = availableImages.map(img => 
+                    `<option value="${img}" ${img === currentImageName ? 'selected' : ''}>${img}</option>`
+                ).join('');
+
+                selectEl.innerHTML = optionsHtml;
+                selectEl.dataset.loaded = "true";   // Đánh dấu đã tải xong vĩnh viễn cho select này
+                selectEl.dataset.loading = "false"; // Tắt trạng thái đang tải
+            }, 50);
+        }
+
+        function toggleVideo(id, encodedPath) {
+            const videoEl = document.getElementById(`input-vid-${id}`);
+            const btnEl = document.getElementById(`btn-vid-toggle-${id}`);
+
+            if (videoEl.style.display === 'none' || videoEl.style.display === '') {
+                if (!videoEl.src) {
+                    videoEl.src = `/media/video?path=${encodedPath}`;
+                }
+                videoEl.style.display = 'block';
+                btnEl.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Ẩn video';
+            } else {
+                videoEl.style.display = 'none';
+                videoEl.pause();
+                btnEl.innerHTML = '<i class="fa-solid fa-eye"></i> Hiện video';
+            }
         }
 
         async function updateImage(id, imageName) {
