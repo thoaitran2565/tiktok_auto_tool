@@ -38,15 +38,13 @@ def clean_lyrics_with_ai(raw_lyrics):
     client = genai.Client(api_key=api_key)
 
     prompt = f"""
-    Bạn là một biên tập viên văn bản âm nhạc. Dưới đây là phần lời thô (raw lyrics) do AI (Whisper) nhận diện từ âm thanh. 
-    Nhiệm vụ của bạn là **làm sạch văn bản một cách cực kỳ bảo thủ**, tuân thủ nghiêm ngặt các quy tắc sau:
+    Bạn là một chuyên gia âm nhạc và biên tập viên văn bản. Dưới đây là phần lời thô (raw lyrics) tương đối do AI (Whisper) nhận diện từ âm thanh video. 
 
-    QUY TẮC BẮT BUỘC:
-    1. **TUYỆT ĐỐI KHÔNG SÁNG TÁC MỚI, KHÔNG ĐỔI NGHĨA:** Giữ nguyên ý nghĩa, câu chữ gốc của bài hát nhiều nhất có thể. Không được tự ý thay thế bằng từ ngữ hay hơn nếu từ gốc đã có nghĩa.
-    2. **CHỈ SỬA LỖI CHÍNH TẢ DO AI NGHE NHẦM:** Whisper thường nghe nhầm các từ đồng âm. Hãy sửa lại các từ bị sai lỗi chính tả/nghe nhầm đó cho đúng với thực tế ngữ cảnh tiếng Việt.
-    3. **XÓA TỪ LẶP DO LỖI NHẬN DIỆN:** Whisper hay bị lỗi lặp từ ngớ ngẩn do âm vang. Hãy dọn sạch các từ lặp vô nghĩa này.
-    4. **NGẮT DÒNG VÀ CHIA KHỔ:** Chỉ làm nhiệm vụ xuống dòng, ngắt câu thành từng câu hát/khổ thơ dựa trên nội dung thô đã có để nhìn dễ đọc hơn, không thêm thắt bất kỳ đoạn chữ nào không có trong bản thô.
-    5. Chỉ trả về phần lời bài hát đã được làm sạch, không kèm theo lời chào hay giải thích gì thêm.
+    NHIỆM VỤ CỦA BẠN:
+    1. **LỌC BỎ TẠP ÂM & QUẢNG CÁO:** Tự động loại bỏ hoàn toàn các câu chào hỏi, lời kêu gọi đăng ký kênh, subscribe, quảng cáo (ví dụ như các câu kêu gọi xem video, tên kênh rác không liên quan đến bài hát) nếu xuất hiện trong phần lời thô.
+    2. **ƯU TIÊN TÌM BÀI HÁT GỐC:** Dựa vào phần lời bài hát còn lại (dù có thể bị nghe nhầm hoặc sai chính tả), hãy phán đoán xem đây là bài hát gốc nào. Nếu nhận ra chính xác bài hát đó, hãy lấy **toàn bộ phần lời chuẩn xác và đầy đủ nhất** của bài hát gốc.
+    3. **XỬ LÝ KHI KHÔNG TÌM RA (LÀM SẠCH BẢO THỦ):** Nếu không xác định được bài hát gốc, hãy giữ nguyên ý nghĩa câu chữ gốc, sửa lỗi chính tả do nghe nhầm từ đồng âm, xóa từ lặp vô nghĩa do âm vang, ngắt dòng và chia khổ dễ đọc, tuyệt đối không tự sáng tác thêm nội dung mới.
+    4. **ĐỊNH DẠNG TRẢ VỀ:** Chỉ trả về phần lời bài hát đã được làm sạch hoặc lấy chuẩn từ bài gốc, không kèm theo lời chào, không giải thích gì thêm, không ghi tên bài hát.
 
     Phần lời thô cần xử lý:
     ----------------
@@ -54,7 +52,14 @@ def clean_lyrics_with_ai(raw_lyrics):
     ----------------
     """
 
-    models_to_try = ['gemini-3.8-flash', 'gemini-3.6-flash', 'gemini-3-flash-preview']
+    models_to_try = [
+        'gemini-2.5-flash', 
+        'gemini-2.5-flash-lite', 
+        'gemini-3.8-flash', 
+        'gemini-3.6-flash', 
+        'gemini-3-flash-preview', 
+        'gemini-3.5-flash-lite'
+    ]
     
     for model_name in models_to_try:
         try:
@@ -72,31 +77,45 @@ def clean_lyrics_with_ai(raw_lyrics):
     print("❌ Tất cả các mô hình AI đều bận hoặc lỗi. Đang quay về sử dụng lyric thô gốc...")
     return raw_lyrics, "Original"
 
-def get_first_line(lyrics_text, max_length=50):
+def get_first_line(lyrics_text, max_length=100, min_length=50):
     """
-    Bước 3: Lấy câu đầu tiên từ văn bản lyrics và giới hạn ký tự.
-    Cắt theo từ hoàn chỉnh cuối cùng nằm trong phạm vi max_length (tránh cắt ngang từ).
+    Bước 3: Lấy câu đầu (hoặc gộp thêm câu tiếp theo nếu quá ngắn) và giới hạn ký tự.
+    Cắt theo từ hoàn chỉnh cuối cùng nằm trong phạm vi max_length.
     """
     if not lyrics_text:
         return ""
         
+    # Lọc ra danh sách các dòng có nội dung
     lines = [line.strip() for line in lyrics_text.split('\n') if line.strip()]
-    first_line = lines[0] if lines else lyrics_text.strip()
+    if not lines:
+        return lyrics_text.strip()
     
-    if len(first_line) > max_length:
-        # Cắt tạm theo chiều dài tối đa cho phép
-        truncated = first_line[:max_length]
+    # Gom các câu lại với nhau cho đến khi đạt độ dài tối thiểu (min_length) hoặc hết dòng
+    combined_text = ""
+    for line in lines:
+        if not combined_text:
+            combined_text = line
+        else:
+            # Nếu câu hiện tại chưa đủ độ dài tối thiểu, gộp thêm câu tiếp theo (ngăn cách bằng khoảng trắng)
+            if len(combined_text) < min_length:
+                combined_text += ". " + line
+            else:
+                break
+                
+    # Nếu đoạn text gộp lại vẫn vượt quá giới hạn max_length thì tiến hành cắt gọn theo từ
+    if len(combined_text) > max_length:
+        truncated = combined_text[:max_length]
         
         # Tìm khoảng trắng cuối cùng trong đoạn đã cắt để giữ lại trọn vẹn từ cuối
         last_space = truncated.rfind(' ')
         if last_space != -1:
             truncated = truncated[:last_space]
             
-        first_line = truncated.strip() + "..."
+        combined_text = truncated.strip() + "..."
         
-    return first_line
+    return combined_text
 
-def process_video_to_perfect_lyrics(video_path, max_length=50):
+def process_video_to_perfect_lyrics(video_path, max_length=100):
     """
     Hàm tổng hợp chính: Trích xuất -> Làm sạch bằng AI (có fallback) -> Lấy câu đầu tiên.
     Trả về dictionary chứa kết quả đầy đủ để dễ kiểm tra nguồn gốc.
@@ -116,12 +135,37 @@ def process_video_to_perfect_lyrics(video_path, max_length=50):
 
 # --- KHU VỰC THỰC THI KIỂM TRA ---
 if __name__ == "__main__":
-    video_file = r"D:\Code\tools\tiktok_auto_tool\Videos\Đã đăng\CuocSongChill - 2026.11.1793520991927.mp4"
+    # video_file = r"D:\Code\tools\tiktok_auto_render_tool\outputs\Em ơi đừng khóc bóng tối chốc lát sẽ bắt em đi.mp4"
     
-    result = process_video_to_perfect_lyrics(video_file, max_length=40)
+    # result = process_video_to_perfect_lyrics(video_file, max_length=200)
     
-    print("\n" + "="*20 + " KẾT QUẢ TRÍCH XUẤT LIRCYS " + "="*20)
-    print(f"📌 Nguồn gốc trả ra : {result['source']} ('AI' hoặc 'Original')")
-    print(f"📌 Câu đầu tiên     : {result['first_line']}")
-    print(f"📌 Toàn bộ lyrics   :\n{result['full_lyrics']}")
-    print("="*67)
+    # print("\n" + "="*20 + " KẾT QUẢ TRÍCH XUẤT LIRCYS " + "="*20)
+    # print(f"📌 Nguồn gốc trả ra : {result['source']} ('AI' hoặc 'Original')")
+    # print(f"📌 Câu đầu tiên     : {result['first_line']}")
+    # print(f"📌 Toàn bộ lyrics   :\n{result['full_lyrics']}")
+    # print("="*67)
+    a = get_first_line(
+        """
+Là hai sinh linh trót quen thân thế gian
+Thế nhưng dở dang, giấu anh vào trang
+Hồi kết mình chẳng thể cùng xem thêm
+
+Em và anh thường viết nên những câu ca quen khi gảy đàn nghe
+Luôn mong mình chạy xa qua đây, chắc tình ta chẳng hề
+Mãi tới lần đầu tiên, hãy để lòng bình yên rồi đây
+Chỉ có lời gửi tới em...
+
+Chưa từng một ai nhớ về anh
+Chưa khi nào một giờ ngừng nghĩ về em
+Chưa từng một phút ngừng nhớ về anh
+Chưa từng một giây nào yêu ai hơn em
+
+Mà tình đẹp như bao hồi ức thật lâu
+Ký tên của cuộc tình xưa đậm sâu
+Cảm ơn ta đã gặp được nhau
+Kiếp này sẽ nhớ, đã nhớ được gọi tên""",
+        100, 
+        50
+    )
+
+    print(a)

@@ -37,13 +37,17 @@ session_data = {
 
 
 
-def create_lyrics_image_transparent(text, img_width=1080, font_size=20):
+def create_lyrics_image_transparent(text, img_width=1080, target_height=1920, font_size=20):
     """
-    Tạo ảnh chứa toàn bộ lyrics trong suốt (không nền), chữ nhỏ, màu trắng viền đen, hỗ trợ nhiều dòng.
+    Tạo ảnh chứa toàn bộ lyrics trong suốt, giới hạn chiều cao tối đa 90% video.
+    Nếu lyrics dài vượt quá ngưỡng thì cắt bớt phần cuối, giữ nguyên phần đầu.
     """
-    # Tăng chiều cao khung ảnh lên 400px để chứa được nhiều dòng lyrics
-    img_height = 400
-    txt_img = Image.new('RGBA', (img_width, img_height), (0, 0, 0, 0))
+    # Chiều cao tối đa cho phép bằng 90% chiều cao video (1920 * 0.9 = 1728px)
+    max_allowed_height = int(target_height * 0.9)
+    
+    # Bước 1: Tạo một ảnh tạm có chiều cao lớn (ví dụ 4000px) để đo và vẽ trọn vẹn mọi dòng text dài
+    temp_img_height = 4000
+    txt_img = Image.new('RGBA', (img_width, temp_img_height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(txt_img)
     
     try:
@@ -51,26 +55,26 @@ def create_lyrics_image_transparent(text, img_width=1080, font_size=20):
     except:
         font = ImageFont.load_default()
         
-    # Vẽ text với khoảng cách dòng (spacing = 10)
-    # Góc trái (cách lề trái 80px) và canh giữa chiều dọc
-    x = 80
+    x = 80  # Cách lề trái 80px
+    y = 50  # Khoảng cách từ đỉnh khung xuống dòng đầu tiên
     
-    # Tính toán để canh giữa toàn bộ khối text theo chiều dọc của khung 400px
-    # Dùng multiline_textbbox để đo kích thước của nhiều dòng
-    bbox = draw.multiline_textbbox((0, 0), text, font=font, spacing=10)
-    text_w = bbox[2] - bbox[0]
-    text_h = bbox[3] - bbox[1]
-    
-    y = (img_height - text_h) / 2
-
-    # Vẽ viền đen nhẹ xung quanh chữ trắng (tạo hiệu ứng shadow/outline 4 hướng) để dễ đọc trên nền video
+    # Vẽ viền đen xung quanh chữ trắng để tạo hiệu ứng nổi trên nền video
     for adj_x, adj_y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         draw.multiline_text((x + adj_x, y + adj_y), text, font=font, fill=(0, 0, 0, 255), spacing=10, align="left")
     
     # Vẽ chữ trắng chính giữa đè lên trên
     draw.multiline_text((x, y), text, font=font, fill=(255, 255, 255, 255), spacing=10, align="left")
     
-    return np.array(txt_img)
+    # Bước 2: Đo kích thước thực tế của khối text vừa vẽ
+    bbox = draw.multiline_textbbox((x, y), text, font=font, spacing=10)
+    text_bottom_y = bbox[3] + 30  # Cộng thêm một khoảng đệm an toàn phía dưới
+    
+    # Bước 3: Cắt (crop) ảnh lại theo đúng chiều cao thực tế hoặc giới hạn tối đa 90%
+    final_height = min(int(text_bottom_y), max_allowed_height)
+    
+    cropped_img = txt_img.crop((0, 0, img_width, final_height))
+    
+    return np.array(cropped_img)
 
 def load_video_db():
     try:
@@ -216,7 +220,7 @@ def render_single():
         target_height = 1920
 
         # --- BƯỚC 1: TRÍCH XUẤT LYRICS TRƯỚC KHI RENDER ---
-        lyric_result = process_video_to_perfect_lyrics(vid_path, max_length=90)
+        lyric_result = process_video_to_perfect_lyrics(vid_path, max_length=100)
         lyric_title = lyric_result.get("first_line", "").strip()     # Dùng làm tên file
         full_lyrics = lyric_result.get("full_lyrics", "").strip()    # Dùng để dán lên video
         lyric_source = lyric_result.get("source", "Original")
