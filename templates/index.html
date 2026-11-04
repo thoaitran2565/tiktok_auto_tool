@@ -1,220 +1,1028 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Studio Video - Render Hàng Loạt</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --bg-main: #0a0c10;
-            --panel-bg: rgba(22, 27, 34, 0.75);
+            --panel-bg: rgba(22, 27, 34, 0.85);
             --panel-border: rgba(255, 255, 255, 0.1);
             --primary: #6366f1;
             --primary-hover: #4f46e5;
             --success: #10b981;
             --danger: #ef4444;
+            --warning: #f59e0b;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-        body { 
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Cố định viewport không cuộn ngoài */
+        }
+
+        body {
             background: var(--bg-main);
-            background-image: 
+            background-image:
                 radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
             background-attachment: fixed;
-            color: var(--text-main); 
-            min-height: 100vh;
-            display: flex; 
-            justify-content: center; 
-            align-items: flex-start;
-            padding: 40px 20px;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            padding: 12px 16px;
         }
 
-        .container { 
-            background: var(--panel-bg); 
+        .container {
+            background: var(--panel-bg);
             backdrop-filter: blur(16px);
-            padding: 35px; 
-            border-radius: 20px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
-            width: 1100px; 
+            padding: 20px 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            width: 1240px;
+            max-width: 100%;
+            height: calc(100vh - 24px);
             border: 1px solid var(--panel-border);
-            animation: fadeIn 0.5s ease-out;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.4s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        @media (max-height: 768px) {
+            body {
+                padding: 8px 12px;
+            }
+
+            .container {
+                padding: 14px 18px;
+                height: calc(100vh - 16px);
+            }
+
+            .header-nav {
+                margin-bottom: 8px;
+                padding-bottom: 8px;
+            }
+
+            #setupSection {
+                padding: 8px 12px;
+                margin-bottom: 8px;
+            }
+
+            .queue-summary-card {
+                padding: 6px 12px;
+                margin-bottom: 8px;
+            }
+
+            td {
+                padding: 8px 12px;
+            }
+        }
+
+        /* Header Navigation & Top Controls */
         .header-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            flex-shrink: 0;
+            margin-bottom: 14px;
             border-bottom: 1px solid var(--panel-border);
-            padding-bottom: 15px;
+            padding-bottom: 12px;
+            gap: 12px;
         }
 
-        .header-title h2 { 
-            font-size: 24px;
+        .header-title h2 {
+            font-size: 20px;
             font-weight: 700;
             background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            white-space: nowrap;
         }
 
-        .btn { 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
-            color: white; 
-            padding: 10px 20px; 
-            border: none; 
-            border-radius: 10px; 
-            font-size: 14px; 
-            font-weight: 600; 
-            cursor: pointer; 
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
             text-decoration: none;
+            white-space: nowrap;
         }
 
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4); }
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-
-        .form-group { margin-bottom: 20px; }
-
-        label { 
-            display: flex; align-items: center; gap: 8px; margin-bottom: 8px; 
-            font-weight: 600; color: var(--text-main); font-size: 14px; 
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
         }
 
-        label i { color: var(--primary); }
-
-        input[type="text"] { 
-            width: 100%; padding: 12px 16px; background-color: rgba(15, 23, 42, 0.6); 
-            border: 1px solid var(--panel-border); border-radius: 10px; color: #fff; font-size: 14px;
+        .btn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
-        .section { margin-top: 20px; display: none; }
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--panel-border);
+            color: #cbd5e1;
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .btn-outline {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(16, 185, 129, 0.25);
+            color: #6ee7b7;
+        }
+
+        /* Setup Section - Horizontal Compact Grid & Collapsible State */
+        #setupSection {
+            flex-shrink: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 12px;
+            align-items: flex-end;
+            margin-bottom: 12px;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--panel-border);
+            transition: all 0.25s ease;
+        }
+
+        #setupSection.collapsed {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 14px;
+            margin-bottom: 8px;
+            min-height: 34px;
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        #setupSummaryBar {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #setupSection.collapsed #setupSummaryBar {
+            display: flex;
+        }
+
+        #setupSection.collapsed .setup-expanded-content {
+            display: none !important;
+        }
+
+        .setup-expanded-content {
+            display: contents;
+        }
+
+        /* Locked Row Controls for Finished Videos */
+        .row-locked .preview-image {
+            cursor: default !important;
+            opacity: 0.85;
+            pointer-events: none;
+            transform: none !important;
+            box-shadow: none !important;
+            border-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        .row-locked .btn-vid-toggle {
+            display: none !important;
+        }
+
+        /* Modal Image Picker Curation & Carousel */
+        .modal-curation-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .modal-candidate-badge {
+            font-size: 12px;
+            color: #94a3b8;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            max-width: 320px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .modal-curation-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-preview-stage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-height: 52vh;
+            width: 100%;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        .modal-preview-stage img {
+            max-height: 48vh;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .modal-carousel-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .modal-carousel-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .modal-carousel-strip {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 6px 2px 8px 2px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(99, 102, 241, 0.5) rgba(15, 23, 42, 0.4);
+            max-width: 82vw;
+        }
+
+        .modal-carousel-strip::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .modal-carousel-strip::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 4px;
+        }
+
+        .modal-carousel-thumb {
+            width: 72px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .modal-carousel-thumb:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .modal-carousel-thumb.active {
+            opacity: 1;
+            border-color: #6366f1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+            transform: scale(1.05);
+        }
+
+        .form-group-compact {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 12px;
+        }
+
+        label i {
+            color: var(--primary);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Queue Section - Expands to fill viewport */
+        #queueSection {
+            flex: 1;
+            min-height: 0;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .queue-summary-card {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 14px;
+            margin-bottom: 10px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .queue-summary-stats {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
 
         .table-container {
-            max-height: 500px; 
-            overflow-y: auto; 
-            border-radius: 12px;
-            border: 1px solid var(--panel-border); 
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 1px solid var(--panel-border);
             background: rgba(15, 23, 42, 0.4);
             scrollbar-width: thin;
             scrollbar-color: rgba(99, 102, 241, 0.5) rgba(15, 23, 42, 0.2);
+            position: relative;
         }
 
-        .table-container::-webkit-scrollbar { width: 8px; }
-        .table-container::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.3); border-radius: 8px; margin: 4px; }
-        .table-container::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); border-radius: 8px; border: 2px solid transparent; background-clip: padding-box; }
-
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { background-color: rgba(30, 41, 59, 0.8); color: var(--text-muted); padding: 14px 16px; font-size: 13px; position: sticky; top: 0; }
-        td { padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; font-size: 13px; }
-
-        select { 
-            background-color: rgba(15, 23, 42, 0.8); color: #fff; border: 1px solid var(--panel-border); 
-            padding: 8px 12px; border-radius: 8px; width: 100%; cursor: pointer; margin-top: 8px; font-size: 13px;
+        .table-container::-webkit-scrollbar {
+            width: 8px;
         }
 
-        video.input-video-preview { width: 240px; height: 135px; object-fit: cover; border-radius: 10px; background: #000; display: none; margin-top: 8px; }
-        img.preview-image { width: 130px; height: 80px; object-fit: cover; border-radius: 8px; background: #000; margin-bottom: 6px; }
-        video.output-video-preview { width: 180px; height: 100px; object-fit: cover; border-radius: 8px; background: #000; border: 1px solid var(--success); }
+        .table-container::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 8px;
+            margin: 4px;
+        }
 
-        .status-badge { padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; }
-        .status-wait { background-color: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.3); }
-        .status-running { background-color: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
-        .status-done { background-color: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-        .status-error { background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .table-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border-radius: 8px;
+        }
 
-        .progress-bar-wrapper { width: 100%; background-color: rgba(255, 255, 255, 0.05); border-radius: 6px; height: 8px; overflow: hidden; display: none; margin-top: 6px; }
-        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #10b981); transition: width 0.3s ease; }
-        .toolbar { display: flex; gap: 12px; margin-top: 25px; }
-        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            table-layout: fixed;
+        }
+
+        th {
+            background-color: #1e293b;
+            color: var(--text-muted);
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--panel-border);
+        }
+
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+            font-size: 12px;
+            word-wrap: break-word;
+        }
+
+        select {
+            background-color: rgba(15, 23, 42, 0.8);
+            color: #fff;
+            border: 1px solid var(--panel-border);
+            padding: 6px 10px;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 6px;
+            font-size: 12px;
+        }
+
+        video.input-video-preview {
+            width: 220px;
+            height: 124px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #000;
+            display: none;
+            margin-top: 6px;
+        }
+
+        img.preview-image {
+            width: 110px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: #000;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        img.preview-image:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+            border-color: var(--primary);
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .status-wait {
+            background-color: rgba(156, 163, 175, 0.15);
+            color: #9ca3af;
+            border: 1px solid rgba(156, 163, 175, 0.3);
+        }
+
+        .status-running {
+            background-color: rgba(99, 102, 241, 0.18);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+        }
+
+        .status-done {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-error {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .eta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 2px 7px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Lyrics classification badges */
+        .badge-lyrics {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-radius: 10px;
+            padding: 2px 7px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .badge-no-lyrics {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 10px;
+            padding: 2px 7px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .progress-bar-wrapper {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 5px;
+            height: 6px;
+            overflow: hidden;
+            display: none;
+            margin-top: 6px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #6366f1, #10b981);
+            transition: width 0.3s ease;
+        }
+
+        /* Timeline Accordion Styles */
+        .stage-timeline {
+            display: none;
+            margin-top: 8px;
+            padding: 8px 10px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--panel-border);
+            border-radius: 6px;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .stage-step {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            margin-bottom: 4px;
+            color: var(--text-muted);
+        }
+
+        .stage-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-icon {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            flex-shrink: 0;
+        }
+
+        .step-pending .step-icon {
+            background: rgba(255, 255, 255, 0.08);
+            color: #64748b;
+        }
+
+        .step-active .step-icon {
+            background: rgba(99, 102, 241, 0.25);
+            color: #818cf8;
+            border: 1px solid var(--primary);
+        }
+
+        .step-completed .step-icon {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+
+        .step-failed .step-icon {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        .step-active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .step-completed {
+            color: #cbd5e1;
+        }
+
+        .step-failed {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        .step-duration {
+            margin-left: auto;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            font-size: 10px;
+        }
+
         .btn-sm {
-            padding: 4px 10px; font-size: 11px; border-radius: 6px; margin-top: 6px;
-            background: rgba(99, 102, 241, 0.2); border: 1px solid var(--primary); color: #a5b4fc;
+            padding: 4px 8px;
+            font-size: 11px;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid var(--primary);
+            color: #a5b4fc;
         }
-        .btn-sm:hover { background: rgba(99, 102, 241, 0.4); color: #fff; }
+
+        .btn-sm:hover {
+            background: rgba(99, 102, 241, 0.4);
+            color: #fff;
+        }
+
+        .btn-toggle-steps {
+            background: none;
+            border: none;
+            color: #818cf8;
+            font-size: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-toggle-steps:hover {
+            text-decoration: underline;
+            color: #a5b4fc;
+        }
+
+        /* Media Modal / Lightbox Overlay */
+        .media-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-modal.active {
+            display: flex;
+        }
+
+        .media-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .media-modal-content {
+            position: relative;
+            z-index: 1001;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            animation: zoomIn 0.2s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .media-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .media-modal-close:hover {
+            color: #fff;
+        }
+
+        .media-modal-title {
+            color: #e5e7eb;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            max-width: 80vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .media-modal-body img {
+            max-width: 85vw;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* Modal Zoom & Pan Stage Styles */
+        .modal-preview-stage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 52vh;
+            min-height: 280px;
+            max-height: 520px;
+            background: rgba(10, 14, 23, 0.9);
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .modal-preview-stage img,
+        .media-modal-body img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+            transform-origin: center center;
+            will-change: transform;
+            transition: transform 0.04s ease-out;
+            cursor: zoom-in;
+        }
+
+        .modal-preview-stage img.zoomed,
+        .media-modal-body img.zoomed {
+            cursor: grab;
+        }
+
+        .modal-preview-stage img.grabbing,
+        .media-modal-body img.grabbing {
+            cursor: grabbing !important;
+            transition: none; /* Không trễ khi kéo rê */
+        }
+
+        /* Modal Zoom Badge & Controls */
+        .modal-zoom-badge {
+            position: absolute;
+            top: 10px;
+            right: 48px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #a5b4fc;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            pointer-events: none;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            display: none;
+            animation: fadeIn 0.15s ease-out;
+        }
+
+        .modal-zoom-reset-btn {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cbd5e1;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 11px;
+            transition: all 0.2s ease;
+        }
+
+        .modal-zoom-reset-btn:hover {
+            background: rgba(99, 102, 241, 0.5);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .media-modal-body video {
+            max-width: 85vw;
+            max-height: 75vh;
+            aspect-ratio: 9/16;
+            background: #000;
+            border-radius: 8px;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
+        <!-- Header & Action Controls Bar (Pinned at top) -->
         <div class="header-nav">
             <div class="header-title">
                 <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Render Video</h2>
             </div>
-            <a href="/manage" class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                <i class="fa-solid fa-list-check"></i> Trang Quản Lý Video
-            </a>
+            <div class="header-actions">
+                <button id="startBtn" class="btn btn-success" onclick="startBatchRender()" disabled>
+                    <i class="fa-solid fa-rocket"></i> <span id="startBtnText">Bắt Đầu Render</span>
+                </button>
+                <button id="stopBtn" class="btn btn-danger" onclick="stopBatchRender()" style="display: none;">
+                    <i class="fa-solid fa-hand"></i> <span>Dừng Lại</span>
+                </button>
+                <button id="reloadBtn" class="btn btn-secondary" onclick="refreshQueueState()"
+                    title="Làm mới hàng đợi và quét thêm video mới (không gián đoạn render)">
+                    <i class="fa-solid fa-rotate-right"></i> <span>Làm Mới</span>
+                </button>
+                <a href="/manage" class="btn btn-outline">
+                    <i class="fa-solid fa-list-check"></i> <span>Quản Lý Video</span>
+                </a>
+            </div>
         </div>
-        
-        <!-- Setup Thư Mục -->
+
+        <!-- Setup Thư Mục (Tự động thu gọn sau khi quét) -->
         <div id="setupSection">
-            <div class="form-group">
-                <label><i class="fa-regular fa-image"></i> Thư mục Ảnh nguồn:</label>
-                <input type="text" id="imageFolderPath" placeholder="Ví dụ: D:\Media\Images">
+            <div id="setupSummaryBar">
+                <span id="setupSummaryText"
+                    style="font-size: 13px; color: #cbd5e1; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-folder-check" style="color: var(--success);"></i> Đã quét thư mục
+                </span>
+                <button class="btn btn-secondary btn-sm" onclick="toggleSetupSection(true)" style="padding: 4px 10px;">
+                    <i class="fa-solid fa-pen-to-square"></i> Đổi thư mục
+                </button>
             </div>
+            <div class="setup-expanded-content">
+                <div class="form-group-compact">
+                    <label><i class="fa-regular fa-image"></i> Thư mục Ảnh nguồn:</label>
+                    <input type="text" id="imageFolderPath" placeholder="Ví dụ: D:\Media\Images">
+                </div>
 
-            <div class="form-group">
-                <label><i class="fa-solid fa-film"></i> Thư mục Video nguồn:</label>
-                <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos">
+                <div class="form-group-compact">
+                    <label><i class="fa-solid fa-film"></i> Thư mục Video nguồn:</label>
+                    <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos">
+                </div>
+
+                <button id="scanBtn" class="btn" onclick="loadFolders()" style="padding: 9px 18px;">
+                    <i id="scanIcon" class="fa-solid fa-folder-open"></i> <span id="scanText">Quét Thư Mục</span>
+                </button>
             </div>
-            
-            <button id="scanBtn" class="btn" onclick="loadFolders()" style="width: 100%; padding: 14px; font-size: 15px;">
-                <i id="scanIcon" class="fa-solid fa-folder-open"></i> <span id="scanText">Quét Thư Mục & Tạo Hàng Đợi</span>
-            </button>
         </div>
 
-        <!-- Hàng Đợi & Render -->
-        <div id="queueSection" class="section">
-            <div class="table-container">
+        <!-- Hàng Đợi & Render (Khu vực cuộn độc lập) -->
+        <div id="queueSection">
+            <!-- Thẻ tóm tắt hàng đợi & dự đoán tổng thời gian -->
+            <div id="queueSummaryCard" class="queue-summary-card">
+                <div class="queue-summary-stats">
+                    <span><i class="fa-solid fa-list"></i> Tổng: <strong id="summaryTotal">0</strong></span>
+                    <span><i class="fa-solid fa-circle-check" style="color: var(--success);"></i> Đã xong: <strong
+                            id="summaryDone">0</strong></span>
+                    <span><i class="fa-solid fa-hourglass-half" style="color: var(--warning);"></i> Chờ xử lý: <strong
+                            id="summaryPending">0</strong></span>
+                </div>
+                <div>
+                    <span id="queueEtaBadge" class="eta-badge">
+                        <i class="fa-solid fa-bolt"></i> Dự đoán tổng: <strong id="summaryEtaText">Đang tính...</strong>
+                    </span>
+                </div>
+            </div>
+
+            <div class="table-container" id="tableContainer">
                 <table id="queueTable">
                     <thead>
                         <tr>
-                            <th style="width: 35%;">Video Nguồn</th>
-                            <th style="width: 25%;">Ảnh Ghép Mẫu</th>
-                            <th style="width: 20%;">Trạng Thái</th>
-                            <th style="width: 20%;">Thành Phẩm</th>
+                            <th style="width: 32%;">Video Nguồn</th>
+                            <th style="width: 22%;">Ảnh Ghép Mẫu</th>
+                            <th style="width: 28%;">Tiến Độ & Trạng Thái</th>
+                            <th style="width: 18%;">Thành Phẩm</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
             </div>
+        </div>
+    </div>
 
-            <div class="toolbar">
-                <button id="startBtn" class="btn" onclick="startBatchRender()" style="flex: 2; padding: 14px; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                    <i class="fa-solid fa-rocket"></i> Bắt Đầu Render Tự Động
-                </button>
-                <button id="stopBtn" class="btn" onclick="stopBatchRender()" style="flex: 1; display: none; background: #ef4444;">
-                    <i class="fa-solid fa-hand"></i> Dừng Lại
-                </button>
-                <button class="btn" onclick="location.reload()" style="flex: 1; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444;">
-                    <i class="fa-solid fa-rotate-right"></i> Làm Mới
-                </button>
-            </div>
+    <!-- Modal Lightbox phóng to ảnh và video (Nền mờ tối, đóng nhanh) -->
+    <div id="mediaModal" class="media-modal">
+        <div class="media-modal-backdrop" onclick="closeMediaModal()"></div>
+        <div class="media-modal-content">
+            <button class="media-modal-close" onclick="closeMediaModal()" title="Đóng (Esc)">&times;</button>
+            <h4 id="mediaModalTitle" class="media-modal-title"></h4>
+            <div id="mediaModalBody" class="media-modal-body"></div>
         </div>
     </div>
 
     <script>
         let rawQueueData = [];
         let availableImages = [];
+        let predictionsMap = {};
         let isRunning = false;
+        let pollInterval = null;
+
+        const STAGE_DEFS = [
+            { id: "audio_extraction", label: "Trích xuất âm thanh", ceiling: 10 },
+            { id: "speech_transcription", label: "Nhận diện giọng nói (Whisper)", ceiling: 40 },
+            { id: "lyric_refinement", label: "Làm sạch lời bài hát AI", ceiling: 60 },
+            { id: "visual_generation", label: "Tạo hình ảnh & lyrics", ceiling: 70 },
+            { id: "media_encoding", label: "Ghép video & mã hóa MP4", ceiling: 95 },
+            { id: "finalization", label: "Xác thực & dọn dẹp", ceiling: 100 }
+        ];
 
         window.addEventListener('DOMContentLoaded', async () => {
             try {
@@ -224,8 +1032,47 @@
                     if (data.config.image_folder) document.getElementById('imageFolderPath').value = data.config.image_folder;
                     if (data.config.video_folder) document.getElementById('videoFolderPath').value = data.config.video_folder;
                 }
-            } catch (err) {}
+            } catch (err) { }
         });
+
+        // Định dạng thời gian thuần số nguyên giây (loại bỏ phần thập phân)
+        function formatDuration(sec) {
+            if (sec === undefined || sec === null || isNaN(sec)) return '0s';
+            const s = Math.round(Number(sec));
+            if (s < 60) return `~${s}s`;
+            const m = Math.floor(s / 60);
+            const remS = s % 60;
+            return `~${m}p ${remS}s`;
+        }
+
+        function formatSecondsStrict(sec) {
+            if (sec === undefined || sec === null || isNaN(sec)) return '0s';
+            const s = Math.round(Number(sec));
+            if (s < 60) return `${s}s`;
+            const m = Math.floor(s / 60);
+            const remS = s % 60;
+            return `${m}p ${remS}s`;
+        }
+
+        function formatShortPath(path) {
+            if (!path) return '';
+            const clean = path.replace(/\\/g, '/').replace(/\/+$/, '');
+            const parts = clean.split('/');
+            if (parts.length <= 2) return path;
+            const drive = parts[0];
+            const folder = parts[parts.length - 1];
+            return `${drive}/.../${folder}`;
+        }
+
+        function toggleSetupSection(expand) {
+            const sec = document.getElementById('setupSection');
+            if (!sec) return;
+            if (expand) {
+                sec.classList.remove('collapsed');
+            } else {
+                sec.classList.add('collapsed');
+            }
+        }
 
         async function loadFolders() {
             const imageFolder = document.getElementById('imageFolderPath').value.trim();
@@ -242,7 +1089,7 @@
 
             scanBtn.disabled = true;
             scanIcon.className = "fa-solid fa-spinner fa-spin";
-            scanText.innerText = "Đang quét thư mục...";
+            scanText.innerText = "Đang quét...";
 
             try {
                 const res = await fetch('/api/load-folders', {
@@ -255,9 +1102,33 @@
                 if (data.success) {
                     availableImages = data.available_images;
                     rawQueueData = data.queue;
+
+                    // Tự động thu gọn thanh nhập thư mục thành đường dẫn rút gọn
+                    toggleSetupSection(false);
+                    const shortImg = formatShortPath(imageFolder);
+                    const shortVid = formatShortPath(videoFolder);
+                    document.getElementById('setupSummaryText').innerHTML = `
+                        <span title="${imageFolder}" style="cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                            <i class="fa-regular fa-image" style="color: var(--primary);"></i> <strong>${shortImg}</strong>
+                        </span>
+                        <span style="color: #64748b; margin: 0 4px;">•</span>
+                        <span title="${videoFolder}" style="cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                            <i class="fa-solid fa-film" style="color: var(--success);"></i> <strong>${shortVid}</strong>
+                        </span>
+                    `;
+
+                    // Lấy dự đoán thời gian render
+                    await fetchPredictions();
+
                     renderQueueTable();
-                    document.getElementById('setupSection').style.display = 'none';
-                    document.getElementById('queueSection').style.display = 'block';
+                    updateQueueSummary();
+
+                    document.getElementById('queueSection').style.display = 'flex';
+                    const startBtn = document.getElementById('startBtn');
+                    if (rawQueueData.length > 0) {
+                        startBtn.disabled = false;
+                    }
+                    resetScanButton(scanBtn, scanIcon, scanText);
                 } else {
                     alert('Lỗi: ' + data.error);
                     resetScanButton(scanBtn, scanIcon, scanText);
@@ -271,7 +1142,61 @@
         function resetScanButton(btn, icon, text) {
             btn.disabled = false;
             icon.className = "fa-solid fa-folder-open";
-            text.innerText = "Quét Thư Mục & Tạo Hàng Đợi";
+            text.innerText = "Quét Thư Mục";
+        }
+
+        // Dự đoán và cập nhật động toàn bộ hàng đợi
+        async function fetchPredictions() {
+            try {
+                const res = await fetch('/api/render-predictions');
+                const data = await res.json();
+                if (data.success && data.predictions) {
+                    predictionsMap = {};
+                    data.predictions.forEach(p => {
+                        predictionsMap[p.id] = p.estimated_total_s;
+                    });
+                    const totalSec = data.total_queue_estimate_s || 0;
+                    document.getElementById('summaryEtaText').innerText = formatDuration(totalSec);
+
+                    // Cập nhật nhãn dự đoán cho các item chưa render
+                    rawQueueData.forEach(qItem => {
+                        if (qItem.status !== 'Hoàn thành') {
+                            const badgeEl = document.getElementById(`eta-badge-${qItem.id}`);
+                            if (badgeEl && predictionsMap[qItem.id] !== undefined) {
+                                badgeEl.innerHTML = `<i class="fa-regular fa-clock"></i> ${formatDuration(predictionsMap[qItem.id])}`;
+                            }
+                        }
+                    });
+                }
+            } catch (err) {
+                console.error("Lỗi lấy dự đoán render:", err);
+            }
+        }
+
+        function updateQueueSummary() {
+            const total = rawQueueData.length;
+            const done = rawQueueData.filter(x => x.status === 'Hoàn thành').length;
+            const pending = total - done;
+
+            document.getElementById('summaryTotal').innerText = total;
+            document.getElementById('summaryDone').innerText = done;
+            document.getElementById('summaryPending').innerText = pending;
+        }
+
+        let imagePickerSession = {
+            itemId: null,
+            originalImage: '',
+            candidateImage: ''
+        };
+        let isRefreshing = false;
+
+        function scrollToActiveRow(rowEl) {
+            const tableContainer = document.getElementById('tableContainer');
+            if (!rowEl || !tableContainer) return;
+            // Header <th> is sticky with ~42px height.
+            // Offset scroll by 42px so active row aligns flush directly beneath <th>
+            const targetScroll = Math.max(0, rowEl.offsetTop - 42);
+            tableContainer.scrollTo({ top: targetScroll, behavior: 'smooth' });
         }
 
         function renderQueueTable() {
@@ -279,60 +1204,143 @@
             tbody.innerHTML = '';
             const vidFolderPath = document.getElementById('videoFolderPath').value.trim();
 
-            rawQueueData.forEach((item) => {
+            rawQueueData.forEach((item, idx) => {
                 const vidFullPath = `${vidFolderPath}\\${item.video_name}`;
+                const estTime = predictionsMap[item.id] ? formatDuration(predictionsMap[item.id]) : "~30s";
+                const isCompleted = (item.status === 'Hoàn thành' || item.is_locked);
 
                 const tr = document.createElement('tr');
-                tr.innerHTML = `
+                tr.id = `row-${item.id}`;
+                if (isCompleted) {
+                    tr.classList.add('row-locked');
+                }
+
+                // Cột 1: Video nguồn gọn gàng (không hiển thị tên file dài dòng, chỉ có số thứ tự #, ETA badge, nút preview)
+                const col1Html = `
                     <td>
-                        <div style="font-size: 13px; margin-bottom: 6px; font-weight: 600; color: #fff;">${item.video_name}</div>
-                        <button class="btn btn-sm" id="btn-vid-toggle-${item.id}" onclick="toggleVideo(${item.id}, '${encodeURIComponent(vidFullPath)}')">
-                            <i class="fa-solid fa-eye"></i> Hiện video
-                        </button>
-                        <video class="input-video-preview" id="input-vid-${item.id}" controls preload="none"></video>
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                            <span style="font-weight: 700; font-size: 13px; color: #a5b4fc; background: rgba(99, 102, 241, 0.15); padding: 2px 8px; border-radius: 6px; border: 1px solid rgba(99, 102, 241, 0.3);" title="${item.video_name}">
+                                #${idx + 1}
+                            </span>
+                            <span id="eta-badge-${item.id}" class="eta-badge" title="Thời gian render dự kiến (video ~${Math.round(item.duration_s || 30)}s)">
+                                <i class="fa-regular fa-clock"></i> ${estTime}
+                            </span>
+                        </div>
+                        ${!isCompleted ? `
+                            <button class="btn btn-sm btn-vid-toggle" id="btn-vid-toggle-${item.id}" onclick="toggleVideo(${item.id}, '${encodeURIComponent(vidFullPath)}')">
+                                <i class="fa-solid fa-eye"></i> Hiện video
+                            </button>
+                            <video class="input-video-preview" id="input-vid-${item.id}" controls preload="none"></video>
+                        ` : ''}
                     </td>
-                    <td>
-                        <img class="preview-image" src="/media/image-by-name/${encodeURIComponent(item.image_name)}" id="img-preview-${item.id}">
-                        <!-- Lazy Load Select với sự kiện mousedown/focus -->
-                        <select id="select-img-${item.id}" onmousedown="populateSelect(${item.id}, '${item.image_name}')" onchange="updateImage(${item.id}, this.value)">
-                            <option value="${item.image_name}">${item.image_name}</option>
-                        </select>
-                    </td>
-                    <td>
-                        <span id="status-${item.id}" class="status-badge status-wait"><i class="fa-regular fa-clock"></i> ${item.status}</span>
-                        <div id="progress-wrapper-${item.id}" class="progress-bar-wrapper"><div id="progress-fill-${item.id}" class="progress-bar-fill"></div></div>
-                        <span id="progress-text-${item.id}" style="font-size: 11px; color: var(--text-muted);"></span>
-                    </td>
-                    <td><div id="result-${item.id}" style="color: var(--text-muted); font-size: 12px;">Chưa xử lý</div></td>
                 `;
+
+                // Cột 2: Ảnh ghép mẫu - bỏ thẻ select, hiển thị ảnh mẫu trực quan; click mở Modal chọn ảnh nếu chưa hoàn thành
+                const col2Html = `
+                    <td>
+                        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+                            <img class="preview-image" 
+                                 src="/media/image-by-name/${encodeURIComponent(item.image_name)}" 
+                                 id="img-preview-${item.id}" 
+                                 onclick="${isCompleted ? '' : `openImagePickerModal(${item.id})`}" 
+                                 title="${isCompleted ? 'Đã render - không thể đổi ảnh' : 'Nhấp để xem và đổi ảnh mẫu'}">
+                            ${!isCompleted ? `
+                                <span style="font-size: 10px; color: #94a3b8; cursor: pointer;" onclick="openImagePickerModal(${item.id})">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> Đổi ảnh
+                                </span>
+                            ` : ''}
+                        </div>
+                    </td>
+                `;
+
+                // Cột 3: Tiến độ & Timeline 6 bước
+                const col3Html = `
+                    <td>
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span id="status-${item.id}" class="status-badge ${getStatusBadgeClass(item.status)}" onclick="toggleTimeline(${item.id})">
+                                ${getStatusBadgeIcon(item.status)} ${item.status}
+                            </span>
+                            <button class="btn-toggle-steps" onclick="toggleTimeline(${item.id})">
+                                <i class="fa-solid fa-chevron-down" id="chevron-${item.id}"></i> Chi tiết
+                            </button>
+                        </div>
+
+                        <div id="progress-wrapper-${item.id}" class="progress-bar-wrapper" style="${item.status === 'Đang render' ? 'display: block;' : ''}">
+                            <div id="progress-fill-${item.id}" class="progress-bar-fill" style="width: ${item.status === 'Hoàn thành' ? '100%' : '0%'};"></div>
+                        </div>
+                        <div id="progress-text-${item.id}" style="font-size: 11px; color: var(--text-muted); margin-top: 4px;"></div>
+
+                        <!-- Accordion Timeline chi tiết 6 bước -->
+                        <div id="timeline-${item.id}" class="stage-timeline">
+                            ${STAGE_DEFS.map((s, stepIdx) => `
+                                <div class="stage-step ${isCompleted ? 'step-completed' : 'step-pending'}" id="step-${item.id}-${s.id}">
+                                    <span class="step-icon"><i class="fa-solid fa-check"></i></span>
+                                    <span>${stepIdx + 1}. ${s.label}</span>
+                                    <span class="step-duration" id="step-dur-${item.id}-${s.id}">${isCompleted ? 'Xong' : '-'}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </td>
+                `;
+
+                // Cột 4: Thành phẩm
+                let col4Html = `<td><div id="result-${item.id}" style="color: var(--text-muted); font-size: 12px;">Chưa xử lý</div></td>`;
+                if (isCompleted && item.output_file) {
+                    const videoUrl = `/${item.output_folder || 'outputs'}/${item.output_file}`;
+                    const downloadUrl = (item.output_folder === 'outputs-no-lyrics')
+                        ? `/download/no-lyrics/${item.output_file}`
+                        : `/download/${item.output_file}`;
+                    const badgeHtml = item.has_lyrics
+                        ? `<span class="badge-lyrics"><i class="fa-solid fa-music"></i> Có lyrics</span>`
+                        : `<span class="badge-no-lyrics"><i class="fa-solid fa-volume-xmark"></i> Không lời</span>`;
+
+                    col4Html = `
+                        <td>
+                            <div id="result-${item.id}">
+                                <div style="display: flex; flex-direction: column; gap: 6px;">
+                                    <div>${badgeHtml}</div>
+                                    <button class="btn btn-sm" onclick="openMediaModal('video', '${videoUrl}', '${item.output_file}')">
+                                        <i class="fa-solid fa-play"></i> Xem video
+                                    </button>
+                                    <a href="${downloadUrl}" target="_blank" style="color: #34d399; font-weight: 600; font-size: 11px; text-decoration: none;">
+                                        <i class="fa-solid fa-download"></i> Tải xuống
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+                }
+
+                tr.innerHTML = col1Html + col2Html + col3Html + col4Html;
                 tbody.appendChild(tr);
             });
         }
 
-        // --- HÀM NẠP DANH SÁCH ẢNH VÀO SELECT KÈM LOADING TRẠNG THÁI ---
-        function populateSelect(id, currentImageName) {
-            const selectEl = document.getElementById(`select-img-${id}`);
-            
-            // 1. Kiểm tra nếu đã tải rồi hoặc đang tải thì không chạy lại nữa để tránh lặp
-            if (selectEl.dataset.loaded === "true" || selectEl.dataset.loading === "true") return;
-            console.log("vào");
-            
-            // Đánh dấu đang tải
-            selectEl.dataset.loading = "true";
+        function getStatusBadgeClass(status) {
+            if (status === 'Đang render') return 'status-running';
+            if (status === 'Hoàn thành') return 'status-done';
+            if (status === 'Lỗi') return 'status-error';
+            return 'status-wait';
+        }
 
-            // Hiển thị option loading tạm thời ngay lập tức
-            selectEl.innerHTML = `<option value="${currentImageName}">⏳ Đang tải danh sách ảnh...</option>`;
+        function getStatusBadgeIcon(status) {
+            if (status === 'Đang render') return '<i class="fa-solid fa-spinner fa-spin"></i>';
+            if (status === 'Hoàn thành') return '<i class="fa-solid fa-circle-check"></i>';
+            if (status === 'Lỗi') return '<i class="fa-solid fa-circle-exclamation"></i>';
+            return '<i class="fa-regular fa-clock"></i>';
+        }
 
-            // Dùng setTimeout nhỏ để giao diện kịp render dòng loading trước khi JavaScript chạy vòng lặp nặng 20.000 phần tử
-            setTimeout(() => {
-                let optionsHtml = availableImages.map(img => 
-                    `<option value="${img}" ${img === currentImageName ? 'selected' : ''}>${img}</option>`
-                ).join('');
-
-                selectEl.innerHTML = optionsHtml;
-                selectEl.dataset.loaded = "true";   // Đánh dấu đã tải xong vĩnh viễn cho select này
-                selectEl.dataset.loading = "false"; // Tắt trạng thái đang tải
-            }, 50);
+        function toggleTimeline(id) {
+            const tl = document.getElementById(`timeline-${id}`);
+            const chevron = document.getElementById(`chevron-${id}`);
+            if (!tl) return;
+            if (tl.style.display === 'block') {
+                tl.style.display = 'none';
+                if (chevron) chevron.className = 'fa-solid fa-chevron-down';
+            } else {
+                tl.style.display = 'block';
+                if (chevron) chevron.className = 'fa-solid fa-chevron-up';
+            }
         }
 
         function toggleVideo(id, encodedPath) {
@@ -340,9 +1348,7 @@
             const btnEl = document.getElementById(`btn-vid-toggle-${id}`);
 
             if (videoEl.style.display === 'none' || videoEl.style.display === '') {
-                if (!videoEl.src) {
-                    videoEl.src = `/media/video?path=${encodedPath}`;
-                }
+                if (!videoEl.src) videoEl.src = `/media/video?path=${encodedPath}`;
                 videoEl.style.display = 'block';
                 btnEl.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Ẩn video';
             } else {
@@ -359,12 +1365,444 @@
                 body: JSON.stringify({ id: id, image_name: imageName })
             });
             const imgItem = rawQueueData.find(x => x.id === id);
-            if(imgItem) {
+            if (imgItem) {
                 imgItem.image_name = imageName;
-                document.getElementById(`img-preview-${id}`).src = `/media/image-by-name/${encodeURIComponent(imageName)}?t=${new Date().getTime()}`;
+                const thumb = document.getElementById(`img-preview-${id}`);
+                if (thumb) {
+                    thumb.src = `/media/image-by-name/${encodeURIComponent(imageName)}?t=${new Date().getTime()}`;
+                }
             }
         }
 
+        // --- MODAL IMAGE WHEEL ZOOM & PAN CONTROLLER ---
+        const ModalZoomController = {
+            scale: 1.0,
+            minScale: 1.0,
+            maxScale: 5.0,
+            translateX: 0,
+            translateY: 0,
+            isDragging: false,
+            startX: 0,
+            startY: 0,
+            targetImgEl: null,
+            badgeEl: null,
+            resetBtnEl: null,
+            containerEl: null,
+
+            init(containerId, imgId, badgeId, resetBtnId) {
+                this.reset();
+                this.containerEl = document.getElementById(containerId);
+                this.targetImgEl = document.getElementById(imgId);
+                this.badgeEl = document.getElementById(badgeId);
+                this.resetBtnEl = document.getElementById(resetBtnId);
+
+                if (!this.containerEl || !this.targetImgEl) return;
+
+                // Thao tác cuộn chuột zoom mượt, ngăn chặn cuộn trang
+                this.containerEl.onwheel = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const delta = -e.deltaY;
+                    const zoomFactor = delta > 0 ? 1.15 : (1 / 1.15);
+                    let newScale = this.scale * zoomFactor;
+
+                    if (newScale > this.maxScale) newScale = this.maxScale;
+                    if (newScale < this.minScale) newScale = this.minScale;
+
+                    if (newScale <= this.minScale) {
+                        this.translateX = 0;
+                        this.translateY = 0;
+                    }
+
+                    this.scale = newScale;
+                    this.applyTransform();
+                };
+
+                // Kéo rê (pan) khi ảnh đang phóng to
+                this.targetImgEl.onmousedown = (e) => {
+                    if (this.scale <= 1.05) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.isDragging = true;
+                    this.startX = e.clientX - this.translateX;
+                    this.startY = e.clientY - this.translateY;
+                    this.targetImgEl.classList.add('grabbing');
+                };
+
+                window.removeEventListener('mousemove', this.boundOnMouseMove);
+                window.removeEventListener('mouseup', this.boundOnMouseUp);
+
+                this.boundOnMouseMove = (e) => this.onMouseMove(e);
+                this.boundOnMouseUp = () => this.onMouseUp();
+
+                window.addEventListener('mousemove', this.boundOnMouseMove);
+                window.addEventListener('mouseup', this.boundOnMouseUp);
+
+                // Nhấp đúp chuột để reset zoom về 100%
+                this.targetImgEl.ondblclick = (e) => {
+                    e.preventDefault();
+                    this.reset();
+                };
+            },
+
+            onMouseMove(e) {
+                if (!this.isDragging || !this.targetImgEl) return;
+                this.translateX = e.clientX - this.startX;
+                this.translateY = e.clientY - this.startY;
+                this.applyTransform();
+            },
+
+            onMouseUp() {
+                if (this.isDragging) {
+                    this.isDragging = false;
+                    if (this.targetImgEl) this.targetImgEl.classList.remove('grabbing');
+                }
+            },
+
+            applyTransform() {
+                if (!this.targetImgEl) return;
+                const roundedScale = Math.round(this.scale * 100) / 100;
+                this.targetImgEl.style.transform = `translate3d(${this.translateX}px, ${this.translateY}px, 0) scale(${roundedScale})`;
+
+                if (roundedScale > 1.05) {
+                    this.targetImgEl.classList.add('zoomed');
+                    if (this.badgeEl) {
+                        this.badgeEl.style.display = 'block';
+                        this.badgeEl.innerText = `${Math.round(roundedScale * 100)}%`;
+                    }
+                    if (this.resetBtnEl) {
+                        this.resetBtnEl.style.display = 'inline-flex';
+                    }
+                } else {
+                    this.targetImgEl.classList.remove('zoomed');
+                    this.targetImgEl.classList.remove('grabbing');
+                    if (this.badgeEl) this.badgeEl.style.display = 'none';
+                    if (this.resetBtnEl) this.resetBtnEl.style.display = 'none';
+                }
+            },
+
+            reset() {
+                this.scale = 1.0;
+                this.translateX = 0;
+                this.translateY = 0;
+                this.isDragging = false;
+                if (this.targetImgEl) {
+                    this.targetImgEl.style.transform = 'translate3d(0px, 0px, 0) scale(1)';
+                    this.targetImgEl.classList.remove('zoomed');
+                    this.targetImgEl.classList.remove('grabbing');
+                }
+                if (this.badgeEl) this.badgeEl.style.display = 'none';
+                if (this.resetBtnEl) this.resetBtnEl.style.display = 'none';
+            }
+        };
+
+        // --- MODAL IMAGE PICKER WITH PREVIEW & CAROUSEL ---
+        function openImagePickerModal(itemId) {
+            const item = rawQueueData.find(x => x.id === itemId);
+            if (!item) return;
+            if (item.status === 'Hoàn thành' || item.is_locked) return;
+
+            imagePickerSession = {
+                itemId: itemId,
+                originalImage: item.image_name,
+                candidateImage: item.image_name
+            };
+
+            const modal = document.getElementById('mediaModal');
+            const titleEl = document.getElementById('mediaModalTitle');
+            if (!modal || !titleEl) return;
+
+            const itemIdx = rawQueueData.findIndex(x => x.id === itemId) + 1;
+            titleEl.innerHTML = `<i class="fa-solid fa-photo-film" style="color: var(--primary);"></i> Đổi ảnh ghép mẫu cho Video #${itemIdx}`;
+
+            renderImagePickerModalContent();
+            modal.classList.add('active');
+        }
+
+        function renderImagePickerModalContent() {
+            const bodyEl = document.getElementById('mediaModalBody');
+            if (!bodyEl) return;
+
+            const currentImg = imagePickerSession.candidateImage;
+            const currentUrl = `/media/image-by-name/${encodeURIComponent(currentImg)}`;
+
+            bodyEl.innerHTML = `
+                <div class="modal-curation-toolbar">
+                    <div class="modal-candidate-badge" title="${currentImg}">
+                        <i class="fa-solid fa-image" style="color: var(--primary);"></i> Đang chọn: <strong>${currentImg}</strong>
+                    </div>
+                    <div class="modal-curation-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="pickRandomImage()" title="Chọn ngẫu nhiên 1 ảnh khác từ thư mục">
+                            <i class="fa-solid fa-shuffle"></i> Chọn ngẫu nhiên
+                        </button>
+                        <button class="btn btn-success btn-sm" id="btnConfirmImageSwap" onclick="confirmImageSwap()" title="Áp dụng ảnh này cho video">
+                            <i class="fa-solid fa-check"></i> Xác nhận đổi ảnh
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-preview-stage" id="modalPreviewStage">
+                    <img id="modalCandidateImg" src="${currentUrl}" alt="${currentImg}">
+                    <div id="modalZoomBadge" class="modal-zoom-badge">100%</div>
+                    <button id="modalZoomResetBtn" class="modal-zoom-reset-btn" onclick="ModalZoomController.reset()" title="Khôi phục kích thước 100% (Nhấp đúp chuột)">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+                </div>
+                <div class="modal-carousel-container">
+                    <div class="modal-carousel-label">
+                        <i class="fa-solid fa-images"></i> Danh sách ảnh gợi ý — Chọn để xem trước:
+                    </div>
+                    <div class="modal-carousel-strip" id="modalCarouselStrip">
+                        ${availableImages.map(img => `
+                            <img class="modal-carousel-thumb ${img === currentImg ? 'active' : ''}" 
+                                 src="/media/image-by-name/${encodeURIComponent(img)}" 
+                                 title="${img}" 
+                                 onclick="selectCandidateImage('${img.replace(/'/g, "\\'")}')">
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            setTimeout(() => {
+                const strip = document.getElementById('modalCarouselStrip');
+                const activeThumb = strip?.querySelector('.modal-carousel-thumb.active');
+                if (activeThumb && strip) {
+                    activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+                ModalZoomController.init('modalPreviewStage', 'modalCandidateImg', 'modalZoomBadge', 'modalZoomResetBtn');
+            }, 50);
+        }
+
+        function selectCandidateImage(imgName) {
+            ModalZoomController.reset();
+            imagePickerSession.candidateImage = imgName;
+            const imgEl = document.getElementById('modalCandidateImg');
+            if (imgEl) {
+                imgEl.src = `/media/image-by-name/${encodeURIComponent(imgName)}`;
+            }
+            const badgeEl = document.querySelector('.modal-candidate-badge');
+            if (badgeEl) {
+                badgeEl.innerHTML = `<i class="fa-solid fa-image" style="color: var(--primary);"></i> Đang chọn: <strong>${imgName}</strong>`;
+                badgeEl.title = imgName;
+            }
+            const strip = document.getElementById('modalCarouselStrip');
+            if (strip) {
+                strip.querySelectorAll('.modal-carousel-thumb').forEach(thumb => {
+                    if (thumb.title === imgName) {
+                        thumb.classList.add('active');
+                        thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        async function pickRandomImage() {
+            try {
+                const res = await fetch('/api/random-image');
+                const data = await res.json();
+                if (data.success && data.image_name) {
+                    const chosen = data.image_name;
+                    if (!availableImages.includes(chosen)) {
+                        availableImages.unshift(chosen);
+                        renderImagePickerModalContent();
+                    }
+                    selectCandidateImage(chosen);
+                    return;
+                }
+            } catch (e) { }
+
+            // Fallback chọn từ danh sách đã tải
+            if (!availableImages || availableImages.length === 0) return;
+            if (availableImages.length === 1) {
+                alert('Thư mục chỉ có duy nhất 1 ảnh!');
+                return;
+            }
+            const current = imagePickerSession.candidateImage;
+            const candidates = availableImages.filter(x => x !== current);
+            const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+            selectCandidateImage(chosen);
+        }
+
+        async function confirmImageSwap() {
+            const btn = document.getElementById('btnConfirmImageSwap');
+            if (btn) btn.disabled = true;
+
+            const { itemId, candidateImage } = imagePickerSession;
+            try {
+                const res = await fetch('/api/update-queue', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: itemId, image_name: candidateImage })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    const item = rawQueueData.find(x => x.id === itemId);
+                    if (item) {
+                        item.image_name = candidateImage;
+                        const thumbImg = document.getElementById(`img-preview-${itemId}`);
+                        if (thumbImg) {
+                            thumbImg.src = `/media/image-by-name/${encodeURIComponent(candidateImage)}?t=${Date.now()}`;
+                        }
+                    }
+                    closeMediaModal();
+                } else {
+                    alert('Lỗi cập nhật ảnh: ' + (data.error || ''));
+                }
+            } catch (err) {
+                alert('Lỗi kết nối khi đổi ảnh!');
+            } finally {
+                if (btn) btn.disabled = false;
+            }
+        }
+
+        // --- NON-DESTRUCTIVE REFRESH QUEUE STATE ---
+        async function refreshQueueState() {
+            if (isRefreshing) return;
+            const reloadBtn = document.getElementById('reloadBtn');
+            const originalHtml = reloadBtn.innerHTML;
+            isRefreshing = true;
+            reloadBtn.disabled = true;
+            reloadBtn.innerHTML = '<i class="fa-solid fa-rotate-right fa-spin"></i> <span>Đang đồng bộ...</span>';
+
+            try {
+                const res = await fetch('/api/refresh-queue', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                const data = await res.json();
+                if (data.success) {
+                    availableImages = data.available_images || availableImages;
+
+                    // Giữ nguyên trạng thái render đang chạy hoặc đã xong
+                    const serverQueue = data.queue || [];
+                    const localMap = {};
+                    rawQueueData.forEach(item => localMap[item.id] = item);
+
+                    rawQueueData = serverQueue.map(srvItem => {
+                        const local = localMap[srvItem.id];
+                        if (local) {
+                            return {
+                                ...srvItem,
+                                status: (local.status === 'Hoàn thành' || local.status === 'Đang render') ? local.status : srvItem.status,
+                                output_file: local.output_file || srvItem.output_file,
+                                output_folder: local.output_folder || srvItem.output_folder,
+                                has_lyrics: local.has_lyrics !== undefined ? local.has_lyrics : srvItem.has_lyrics,
+                                is_locked: local.is_locked || srvItem.is_locked
+                            };
+                        }
+                        return srvItem;
+                    });
+
+                    await fetchPredictions();
+                    renderQueueTable();
+                    updateQueueSummary();
+
+                    if (document.getElementById('setupSection')?.classList.contains('collapsed')) {
+                        const imageFolder = document.getElementById('imageFolderPath')?.value.trim() || '';
+                        const videoFolder = document.getElementById('videoFolderPath')?.value.trim() || '';
+                        const shortImg = formatShortPath(imageFolder);
+                        const shortVid = formatShortPath(videoFolder);
+                        document.getElementById('setupSummaryText').innerHTML = `
+                            <span title="${imageFolder}" style="cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                                <i class="fa-regular fa-image" style="color: var(--primary);"></i> <strong>${shortImg}</strong>
+                            </span>
+                            <span style="color: #64748b; margin: 0 4px;">•</span>
+                            <span title="${videoFolder}" style="cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+                                <i class="fa-solid fa-film" style="color: var(--success);"></i> <strong>${shortVid}</strong>
+                            </span>
+                        `;
+                    }
+
+                    // Tiếp tục bám theo video đang chạy nếu có
+                    if (data.active_item_id !== null && data.active_item_id !== undefined) {
+                        const activeRow = document.getElementById(`row-${data.active_item_id}`);
+                        if (activeRow) scrollToActiveRow(activeRow);
+                    }
+                } else {
+                    alert('Lỗi đồng bộ: ' + (data.error || ''));
+                }
+            } catch (err) {
+                console.error("Lỗi làm mới hàng đợi:", err);
+            } finally {
+                reloadBtn.disabled = false;
+                reloadBtn.innerHTML = originalHtml;
+                isRefreshing = false;
+            }
+        }
+
+        // --- POLLING TIẾN ĐỘ THỜI GIAN THỰC & PLATEAUING ---
+        function startProgressPolling(activeItemId) {
+            if (pollInterval) clearInterval(pollInterval);
+
+            pollInterval = setInterval(async () => {
+                if (!isRunning) {
+                    clearInterval(pollInterval);
+                    return;
+                }
+                try {
+                    const res = await fetch(`/api/render-progress?id=${activeItemId}`);
+                    const data = await res.json();
+                    if (data.success && data.progress && data.progress[activeItemId]) {
+                        const itemState = data.progress[activeItemId];
+                        updateItemProgressUI(activeItemId, itemState);
+
+                        if (data.queue_summary && data.queue_summary.estimated_queue_remaining_s !== undefined) {
+                            document.getElementById('summaryEtaText').innerText = formatDuration(data.queue_summary.estimated_queue_remaining_s);
+                        }
+                    }
+                } catch (e) {
+                    console.error("Lỗi polling tiến độ:", e);
+                }
+            }, 500);
+        }
+
+        function updateItemProgressUI(id, state) {
+            const badge = document.getElementById(`status-${id}`);
+            const progressFill = document.getElementById(`progress-fill-${id}`);
+            const progressText = document.getElementById(`progress-text-${id}`);
+
+            if (state.status === 'processing') {
+                badge.className = 'status-badge status-running';
+                badge.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${state.current_stage_label}`;
+
+                // Thanh progress ngắt quãng tại trần từng bước (plateauing)
+                progressFill.style.width = `${state.percent}%`;
+
+                const elapsedStr = formatSecondsStrict(state.elapsed_s);
+                const remainingStr = formatDuration(state.estimated_remaining_s);
+                progressText.innerHTML = `Đang chạy: <strong>${state.current_stage_label}</strong> (${state.percent}%) \n• Đã qua: <strong>${elapsedStr}</strong> • Còn lại: <strong>${remainingStr}</strong>`;
+            }
+
+            // Cập nhật từng step trong timeline
+            if (state.stages) {
+                state.stages.forEach(st => {
+                    const stepEl = document.getElementById(`step-${id}-${st.id}`);
+                    const durEl = document.getElementById(`step-dur-${id}-${st.id}`);
+                    if (!stepEl) return;
+
+                    stepEl.className = `stage-step step-${st.status}`;
+                    const iconEl = stepEl.querySelector('.step-icon');
+
+                    if (st.status === 'active') {
+                        if (iconEl) iconEl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                        if (durEl) durEl.innerText = 'Đang chạy...';
+                    } else if (st.status === 'completed') {
+                        if (iconEl) iconEl.innerHTML = '<i class="fa-solid fa-check"></i>';
+                        if (durEl) durEl.innerText = formatSecondsStrict(st.duration_s);
+                    } else if (st.status === 'failed') {
+                        if (iconEl) iconEl.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                        if (durEl) durEl.innerText = 'Lỗi';
+                    } else {
+                        if (iconEl) iconEl.innerHTML = '<i class="fa-regular fa-circle"></i>';
+                        if (durEl) durEl.innerText = '-';
+                    }
+                });
+            }
+        }
+
+        // --- BATCH RENDER & AUTO-SCROLL / ACCORDION AUTO-OPEN ---
         async function startBatchRender() {
             isRunning = true;
             document.getElementById('startBtn').style.display = 'none';
@@ -372,9 +1810,23 @@
 
             for (let i = 0; i < rawQueueData.length; i++) {
                 if (!isRunning) break;
-                
+
                 const item = rawQueueData[i];
                 if (item.status === 'Hoàn thành') continue;
+
+                // Tự động cuộn hàng đang chạy lên đầu khung nhìn, căn chuẩn dưới sticky header
+                const rowEl = document.getElementById(`row-${item.id}`);
+                if (rowEl) {
+                    scrollToActiveRow(rowEl);
+                }
+
+                // Tự động mở chi tiết 6 bước của video đang render
+                const tl = document.getElementById(`timeline-${item.id}`);
+                const chevron = document.getElementById(`chevron-${item.id}`);
+                if (tl) {
+                    tl.style.display = 'block';
+                    if (chevron) chevron.className = 'fa-solid fa-chevron-up';
+                }
 
                 const badge = document.getElementById(`status-${item.id}`);
                 const progressWrapper = document.getElementById(`progress-wrapper-${item.id}`);
@@ -382,19 +1834,13 @@
                 const progressText = document.getElementById(`progress-text-${item.id}`);
 
                 badge.className = 'status-badge status-running';
-                badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang render...';
+                badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Khởi tạo render...';
                 progressWrapper.style.display = 'block';
+                progressFill.style.width = '5%';
+                progressText.innerText = 'Đang chuẩn bị dữ liệu...';
 
-                let currentPercent = 5;
-                progressFill.style.width = currentPercent + '%';
-
-                let progressInterval = setInterval(() => {
-                    if (currentPercent < 92) {
-                        currentPercent += Math.floor(Math.random() * 6) + 2;
-                        progressFill.style.width = currentPercent + '%';
-                        progressText.innerText = `Đang xử lý (${currentPercent}%)`;
-                    }
-                }, 400);
+                // Bắt đầu polling tiến độ
+                startProgressPolling(item.id);
 
                 try {
                     const res = await fetch('/api/render-single', {
@@ -403,46 +1849,151 @@
                         body: JSON.stringify({ id: item.id })
                     });
                     const data = await res.json();
-                    clearInterval(progressInterval);
+
+                    if (pollInterval) clearInterval(pollInterval);
 
                     if (data.success) {
+                        item.status = 'Hoàn thành';
+                        item.is_locked = true;
+                        item.has_lyrics = data.has_lyrics;
+                        item.output_file = data.output_file;
+                        item.output_folder = data.output_folder;
+
                         progressFill.style.width = '100%';
-                        progressText.innerText = 'Hoàn tất 100%';
+                        progressText.innerHTML = '<span style="color: #34d399;"><i class="fa-solid fa-circle-check"></i> Render thành công!</span>';
                         badge.className = 'status-badge status-done';
                         badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Hoàn thành';
-                        
+
+                        // Khóa dòng đã hoàn thành: ẩn nút video nguồn và vô hiệu hóa đổi ảnh
+                        if (rowEl) {
+                            rowEl.classList.add('row-locked');
+                        }
+                        const vidBtn = document.getElementById(`btn-vid-toggle-${item.id}`);
+                        if (vidBtn) vidBtn.style.display = 'none';
+                        const imgThumb = document.getElementById(`img-preview-${item.id}`);
+                        if (imgThumb) {
+                            imgThumb.onclick = null;
+                            imgThumb.title = "Đã render - không thể đổi ảnh";
+                        }
+
+                        // Đảm bảo đủ 6/6 bước đều hiển thị tích xanh (khắc phục sót bước 6)
+                        STAGE_DEFS.forEach(st => {
+                            const stepEl = document.getElementById(`step-${item.id}-${st.id}`);
+                            if (stepEl) {
+                                stepEl.className = 'stage-step step-completed';
+                                const iconEl = stepEl.querySelector('.step-icon');
+                                if (iconEl) iconEl.innerHTML = '<i class="fa-solid fa-check"></i>';
+                                const durEl = document.getElementById(`step-dur-${item.id}-${st.id}`);
+                                if (durEl && (durEl.innerText === '-' || durEl.innerText === 'Đang chạy...')) {
+                                    durEl.innerText = 'Xong';
+                                }
+                            }
+                        });
+
+                        const videoUrl = data.video_url || `/${data.output_folder || 'outputs'}/${data.output_file}`;
+                        const downloadUrl = (data.output_folder === 'outputs-no-lyrics')
+                            ? `/download/no-lyrics/${data.output_file}`
+                            : `/download/${data.output_file}`;
+
+                        const badgeHtml = data.has_lyrics
+                            ? `<span class="badge-lyrics"><i class="fa-solid fa-music"></i> Có lyrics</span>`
+                            : `<span class="badge-no-lyrics"><i class="fa-solid fa-volume-xmark"></i> Không lời</span>`;
+
                         document.getElementById(`result-${item.id}`).innerHTML = `
-                            <video class="output-video-preview" controls src="/outputs/${data.output_file}"></video>
-                            <div style="margin-top: 6px;">
-                                <a href="/download/${data.output_file}" target="_blank" style="color: #34d399; font-weight: 600; font-size: 12px; text-decoration: none;">📥 Tải xuống</a>
+                            <div style="display: flex; flex-direction: column; gap: 6px;">
+                                <div>${badgeHtml}</div>
+                                <button class="btn btn-sm" onclick="openMediaModal('video', '${videoUrl}', '${data.output_file}')">
+                                    <i class="fa-solid fa-play"></i> Xem video
+                                </button>
+                                <a href="${downloadUrl}" target="_blank" style="color: #34d399; font-weight: 600; font-size: 11px; text-decoration: none;">
+                                    <i class="fa-solid fa-download"></i> Tải xuống
+                                </a>
                             </div>
                         `;
                     } else {
-                        progressWrapper.style.display = 'none';
+                        item.status = 'Lỗi';
                         badge.className = 'status-badge status-error';
-                        badge.innerHTML = 'Lỗi';
+                        badge.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> Lỗi (${data.failing_stage || 'hệ thống'})`;
+                        progressText.innerHTML = `<span style="color: #f87171;">Lỗi tại bước: ${data.failing_stage || 'không xác định'}</span>`;
                         document.getElementById(`result-${item.id}`).innerHTML = `<span style="color: #f87171;">${data.error}</span>`;
+
+                        if (tl) tl.style.display = 'block';
                     }
                 } catch (err) {
-                    clearInterval(progressInterval);
-                    progressWrapper.style.display = 'none';
+                    if (pollInterval) clearInterval(pollInterval);
+                    item.status = 'Lỗi';
                     badge.className = 'status-badge status-error';
-                    badge.innerHTML = 'Lỗi kết nối';
+                    badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Lỗi kết nối';
+                    progressText.innerHTML = '<span style="color: #f87171;">Mất kết nối với máy chủ</span>';
                 }
+
+                // Cập nhật lại thời gian dự đoán hàng đợi sau mỗi video
+                await fetchPredictions();
+                updateQueueSummary();
             }
 
+            if (pollInterval) clearInterval(pollInterval);
             isRunning = false;
             document.getElementById('startBtn').style.display = 'inline-flex';
             document.getElementById('startBtn').disabled = true;
-            document.getElementById('startBtn').innerText = 'Đã Render Hoàn Tất';
+            document.getElementById('startBtnText').innerText = 'Đã Render Hoàn Tất';
             document.getElementById('stopBtn').style.display = 'none';
         }
 
         function stopBatchRender() {
             isRunning = false;
+            if (pollInterval) clearInterval(pollInterval);
             document.getElementById('startBtn').style.display = 'inline-flex';
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('startBtnText').innerText = 'Tiếp Tục Render';
             document.getElementById('stopBtn').style.display = 'none';
         }
+
+        // --- MEDIA MODAL LIGHTBOX CONTROLS ---
+        function openMediaModal(type, url, title) {
+            const modal = document.getElementById('mediaModal');
+            const titleEl = document.getElementById('mediaModalTitle');
+            const bodyEl = document.getElementById('mediaModalBody');
+            if (!modal || !titleEl || !bodyEl) return;
+
+            titleEl.innerText = title || (type === 'image' ? 'Xem ảnh nguồn' : 'Xem video thành phẩm');
+            if (type === 'image') {
+                bodyEl.innerHTML = `
+                    <div class="modal-preview-stage" id="lightboxPreviewStage" style="width: 85vw; height: 75vh; max-height: 80vh; margin-bottom: 0;">
+                        <img id="lightboxImg" src="${url}" alt="Ảnh xem trước">
+                        <div id="lightboxZoomBadge" class="modal-zoom-badge">100%</div>
+                        <button id="lightboxZoomResetBtn" class="modal-zoom-reset-btn" onclick="ModalZoomController.reset()" title="Khôi phục kích thước (Nhấp đúp)">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </button>
+                    </div>
+                `;
+                setTimeout(() => {
+                    ModalZoomController.init('lightboxPreviewStage', 'lightboxImg', 'lightboxZoomBadge', 'lightboxZoomResetBtn');
+                }, 10);
+            } else {
+                bodyEl.innerHTML = `<video controls autoplay playsinline src="${url}"></video>`;
+            }
+            modal.classList.add('active');
+        }
+
+        function closeMediaModal() {
+            ModalZoomController.reset();
+            const modal = document.getElementById('mediaModal');
+            const bodyEl = document.getElementById('mediaModalBody');
+            if (!modal) return;
+            if (bodyEl) {
+                const vid = bodyEl.querySelector('video');
+                if (vid) vid.pause();
+                bodyEl.innerHTML = '';
+            }
+            imagePickerSession = { itemId: null, originalImage: '', candidateImage: '' };
+            modal.classList.remove('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMediaModal();
+        });
     </script>
 </body>
+
 </html>

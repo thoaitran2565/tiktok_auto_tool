@@ -1,20 +1,18 @@
-Media & Processing directories
-
+# Media & Processing directories
 data/
 outputs/
+outputs-no-lyrics/
 uploads/
 inputs/
 Videos/
 
-Temporary audio & video files
-
+# Temporary audio & video files
 *.mp3
 *.mp4
 *.wav
 
-Python runtime & virtual environments
-
-pycache/
+# Python runtime & virtual environments
+__pycache__/
 *.py[cod]
 *$py.class
 venv/
@@ -22,8 +20,7 @@ venv/
 env/
 .env
 
-IDEs & System files
-
+# IDEs & System files
 .vscode/
 .idea/
 .DS_Store

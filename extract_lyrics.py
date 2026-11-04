@@ -14,9 +14,8 @@ def extract_raw_lyrics(video_path):
         print(f"❌ Không tìm thấy file video tại: {video_path}")
         return None
 
-    print("🚀 Đang chạy Whisper để trích xuất âm thanh thô từ video...")
     model = whisper.load_model("small")
-    result = model.transcribe(video_path, task="transcribe")
+    result = model.transcribe(video_path, task="transcribe", verbose=False)
     return result.get("text", "").strip()
 
 def clean_lyrics_with_ai(raw_lyrics):
@@ -63,18 +62,17 @@ def clean_lyrics_with_ai(raw_lyrics):
     
     for model_name in models_to_try:
         try:
-            print(f"🤖 Đang thử gọi mô hình: {model_name}...")
             response = client.models.generate_content(
                 model=model_name,
                 contents=prompt,
             )
-            print(f"✅ Thành công với mô hình: \n{response.text}")
-            return response.text.strip(), "AI"
-        except Exception as e:
-            print(f"⚠️ Mô hình {model_name} gặp lỗi, đang thử mô hình tiếp theo...")
+            cleaned_text = response.text.strip() if response.text else ""
+            if cleaned_text:
+                return cleaned_text, "AI"
+        except Exception:
+            continue
     
     # Nếu tất cả các model đều thất bại -> Trả về lời gốc của Whisper và đánh dấu 'Original'
-    print("❌ Tất cả các mô hình AI đều bận hoặc lỗi. Đang quay về sử dụng lyric thô gốc...")
     return raw_lyrics, "Original"
 
 def get_first_line(lyrics_text, max_length=100, min_length=50):
@@ -133,39 +131,6 @@ def process_video_to_perfect_lyrics(video_path, max_length=100):
         "source": source_type            # 'AI' hoặc 'Original'
     }
 
-# --- KHU VỰC THỰC THI KIỂM TRA ---
 if __name__ == "__main__":
-    # video_file = r"D:\Code\tools\tiktok_auto_render_tool\outputs\Em ơi đừng khóc bóng tối chốc lát sẽ bắt em đi.mp4"
-    
-    # result = process_video_to_perfect_lyrics(video_file, max_length=200)
-    
-    # print("\n" + "="*20 + " KẾT QUẢ TRÍCH XUẤT LIRCYS " + "="*20)
-    # print(f"📌 Nguồn gốc trả ra : {result['source']} ('AI' hoặc 'Original')")
-    # print(f"📌 Câu đầu tiên     : {result['first_line']}")
-    # print(f"📌 Toàn bộ lyrics   :\n{result['full_lyrics']}")
-    # print("="*67)
-    a = get_first_line(
-        """
-Là hai sinh linh trót quen thân thế gian
-Thế nhưng dở dang, giấu anh vào trang
-Hồi kết mình chẳng thể cùng xem thêm
-
-Em và anh thường viết nên những câu ca quen khi gảy đàn nghe
-Luôn mong mình chạy xa qua đây, chắc tình ta chẳng hề
-Mãi tới lần đầu tiên, hãy để lòng bình yên rồi đây
-Chỉ có lời gửi tới em...
-
-Chưa từng một ai nhớ về anh
-Chưa khi nào một giờ ngừng nghĩ về em
-Chưa từng một phút ngừng nhớ về anh
-Chưa từng một giây nào yêu ai hơn em
-
-Mà tình đẹp như bao hồi ức thật lâu
-Ký tên của cuộc tình xưa đậm sâu
-Cảm ơn ta đã gặp được nhau
-Kiếp này sẽ nhớ, đã nhớ được gọi tên""",
-        100, 
-        50
-    )
-
-    print(a)
+    test_text = "Là hai sinh linh trót quen thân thế gian\nThế nhưng dở dang, giấu anh vào trang"
+    print(get_first_line(test_text, 100, 50))

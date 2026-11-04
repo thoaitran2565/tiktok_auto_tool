@@ -29,16 +29,17 @@
             display: flex; 
             justify-content: center; 
             align-items: flex-start;
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
 
         .container { 
             background: var(--panel-bg); 
             backdrop-filter: blur(16px);
-            padding: 35px; 
+            padding: 30px; 
             border-radius: 20px; 
             box-shadow: 0 20px 50px rgba(0,0,0,0.6); 
-            width: 1100px; 
+            width: 1160px; 
+            max-width: 100%;
             border: 1px solid var(--panel-border);
         }
 
@@ -95,7 +96,7 @@
 
         table { width: 100%; border-collapse: collapse; text-align: left; }
         th { background-color: rgba(30, 41, 59, 0.8); color: var(--text-muted); padding: 14px 16px; font-size: 13px; position: sticky; top: 0; }
-        td { padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; font-size: 13px; }
+        td { padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: middle; font-size: 13px; }
 
         /* Màu sắc cho Dropdown trạng thái */
         select.status-select {
@@ -109,19 +110,35 @@
         .status-đã-đăng { background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3); }
         .status-đã-xóa { background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3); }
 
+        /* Badges lyrics */
+        .badge-lyrics {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(16, 185, 129, 0.15); color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 10px;
+            padding: 2px 7px; font-size: 11px; font-weight: 600;
+        }
+        .badge-no-lyrics {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: rgba(245, 158, 11, 0.15); color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 10px;
+            padding: 2px 7px; font-size: 11px; font-weight: 600;
+        }
+
         /* Video Modal */
         .modal {
             display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); justify-content: center; align-items: center;
         }
 
         .modal-content {
             background: #1e293b; padding: 20px; border-radius: 16px; position: relative; width: 360px; text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .close-modal {
-            position: absolute; top: 10px; right: 15px; color: #fff; font-size: 20px; cursor: pointer;
+            position: absolute; top: 10px; right: 15px; color: #9ca3af; font-size: 24px; cursor: pointer;
         }
+        .close-modal:hover { color: #fff; }
     </style>
 </head>
 <body>
@@ -153,10 +170,10 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Tên Video</th>
-                        <th>Ngày Tạo</th>
-                        <th>Trạng Thái</th>
-                        <th>Thao Tác</th>
+                        <th style="width: 44%;">Tên Video & Phân Loại</th>
+                        <th style="width: 22%;">Ngày Tạo</th>
+                        <th style="width: 18%;">Trạng Thái</th>
+                        <th style="width: 16%;">Thao Tác</th>
                     </tr>
                 </thead>
                 <tbody id="videoTableBody"></tbody>
@@ -168,8 +185,8 @@
     <div id="videoModal" class="modal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h4 id="modalTitle" style="margin-bottom: 10px; font-size: 14px; word-break: break-all;"></h4>
-            <video id="modalVideoPlayer" controls style="width: 100%; height: 480px; border-radius: 8px; background: #000; margin-bottom: 12px;"></video>
+            <h4 id="modalTitle" style="margin-bottom: 10px; font-size: 13px; word-break: break-all; color: #fff;"></h4>
+            <video id="modalVideoPlayer" controls style="width: 100%; height: 480px; border-radius: 8px; background: #000; margin-bottom: 12px; aspect-ratio: 9/16;"></video>
             
             <!-- Nút Duyệt hiển thị động khi video đang Chờ duyệt -->
             <div id="modalActionContainer"></div>
@@ -216,7 +233,6 @@
             renderTable();
         }
 
-        // Hàm ánh xạ tên trạng thái sang tên class CSS tương ứng
         function getStatusClass(status) {
             switch(status) {
                 case 'Chờ duyệt': return 'status-chờ-duyệt';
@@ -242,12 +258,25 @@
 
             filtered.forEach(vid => {
                 const statusClass = getStatusClass(vid.status);
+                const folder = vid.output_folder || 'outputs';
+                const hasLyrics = (vid.has_lyrics !== false && folder !== 'outputs-no-lyrics');
+                const badgeHtml = hasLyrics
+                    ? `<span class="badge-lyrics"><i class="fa-solid fa-music"></i> Có lyrics</span>`
+                    : `<span class="badge-no-lyrics"><i class="fa-solid fa-volume-xmark"></i> Không lời</span>`;
+
+                const downloadUrl = (folder === 'outputs-no-lyrics')
+                    ? `/download/no-lyrics/${vid.filename}`
+                    : `/download/${vid.filename}`;
+
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td style="font-weight: 600; color: #fff;">
-                        <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 6px;"></i>${vid.filename}
+                    <td>
+                        <div style="font-weight: 600; color: #fff; margin-bottom: 4px;">
+                            <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 6px;"></i>${vid.filename}
+                        </div>
+                        <div>${badgeHtml}</div>
                     </td>
-                    <td style="color: var(--text-muted);">${vid.created_at}</td>
+                    <td style="color: var(--text-muted); font-size: 12px;">${vid.created_at}</td>
                     <td>
                         <select class="status-select ${statusClass}" onchange="changeStatus('${vid.id}', this.value)">
                             <option value="Chờ duyệt" ${vid.status === 'Chờ duyệt' ? 'selected' : ''} style="background: #1e293b; color: #facc15;">🟡 Chờ duyệt</option>
@@ -257,10 +286,10 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn" onclick="playVideo('${vid.id}', '${vid.filename}', '${vid.status}')" style="padding: 6px 12px; font-size: 12px;">
+                        <button class="btn" onclick="playVideo('${vid.id}', '${vid.filename}', '${vid.status}', '${folder}')" style="padding: 6px 12px; font-size: 12px;">
                             <i class="fa-solid fa-play"></i> Xem
                         </button>
-                        <a href="/download/${vid.filename}" target="_blank" class="btn" style="padding: 6px 12px; font-size: 12px; background: rgba(16, 185, 129, 0.2); color: #34d399; text-decoration: none;">
+                        <a href="${downloadUrl}" target="_blank" class="btn" style="padding: 6px 12px; font-size: 12px; background: rgba(16, 185, 129, 0.2); color: #34d399; text-decoration: none;">
                             <i class="fa-solid fa-download"></i> Tải
                         </a>
                     </td>
@@ -281,7 +310,7 @@
                     const target = allVideos.find(v => v.id === id);
                     if (target) target.status = newStatus;
                     updateCounts();
-                    renderTable(); // Vẽ lại bảng để cập nhật màu sắc mới ngay lập tức
+                    renderTable();
                 }
             } catch (err) {
                 alert('Lỗi cập nhật trạng thái!');
@@ -309,14 +338,14 @@
             }
         }
 
-        function playVideo(id, filename, status) {
-            currentModalVideoId = id; // Lưu ID lại
+        function playVideo(id, filename, status, folder) {
+            currentModalVideoId = id;
             document.getElementById('modalTitle').innerText = filename;
             const player = document.getElementById('modalVideoPlayer');
-            player.src = `/outputs/${filename}`;
+            const targetFolder = folder || 'outputs';
+            player.src = `/${targetFolder}/${filename}`;
             document.getElementById('videoModal').style.display = 'flex';
             
-            // Nếu video đang ở trạng thái "Chờ duyệt", hiển thị nút Duyệt nhanh trong popup
             const actionContainer = document.getElementById('modalActionContainer');
             if (status === 'Chờ duyệt') {
                 actionContainer.innerHTML = `
@@ -325,7 +354,7 @@
                     </button>
                 `;
             } else {
-                actionContainer.innerHTML = ''; // Ẩn đi nếu không phải chờ duyệt
+                actionContainer.innerHTML = '';
             }
 
             player.play();
@@ -338,16 +367,18 @@
             currentModalVideoId = null;
             document.getElementById('videoModal').style.display = 'none';
         }
-        // Bắt sự kiện click ra ngoài vùng modal-content để đóng popup
+
         function closeModalOnOutsideClick(event) {
             const modal = document.getElementById('videoModal');
-            // Nếu vị trí click chính là phần nền đen mờ (videoModal) chứ không phải nội dung bên trong
             if (event.target === modal) {
                 closeModal();
             }
         }
 
-        // Hàm thực hiện đổi trạng thái sang "Đã duyệt" và đóng popup ngay lập tức
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
         async function approveCurrentVideo() {
             if (!currentModalVideoId) return;
 
@@ -363,7 +394,7 @@
                     if (target) target.status = 'Đã duyệt';
                     updateCounts();
                     renderTable();
-                    closeModal(); // Tự động tắt popup sau khi duyệt thành công
+                    closeModal();
                 }
             } catch (err) {
                 alert('Lỗi cập nhật trạng thái!');

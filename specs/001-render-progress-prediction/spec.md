@@ -8,6 +8,13 @@
 
 **Input**: User description: "Thêm tính năng hiển thị tiến độ render video trên giao diện, ví dụ đang trích xuất lời bài hát, đang làm sạch lời bài hát,... mỗi bước tiến độ đang đến đâu. thu thập thông tin trong mỗi lần render video để đưa ra dự đoán cho những lần render sau tùy vào độ dài video, dung lượng, tốc độ mạng, vv"
 
+## Clarifications
+
+### Session 2026-11-04
+- Q: How should the granular render stages and progress be visually presented for each video item in the queue? → A: Option A — Compact inline status badge showing the active stage and animated indicator, expandable on click to reveal the detailed multi-step timeline and individual stage timings.
+- Q: How should network performance and external API latency be incorporated into the render time prediction? → A: Option A — Track a rolling average of recent API request latencies and apply it specifically to the remote lyric refinement stage estimate.
+- Q: How should historical render telemetry records be retained and managed in local storage? → A: Option A — Retain a rolling window of the last 100 completed renders, automatically pruning the oldest entries.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Granular Stage Progress Visibility (Priority: P1)
@@ -23,6 +30,7 @@ As a content creator generating batch short videos, I want to see exactly which 
 1. **Given** a queued video starting processing, **When** the rendering pipeline begins, **Then** the interface displays an active step indicator naming the current phase (e.g., "Extracting audio") and marks previous phases as completed.
 2. **Given** a video undergoing AI lyric processing, **When** speech recognition completes and text refinement begins, **Then** the progress interface updates immediately from "Transcribing speech" to "Refining lyrics" with a live elapsed time indicator.
 3. **Given** an active rendering task, **When** any stage encounters an issue or error, **Then** the interface highlights the exact failing stage with a human-readable failure reason and ceases further progression for that item without disrupting the overall interface.
+4. **Given** a video item with an active or completed render, **When** the user clicks the compact status badge or table row, **Then** the item expands inline to reveal the full sequential stage breakdown with individual stage durations and timestamps.
 
 ---
 
@@ -71,12 +79,12 @@ As a content creator managing a batch queue of videos, I want to see an estimate
 ### Functional Requirements
 
 - **FR-001**: The system MUST partition the video creation lifecycle into distinct, sequential observable stages: Audio Extraction, Speech Transcription, Lyric Refinement, Visual Generation, Media Encoding, and Finalization.
-- **FR-002**: The user interface MUST display the current active stage name and status (Pending, In Progress, Completed, Failed) for each item in the render queue.
+- **FR-002**: The user interface MUST display a compact inline status badge showing the current active stage name and status (Pending, In Progress, Completed, Failed) with an animated activity indicator for each item in the render queue, expandable on click to reveal full step breakdown and stage timings.
 - **FR-003**: The system MUST provide real-time updates of the active stage and overall percentage completion to the user interface without requiring full page refreshes.
 - **FR-004**: The system MUST track and display elapsed time for the currently processing video item.
 - **FR-005**: The system MUST record a performance telemetry entry for every completed render, containing: unique item identifier, video duration (seconds), file size (megabytes), individual stage execution times (seconds), external service response latency, and total elapsed duration.
-- **FR-006**: The telemetry records MUST be persisted in local storage so that performance data survives application restarts.
-- **FR-007**: The system MUST calculate an estimated total render time for each queued video prior to processing, based on historical duration and file size scaling factors.
+- **FR-006**: The telemetry records MUST be persisted in local storage so that performance data survives application restarts, maintaining a rolling window capped at the 100 most recent completed renders with automatic pruning of older records.
+- **FR-007**: The system MUST calculate estimated stage and total render times for each queued video using a hybrid model: local stages (audio extraction, speech transcription, visual generation, video encoding) scaled by input video duration and file size, and the remote lyric refinement stage scaled by a rolling average of recent external API response latencies.
 - **FR-008**: The system MUST dynamically compute and display the estimated remaining time (countdown) for the active render, adjusting as each stage concludes.
 - **FR-009**: The prediction engine MUST implement a default fallback baseline for new installations with fewer than three completed historical renders.
 - **FR-010**: The user interface MUST display overall queue completion estimates (total estimated time for all pending items in batch).
@@ -86,8 +94,8 @@ As a content creator managing a batch queue of videos, I want to see an estimate
 
 - **Render Stage**: Represents a single atomic phase within the video creation pipeline. Attributes include stage identifier, human-readable display label, stage order, status state (Pending, Active, Completed, Failed), started timestamp, and finished timestamp.
 - **Item Progress State**: Represents the live processing status of a single video. Attributes include video identifier, current active stage, completed stages count, elapsed duration, estimated total duration, and estimated remaining duration.
-- **Render Telemetry Record**: Represents an immutable log of a completed rendering task. Attributes include record timestamp, source video duration, source video file size, audio duration, duration per stage, network/remote service latency, total render duration, and completion status.
-- **Prediction Model Profile**: Represents the aggregated statistical coefficients (average seconds per video minute, average seconds per megabyte, per-stage weight ratios) derived from historical telemetry records to compute future estimates.
+- **Render Telemetry Record**: Represents an immutable log of a completed rendering task (retained up to a rolling window of 100 entries). Attributes include record timestamp, source video duration, source video file size, audio duration, duration per stage, network/remote service latency, total render duration, and completion status.
+- **Prediction Model Profile**: Represents the aggregated statistical coefficients (average seconds per video minute, average seconds per megabyte, per-stage weight ratios, rolling API latency) derived from historical telemetry records to compute future estimates.
 
 ## Success Criteria *(mandatory)*
 
@@ -106,4 +114,4 @@ As a content creator managing a batch queue of videos, I want to see an estimate
 - **Baseline Default**: In the absence of historical telemetry (<3 runs), the initial duration estimate defaults to a 1.5x multiplier of the source video duration for standard quality renders.
 - **Stage Granularity**: The 6 designated stages sufficiently capture all core user-facing operations without overwhelming the user with micro-step notifications.
 - **Non-Blocking UI**: Progress information is communicated asynchronously so that the user interface remains interactive and responsive throughout multi-minute batch renders.
-
+- **Network Latency Isolation**: Network latency affects solely the remote AI lyric refinement stage estimate and does not alter the coefficients calculated for local CPU/GPU media encoding stages.
