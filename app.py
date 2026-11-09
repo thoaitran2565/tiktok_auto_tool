@@ -31,6 +31,17 @@ _init_img, _init_vid = ConfigService.get_configured_folders()
 if _init_img or _init_vid:
     QueueService.set_session_folders(_init_img, _init_vid)
 
+# Khởi tạo nạp trước Whisper model trong background để render tức thì
+from services.transcription_service import TranscriptionService
+
+def _warmup_whisper():
+    try:
+        TranscriptionService.initialize_model()
+    except Exception as e:
+        print(f"⚠️ Whisper background warmup: {e}")
+
+threading.Thread(target=_warmup_whisper, daemon=True).start()
+
 
 @app.route('/')
 def index():
@@ -53,12 +64,31 @@ def load_folders():
     data = request.json or {}
     img_folder = data.get('image_folder', '')
     vid_folder = data.get('video_folder', '')
+    profile = data.get('performance_profile')
+    if profile in ('max_speed', 'balanced'):
+        ConfigService.set_performance_profile(profile)
 
     success, error_msg, payload = QueueService.init_queue_from_folders(img_folder, vid_folder)
     if not success:
         return jsonify({'success': False, 'error': error_msg}), 400
 
     return jsonify({'success': True, **payload})
+
+
+@app.route('/api/update-performance-profile', methods=['POST'])
+def update_performance_profile():
+    data = request.json or {}
+    profile = data.get('performance_profile', 'max_speed').strip().lower()
+    if profile not in ('max_speed', 'balanced'):
+        return jsonify({'success': False, 'error': 'Chế độ hiệu năng không hợp lệ!'}), 400
+
+    ConfigService.set_performance_profile(profile)
+    encoder_info = FFmpegEncoderService.probe_best_encoder(force_reprobe=True, profile=profile)
+    return jsonify({
+        'success': True,
+        'performance_profile': profile,
+        'encoder_info': encoder_info
+    })
 
 
 @app.route('/api/refresh-queue', methods=['POST'])
@@ -210,6 +240,12 @@ def render_single():
     if is_multi and img_list and img_folder:
         multi_paths = [os.path.join(img_folder, img) for img in img_list if os.path.exists(os.path.join(img_folder, img))]
 
+    # Kích hoạt tiến trình nạp trước không đồng bộ cho video tiếp theo trong hàng đợi
+    try:
+        QueueService.start_prefetch_for_next(item_id)
+    except Exception as pf_err:
+        print(f"⚠️ Pre-fetch dispatch error: {pf_err}")
+
     result = render_pipeline.render(
         item_id,
         vid_path,
@@ -241,6 +277,20 @@ def render_single():
             'error': result.get('error', 'Lỗi không xác định'),
             'failing_stage': result.get('failing_stage')
         }), 500
+
+
+@app.route('/api/prefetch-next', methods=['POST'])
+def prefetch_next():
+    data = request.json or {}
+    current_item_id = data.get('current_id', -1)
+    next_item = QueueService.start_prefetch_for_next(current_item_id)
+    if next_item:
+        return jsonify({
+            'success': True,
+            'prefetched_item_id': next_item['id'],
+            'video_name': next_item['video_name']
+        })
+    return jsonify({'success': False, 'message': 'Không có video kế tiếp để nạp trước'})
 
 
 @app.route('/api/render-progress', methods=['GET'])

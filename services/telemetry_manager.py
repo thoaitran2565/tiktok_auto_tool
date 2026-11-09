@@ -49,7 +49,11 @@ class TelemetryManager:
         stage_durations: Dict[str, float],
         api_latency_ms: float,
         total_duration_s: float,
-        status: str = "completed"
+        status: str = "completed",
+        encoder_backend: Optional[str] = None,
+        whisper_engine: Optional[str] = None,
+        pipelined: bool = False,
+        speedup_factor: Optional[float] = None
     ) -> Dict[str, Any]:
         """
         Record performance metrics of a completed or failed render.
@@ -64,8 +68,15 @@ class TelemetryManager:
             "stage_durations": {k: round(float(v), 2) for k, v in stage_durations.items()},
             "api_latency_ms": round(max(0.0, float(api_latency_ms)), 1),
             "total_duration_s": round(max(0.1, float(total_duration_s)), 2),
-            "status": status
+            "status": status,
+            "pipelined": bool(pipelined)
         }
+        if encoder_backend:
+            record["encoder_backend"] = encoder_backend
+        if whisper_engine:
+            record["whisper_engine"] = whisper_engine
+        if speedup_factor is not None:
+            record["speedup_factor"] = round(float(speedup_factor), 2)
 
         with self._lock:
             records = []

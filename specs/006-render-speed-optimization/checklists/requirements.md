@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -31,5 +31,9 @@
 
 ## Notes
 
-- 3 [NEEDS CLARIFICATION] markers are currently pending user decision on encoding engine, Whisper model, and batch pipelining architecture.
+- All 3 clarifications resolved with user input:
+  1. Video Encoding: GPU auto-detection (NVENC/QSV/AMF) + direct FFmpeg stream muxing with `ultrafast` software fallback.
+  2. Speech Recognition: Upgraded to `faster-whisper` CTranslate2 with in-memory singleton cache.
+  3. Batch Pipelining: Asynchronous pre-fetch pipelining between adjacent queue items.
+- Ready for `/speckit-plan`.
 

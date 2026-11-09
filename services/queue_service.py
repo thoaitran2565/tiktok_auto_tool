@@ -226,6 +226,8 @@ class QueueService:
                             item['image_name'] = valid_list[0]
                             item['image_path'] = os.path.join(img_folder, valid_list[0])
 
+                    from services.render_pipeline import render_pipeline
+                    render_pipeline.clear_prefetch(item_id)
                     return True, None
 
         return False, 'Không tìm thấy video trong hàng đợi!'
@@ -259,6 +261,8 @@ class QueueService:
                         'image_count': item.get('image_count', 10),
                         'image_list': item.get('image_list', [])
                     }
+                    from services.render_pipeline import render_pipeline
+                    render_pipeline.clear_prefetch(item_id)
                     return True, None, {
                         'item': item_dict,
                         'is_multi_image': item['is_multi_image'],
@@ -304,6 +308,8 @@ class QueueService:
                         'image_count': target_count,
                         'image_list': curr_list
                     }
+                    from services.render_pipeline import render_pipeline
+                    render_pipeline.clear_prefetch(item_id)
                     return True, None, {
                         'item': item_dict,
                         'image_count': target_count,
@@ -339,6 +345,8 @@ class QueueService:
                         'image_count': len(valid_list),
                         'image_list': valid_list
                     }
+                    from services.render_pipeline import render_pipeline
+                    render_pipeline.clear_prefetch(item_id)
                     return True, None, {
                         'item': item_dict,
                         'is_multi_image': True,
@@ -373,6 +381,8 @@ class QueueService:
                         'image_count': len(fresh),
                         'image_list': fresh
                     }
+                    from services.render_pipeline import render_pipeline
+                    render_pipeline.clear_prefetch(item_id)
                     return True, None, {
                         'item': item_dict,
                         'is_multi_image': True,
@@ -416,7 +426,8 @@ class QueueService:
             'pending_items': pending_items,
             'failed_items': failed_items,
             'active_item_id': active_item_id,
-            'estimated_queue_remaining_s': int(round(est_pending_queue))
+            'estimated_queue_remaining_s': int(round(est_pending_queue)),
+            'prefetch_map': cls.get_prefetch_map()
         }
 
         if item_id is not None:
@@ -479,6 +490,7 @@ class QueueService:
         Serializes internal queue representations into JSON-ready dictionaries
         adhering to frontend requirements.
         """
+        prefetch_map = cls.get_prefetch_map()
         return [{
             'id': item['id'],
             'video_name': item['video_name'],
@@ -492,6 +504,73 @@ class QueueService:
             'is_locked': item.get('is_locked', item.get('status') == 'Hoàn thành'),
             'is_multi_image': item.get('is_multi_image', False),
             'image_count': item.get('image_count', 10),
-            'image_list': item.get('image_list', [])
+            'image_list': item.get('image_list', []),
+            'prefetch_status': prefetch_map.get(item['id'], 'idle')
         } for item in queue]
+
+    @classmethod
+    def get_next_pending_item(cls, current_item_id: int) -> Optional[Dict[str, Any]]:
+        """
+        Identifies the next eligible item in the queue for asynchronous pre-fetching.
+        """
+        with cls._lock:
+            queue = cls._session_data.get('queue', [])
+            current_index = -1
+            for idx, item in enumerate(queue):
+                if item.get('id') == current_item_id:
+                    current_index = idx
+                    break
+
+            if current_index >= 0:
+                for item in queue[current_index + 1:]:
+                    if item.get('status') == 'Chờ render' and not item.get('is_locked', False):
+                        return dict(item)
+
+            for item in queue:
+                if item.get('id') != current_item_id and item.get('status') == 'Chờ render' and not item.get('is_locked', False):
+                    return dict(item)
+
+        return None
+
+    @classmethod
+    def start_prefetch_for_next(cls, current_item_id: int) -> Optional[Dict[str, Any]]:
+        """
+        Finds the upcoming queue item and dispatches pre_fetch_item() in a background daemon thread.
+        """
+        from services.render_pipeline import render_pipeline
+
+        next_item = cls.get_next_pending_item(current_item_id)
+        if not next_item:
+            return None
+
+        img_folder, _ = cls.get_session_folders()
+        if not img_folder:
+            img_folder, _ = ConfigService.get_configured_folders()
+
+        is_multi = bool(next_item.get('is_multi_image'))
+        img_list = next_item.get('image_list', [])
+        multi_paths = []
+        if is_multi and img_list and img_folder:
+            multi_paths = [os.path.join(img_folder, img) for img in img_list if os.path.exists(os.path.join(img_folder, img))]
+
+        render_pipeline.start_prefetch_thread(
+            item_id=next_item['id'],
+            video_path=next_item.get('video_path', ''),
+            image_path=next_item.get('image_path', ''),
+            is_multi_image=(is_multi and len(multi_paths) >= 2),
+            image_paths=multi_paths
+        )
+        return next_item
+
+    @classmethod
+    def get_prefetch_map(cls) -> Dict[int, str]:
+        """
+        Returns a mapping of item_id -> prefetch status ('in_progress', 'ready', 'failed').
+        """
+        from services.render_pipeline import render_pipeline
+        with render_pipeline._prefetch_lock:
+            return {
+                k: v.get('status', 'idle')
+                for k, v in render_pipeline._prefetch_cache.items()
+            }
 

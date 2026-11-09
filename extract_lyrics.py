@@ -1,26 +1,23 @@
 import os
-import whisper
+import concurrent.futures
 from google import genai
 from dotenv import load_dotenv
+
+from services.transcription_service import TranscriptionService
 
 # Tải các biến môi trường từ file .env lên
 load_dotenv()
 
 def extract_raw_lyrics(video_path):
     """
-    Bước 1: Dùng Whisper trích xuất âm thanh thô thành văn bản từ video.
+    Bước 1: Dùng TranscriptionService (in-memory cached Whisper / faster-whisper)
+    trích xuất âm thanh thành văn bản từ video mà không cần nạp lại model từ ổ đĩa.
     """
-    if not os.path.exists(video_path):
-        print(f"❌ Không tìm thấy file video tại: {video_path}")
-        return None
-
-    model = whisper.load_model("small")
-    result = model.transcribe(video_path, task="transcribe", verbose=False)
-    return result.get("text", "").strip()
+    return TranscriptionService.transcribe(video_path)
 
 def clean_lyrics_with_ai(raw_lyrics):
     """
-    Bước 2: Dùng Gemini AI làm sạch lyrics. 
+    Bước 2: Dùng Gemini AI làm sạch lyrics với giới hạn timeout 15s.
     Trả về tuple: (lyrics_đã_xử_lý, nguồn_gốc) 
     với nguồn gốc là 'AI' hoặc 'Original' (lời gốc).
     """
@@ -52,28 +49,40 @@ def clean_lyrics_with_ai(raw_lyrics):
     """
 
     models_to_try = [
-        'gemini-2.5-flash', 
-        'gemini-2.5-flash-lite', 
-        'gemini-3.8-flash', 
-        'gemini-3.6-flash', 
-        'gemini-3-flash-preview', 
-        'gemini-3.5-flash-lite'
+        'gemini-2.0-flash',
+        'gemini-1.5-flash',
+        'gemini-1.5-flash-8b',
+        'gemini-2.5-flash'
     ]
-    
-    for model_name in models_to_try:
-        try:
-            response = client.models.generate_content(
-                model=model_name,
-                contents=prompt,
-            )
-            cleaned_text = response.text.strip() if response.text else ""
-            if cleaned_text:
-                return cleaned_text, "AI"
-        except Exception:
-            continue
-    
-    # Nếu tất cả các model đều thất bại -> Trả về lời gốc của Whisper và đánh dấu 'Original'
-    return raw_lyrics, "Original"
+
+    def _call_gemini():
+        for model_name in models_to_try:
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                )
+                cleaned_text = response.text.strip() if response.text else ""
+                if cleaned_text:
+                    return cleaned_text, "AI"
+            except Exception:
+                continue
+        return raw_lyrics, "Original"
+
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+    future = executor.submit(_call_gemini)
+    try:
+        result = future.result(timeout=15.0)
+        executor.shutdown(wait=False)
+        return result
+    except concurrent.futures.TimeoutError:
+        print("⏱️ [Gemini AI] Quá thời gian chờ (15s), tự động fallback dùng lời gốc từ Whisper...")
+        executor.shutdown(wait=False, cancel_futures=True)
+        return raw_lyrics, "Original"
+    except Exception as e:
+        print(f"⚠️ [Gemini AI] Lỗi gọi API: {e}")
+        executor.shutdown(wait=False)
+        return raw_lyrics, "Original"
 
 def get_first_line(lyrics_text, max_length=100, min_length=50):
     """

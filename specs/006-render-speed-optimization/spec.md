@@ -8,6 +8,13 @@
 
 **Input**: User description: "hiện tại thời gian để hoàn thành render ra 1 video mất khá lâu thời gian hãy tìm ra các giải pháp tốt nhất để tối ưu thời gian render này"
 
+## Clarifications
+
+### Session 2026-11-09
+- Q1 (Video Encoding Engine): Tự động nhận diện GPU (NVENC/QSV/AMF) + Tối ưu hóa FFmpeg direct streaming với preset `ultrafast` fallback.
+- Q2 (Speech Recognition Engine): Nâng cấp sang `faster-whisper` (CTranslate2 engine) kết hợp in-memory model caching (Singleton), tăng tốc transcription lên tới 4x và giảm RAM.
+- Q3 (Batch Queue Pipelining): Áp dụng kiến trúc xử lý gối đầu (Pipelining / Pre-fetch) giữa các video trong hàng đợi — Video N+1 chạy trước bước âm thanh, Whisper và Gemini trong khi Video N đang chạy bước mã hóa video (Media Encoding).
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Accelerated Video Encoding Engine (Priority: P1)
@@ -20,7 +27,7 @@ As a content creator producing batches of short-form videos, I want the media en
 
 **Acceptance Scenarios**:
 
-1. **Given** a video ready for encoding, **When** the system renders the final video, **Then** it encodes the vertical 1080x1920 MP4 video using [NEEDS CLARIFICATION: encoding engine and hardware acceleration policy] with encoding time completing within 20% of video duration.
+1. **Given** a video ready for encoding, **When** the system renders the final video, **Then** it encodes the vertical 1080x1920 MP4 video using an automatic hardware acceleration encoder (NVIDIA NVENC, Intel QuickSync, AMD AMF) with seamless fallback to direct high-speed FFmpeg software encoding with the `ultrafast` preset, with encoding time completing within 20% of video duration.
 2. **Given** a video using a static background image, **When** media encoding runs, **Then** the engine avoids redundant per-frame Python image compositing, streaming the static canvas directly into the encoder.
 3. **Given** a video using a multi-image slideshow, **When** media encoding runs, **Then** transitions composite at maximum encoder throughput without frame drops or memory leaks.
 
@@ -38,7 +45,7 @@ As a creator rendering multiple videos in a session, I want speech recognition (
 
 1. **Given** the application starts or renders its first video, **When** Stage 2 initiates, **Then** the speech recognition model is loaded into an in-memory cache and retained for subsequent queue items.
 2. **Given** subsequent videos in the render queue, **When** Stage 2 runs, **Then** transcription begins immediately from the warmed in-memory model without re-reading model weights from disk.
-3. **Given** user preference for maximum speed vs high transcription accuracy, **When** configuring the speech recognition engine, **Then** the system uses [NEEDS CLARIFICATION: Whisper model selection and execution engine].
+3. **Given** user preference for maximum speed vs high transcription accuracy, **When** configuring the speech recognition engine, **Then** the system uses the `faster-whisper` CTranslate2 engine with persistent in-memory model caching, delivering up to 4x faster transcription on both CPU and GPU with lower RAM consumption.
 
 ---
 
@@ -52,7 +59,7 @@ As a creator processing a queue of 10+ videos, I want the system to pipeline non
 
 **Acceptance Scenarios**:
 
-1. **Given** a queue with multiple items scheduled for rendering, **When** batch rendering executes, **Then** the pipeline operates according to [NEEDS CLARIFICATION: concurrency and stage pipelining architecture].
+1. **Given** a queue with multiple items scheduled for rendering, **When** batch rendering executes, **Then** the pipeline operates according to an asynchronous stage-pipelining (pre-fetching) architecture where Video N+1 executes audio extraction, transcription, and lyric refinement concurrently in the background while Video N executes media encoding.
 2. **Given** real-time progress indicators on the frontend, **When** pipelined stages run concurrently on adjacent items, **Then** the UI clearly reflects active states for each item without race conditions or telemetry data corruption.
 
 ---

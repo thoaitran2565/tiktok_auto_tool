@@ -558,6 +558,19 @@
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
+        .status-prefetched {
+            background-color: rgba(245, 158, 11, 0.18);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.15);
+        }
+
+        .status-prefetching {
+            background-color: rgba(59, 130, 246, 0.18);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
         .status-error {
             background-color: rgba(239, 68, 68, 0.15);
             color: #f87171;
@@ -1196,6 +1209,9 @@
                     style="font-size: 13px; color: #cbd5e1; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-folder-check" style="color: var(--success);"></i> Đã quét thư mục
                 </span>
+                <span id="setupProfileBadge" style="font-size: 11px; padding: 2px 8px; border-radius: 12px; background: rgba(99, 102, 241, 0.2); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4);">
+                    <i class="fa-solid fa-bolt"></i> Tốc độ tối đa
+                </span>
                 <button class="btn btn-secondary btn-sm" onclick="toggleSetupSection(true)" style="padding: 4px 10px;">
                     <i class="fa-solid fa-pen-to-square"></i> Đổi thư mục
                 </button>
@@ -1209,6 +1225,14 @@
                 <div class="form-group-compact">
                     <label><i class="fa-solid fa-film"></i> Thư mục Video nguồn:</label>
                     <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos">
+                </div>
+
+                <div class="form-group-compact" style="min-width: 175px;">
+                    <label><i class="fa-solid fa-gauge-high"></i> Cấu hình hiệu năng:</label>
+                    <select id="performanceProfileSelect" onchange="changePerformanceProfile(this.value)" style="padding: 7px 10px; border-radius: 6px; background: rgba(30, 41, 59, 0.9); color: #f1f5f9; border: 1px solid rgba(255, 255, 255, 0.15); font-size: 12px; outline: none; cursor: pointer;">
+                        <option value="max_speed">⚡ Tốc độ tối đa (GPU/Ultrafast)</option>
+                        <option value="balanced">⚖️ Cân bằng (Chất lượng cao)</option>
+                    </select>
                 </div>
 
                 <button id="scanBtn" class="btn" onclick="loadFolders()" style="padding: 9px 18px;">
@@ -1284,9 +1308,41 @@
                 if (data.success && data.config) {
                     if (data.config.image_folder) document.getElementById('imageFolderPath').value = data.config.image_folder;
                     if (data.config.video_folder) document.getElementById('videoFolderPath').value = data.config.video_folder;
+                    if (data.config.performance_profile) {
+                        const selectEl = document.getElementById('performanceProfileSelect');
+                        if (selectEl) selectEl.value = data.config.performance_profile;
+                        updateProfileBadge(data.config.performance_profile);
+                    }
                 }
             } catch (err) { }
         });
+
+        function updateProfileBadge(profile) {
+            const badge = document.getElementById('setupProfileBadge');
+            if (!badge) return;
+            if (profile === 'balanced') {
+                badge.innerHTML = '<i class="fa-solid fa-scale-balanced" style="color: #60a5fa;"></i> Cân bằng';
+                badge.style.borderColor = 'rgba(59, 130, 246, 0.4)';
+                badge.style.color = '#93c5fd';
+            } else {
+                badge.innerHTML = '<i class="fa-solid fa-bolt" style="color: #fbbf24;"></i> Tốc độ tối đa';
+                badge.style.borderColor = 'rgba(99, 102, 241, 0.4)';
+                badge.style.color = '#a5b4fc';
+            }
+        }
+
+        async function changePerformanceProfile(newProfile) {
+            updateProfileBadge(newProfile);
+            try {
+                await fetch('/api/update-performance-profile', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ performance_profile: newProfile })
+                });
+            } catch (err) {
+                console.error("Lỗi cập nhật cấu hình hiệu năng:", err);
+            }
+        }
 
         // Định dạng thời gian thuần số nguyên giây (loại bỏ phần thập phân)
         function formatDuration(sec) {
@@ -1345,10 +1401,11 @@
             scanText.innerText = "Đang quét...";
 
             try {
+                const perfProfile = document.getElementById('performanceProfileSelect')?.value || 'max_speed';
                 const res = await fetch('/api/load-folders', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ image_folder: imageFolder, video_folder: videoFolder })
+                    body: JSON.stringify({ image_folder: imageFolder, video_folder: videoFolder, performance_profile: perfProfile })
                 });
                 const data = await res.json();
 
@@ -1533,11 +1590,18 @@
                 `;
 
                 // Cột 3: Tiến độ & Timeline 6 bước
+                let currentStatus = item.status;
+                if (item.status === 'Chờ render' && item.prefetch_status === 'ready') {
+                    currentStatus = 'Đã nạp trước';
+                } else if (item.status === 'Chờ render' && item.prefetch_status === 'in_progress') {
+                    currentStatus = 'Đang nạp nền...';
+                }
+
                 const col3Html = `
                     <td>
                         <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <span id="status-${item.id}" class="status-badge ${getStatusBadgeClass(item.status)}" onclick="toggleTimeline(${item.id})">
-                                ${getStatusBadgeIcon(item.status)} ${item.status}
+                            <span id="status-${item.id}" class="status-badge ${getStatusBadgeClass(currentStatus)}" onclick="toggleTimeline(${item.id})">
+                                ${getStatusBadgeIcon(currentStatus)} ${currentStatus}
                             </span>
                             <button class="btn-toggle-steps" onclick="toggleTimeline(${item.id})">
                                 <i class="fa-solid fa-chevron-down" id="chevron-${item.id}"></i> Chi tiết
@@ -1599,6 +1663,8 @@
             if (status === 'Đang render') return 'status-running';
             if (status === 'Hoàn thành') return 'status-done';
             if (status === 'Lỗi') return 'status-error';
+            if (status === 'Đã nạp trước' || status === 'ready') return 'status-prefetched';
+            if (status === 'Đang nạp nền...' || status === 'in_progress') return 'status-prefetching';
             return 'status-wait';
         }
 
@@ -1606,6 +1672,8 @@
             if (status === 'Đang render') return '<i class="fa-solid fa-spinner fa-spin"></i>';
             if (status === 'Hoàn thành') return '<i class="fa-solid fa-circle-check"></i>';
             if (status === 'Lỗi') return '<i class="fa-solid fa-circle-exclamation"></i>';
+            if (status === 'Đã nạp trước' || status === 'ready') return '<i class="fa-solid fa-bolt" style="color: #fbbf24;"></i>';
+            if (status === 'Đang nạp nền...' || status === 'in_progress') return '<i class="fa-solid fa-spinner fa-spin" style="color: #60a5fa;"></i>';
             return '<i class="fa-regular fa-clock"></i>';
         }
 
@@ -2333,18 +2401,60 @@
                 try {
                     const res = await fetch(`/api/render-progress?id=${activeItemId}`);
                     const data = await res.json();
-                    if (data.success && data.progress && data.progress[activeItemId]) {
-                        const itemState = data.progress[activeItemId];
-                        updateItemProgressUI(activeItemId, itemState);
+                    if (data.success) {
+                        if (data.progress && data.progress[activeItemId]) {
+                            const itemState = data.progress[activeItemId];
+                            updateItemProgressUI(activeItemId, itemState);
+                        }
 
-                        if (data.queue_summary && data.queue_summary.estimated_queue_remaining_s !== undefined) {
-                            document.getElementById('summaryEtaText').innerText = formatDuration(data.queue_summary.estimated_queue_remaining_s);
+                        if (data.queue_summary) {
+                            if (data.queue_summary.estimated_queue_remaining_s !== undefined) {
+                                document.getElementById('summaryEtaText').innerText = formatDuration(data.queue_summary.estimated_queue_remaining_s);
+                            }
+                            if (data.queue_summary.prefetch_map) {
+                                updatePrefetchUI(data.queue_summary.prefetch_map, activeItemId);
+                            }
                         }
                     }
                 } catch (e) {
                     console.error("Lỗi polling tiến độ:", e);
                 }
             }, 500);
+        }
+
+        function updatePrefetchUI(prefetchMap, activeItemId) {
+            if (!prefetchMap) return;
+            for (const [itemIdStr, pfStatus] of Object.entries(prefetchMap)) {
+                const iId = parseInt(itemIdStr);
+                if (iId === activeItemId) continue;
+                const queueItem = rawQueueData.find(x => x.id === iId);
+                if (!queueItem || queueItem.status === 'Hoàn thành' || queueItem.status === 'Đang render') continue;
+
+                const badge = document.getElementById(`status-${iId}`);
+                if (!badge) continue;
+
+                if (pfStatus === 'ready') {
+                    badge.className = 'status-badge status-prefetched';
+                    badge.innerHTML = '<i class="fa-solid fa-bolt" style="color: #fbbf24;"></i> Đã nạp trước';
+                    badge.title = 'Đã chuẩn bị trước âm thanh và canvas. Khi bắt đầu sẽ lập tức mã hóa!';
+
+                    // Tự động đánh dấu hoàn thành cho 4 bước đầu trong accordion timeline
+                    ['audio_extraction', 'speech_transcription', 'lyric_refinement', 'visual_generation'].forEach(sId => {
+                        const stepEl = document.getElementById(`step-${iId}-${sId}`);
+                        if (stepEl && !stepEl.classList.contains('step-completed')) {
+                            stepEl.className = 'stage-step step-completed';
+                            const iconEl = stepEl.querySelector('.step-icon');
+                            if (iconEl) iconEl.innerHTML = '<i class="fa-solid fa-bolt" style="color: #fbbf24;"></i>';
+                            const durEl = document.getElementById(`step-dur-${iId}-${sId}`);
+                            if (durEl) durEl.innerText = 'Sẵn sàng';
+                        }
+                    });
+                } else if (pfStatus === 'in_progress') {
+                    badge.className = 'status-badge status-prefetching';
+                    badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color: #60a5fa;"></i> Đang nạp nền...';
+                    badge.title = 'Đang xử lý âm thanh & lyrics song song dưới nền';
+                }
+            }
         }
 
         function updateItemProgressUI(id, state) {
@@ -2422,11 +2532,19 @@
                 const progressFill = document.getElementById(`progress-fill-${item.id}`);
                 const progressText = document.getElementById(`progress-text-${item.id}`);
 
+                const isPrefetched = badge && badge.classList.contains('status-prefetched');
                 badge.className = 'status-badge status-running';
-                badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Khởi tạo render...';
-                progressWrapper.style.display = 'block';
-                progressFill.style.width = '5%';
-                progressText.innerText = 'Đang chuẩn bị dữ liệu...';
+                if (isPrefetched) {
+                    badge.innerHTML = '<i class="fa-solid fa-bolt"></i> Nạp nhanh -> Mã hóa FFmpeg...';
+                    progressWrapper.style.display = 'block';
+                    progressFill.style.width = '70%';
+                    progressText.innerText = 'Dữ liệu B1-4 đã chuẩn bị sẵn! Đang vào mã hóa FFmpeg...';
+                } else {
+                    badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Khởi tạo render...';
+                    progressWrapper.style.display = 'block';
+                    progressFill.style.width = '5%';
+                    progressText.innerText = 'Đang chuẩn bị dữ liệu...';
+                }
 
                 // Bắt đầu polling tiến độ
                 startProgressPolling(item.id);
