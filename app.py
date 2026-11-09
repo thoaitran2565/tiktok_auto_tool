@@ -75,12 +75,85 @@ def update_queue():
     data = request.json or {}
     item_id = data.get('id')
     new_image_name = data.get('image_name')
+    is_multi_image = data.get('is_multi_image')
+    image_count = data.get('image_count')
+    image_list = data.get('image_list')
 
-    success, error_msg = QueueService.update_item_image(item_id, new_image_name)
+    success, error_msg = QueueService.update_item_image(
+        item_id=item_id,
+        image_name=new_image_name,
+        is_multi_image=is_multi_image,
+        image_count=image_count,
+        image_list=image_list
+    )
     if not success:
         return jsonify({'success': False, 'error': error_msg}), 400
 
-    return jsonify({'success': True})
+    item = QueueService.get_item(item_id)
+    return jsonify({
+        'success': True,
+        'item': {
+            'id': item_id,
+            'image_name': item.get('image_name', '') if item else '',
+            'is_multi_image': item.get('is_multi_image', False) if item else False,
+            'image_count': item.get('image_count', 10) if item else 10,
+            'image_list': item.get('image_list', []) if item else []
+        }
+    })
+
+
+@app.route('/api/toggle-multi-image', methods=['POST'])
+def toggle_multi_image():
+    data = request.json or {}
+    item_id = data.get('id')
+    enabled = bool(data.get('enabled', data.get('is_multi_image', False)))
+    success, error_msg, payload = QueueService.toggle_multi_image(item_id, enabled)
+    if not success:
+        return jsonify({'success': False, 'error': error_msg}), 400
+    return jsonify({'success': True, **payload})
+
+
+@app.route('/api/update-multi-count', methods=['POST'])
+def update_multi_count():
+    data = request.json or {}
+    item_id = data.get('id')
+    if 'delta' in data:
+        item = QueueService.get_item(item_id)
+        current = int(item.get('image_count', 10)) if item else 10
+        count = current + int(data.get('delta', 0))
+    else:
+        count = int(data.get('count', 10))
+    success, error_msg, payload = QueueService.update_multi_image_count(item_id, count)
+    if not success:
+        return jsonify({'success': False, 'error': error_msg}), 400
+    return jsonify({'success': True, **payload})
+
+
+@app.route('/api/reroll-multi-images', methods=['POST'])
+def reroll_multi_images():
+    data = request.json or {}
+    item_id = data.get('id')
+    success, error_msg, payload = QueueService.reroll_multi_images(item_id)
+    if not success:
+        return jsonify({'success': False, 'error': error_msg}), 400
+    return jsonify({'success': True, **payload})
+
+
+@app.route('/api/random-images-batch', methods=['POST'])
+def get_random_images_batch():
+    data = request.json or {}
+    count = int(data.get('count', 10))
+    exclude = data.get('exclude', [])
+
+    img_folder, _ = QueueService.get_session_folders()
+    if not img_folder:
+        img_folder, _ = ConfigService.get_configured_folders()
+
+    if not img_folder or not os.path.isdir(img_folder):
+        return jsonify({'success': False, 'error': 'Chưa chọn thư mục ảnh hợp lệ!'}), 400
+
+    images = ScannerService.get_random_images_batch(img_folder, count=count, exclude=exclude)
+    return jsonify({'success': True, 'images': images})
 
 
 @app.route('/api/random-image', methods=['GET'])
@@ -128,7 +201,22 @@ def render_single():
     progress_manager.init_item(item_id, target_item['video_name'], initial_estimate)
     target_item['status'] = 'Đang render'
 
-    result = render_pipeline.render(item_id, vid_path, img_path)
+    is_multi = bool(target_item.get('is_multi_image'))
+    img_list = target_item.get('image_list', [])
+    img_folder, _ = QueueService.get_session_folders()
+    if not img_folder:
+        img_folder, _ = ConfigService.get_configured_folders()
+    multi_paths = []
+    if is_multi and img_list and img_folder:
+        multi_paths = [os.path.join(img_folder, img) for img in img_list if os.path.exists(os.path.join(img_folder, img))]
+
+    result = render_pipeline.render(
+        item_id,
+        vid_path,
+        img_path,
+        is_multi_image=(is_multi and len(multi_paths) >= 2),
+        image_paths=multi_paths
+    )
 
     if result.get('success'):
         target_item['status'] = 'Hoàn thành'

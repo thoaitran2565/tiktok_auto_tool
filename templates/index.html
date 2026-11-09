@@ -909,6 +909,259 @@
             background: #000;
             border-radius: 8px;
         }
+
+        /* --- Multi-Image Slideshow Controls --- */
+        .multi-image-toggle-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .switch-sm {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .switch-sm input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-sm {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #374151;
+            transition: .2s;
+            border-radius: 16px;
+        }
+
+        .slider-sm:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .2s;
+            border-radius: 50%;
+        }
+
+        .switch-sm input:checked + .slider-sm {
+            background-color: var(--primary);
+        }
+
+        .switch-sm input:focus + .slider-sm {
+            box-shadow: 0 0 1px var(--primary);
+        }
+
+        .switch-sm input:checked + .slider-sm:before {
+            transform: translateX(14px);
+        }
+
+        .toggle-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: #cbd5e1;
+            user-select: none;
+        }
+
+        .stepper-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: rgba(15, 23, 42, 0.7);
+            padding: 2px 4px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .btn-step {
+            width: 20px;
+            height: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: #f3f4f6;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 1;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+
+        .btn-step:hover:not(:disabled) {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-step:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .stepper-count-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: #a5b4fc;
+            padding: 0 4px;
+            min-width: 44px;
+            text-align: center;
+            user-select: none;
+        }
+
+        .multi-thumb-stack {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .badge-slideshow {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            background: rgba(99, 102, 241, 0.18);
+            color: #c7d2fe;
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            padding: 3px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .badge-slideshow:hover {
+            background: rgba(99, 102, 241, 0.35);
+            color: #fff;
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        /* --- Multi-Image Modal Styles --- */
+        .multi-modal-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .multi-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 10px;
+            width: 100%;
+            max-height: 48vh;
+            overflow-y: auto;
+            padding: 4px;
+            margin-bottom: 12px;
+        }
+
+        .multi-slot-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(17, 24, 39, 0.9);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+        }
+
+        .multi-slot-card.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+        }
+
+        .multi-slot-img {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            background: #000;
+            display: block;
+            cursor: pointer;
+        }
+
+        .multi-slot-idx {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #a5b4fc;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            pointer-events: none;
+        }
+
+        .multi-slot-remove {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(239, 68, 68, 0.85);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+
+        .multi-slot-remove:hover {
+            background: #ef4444;
+            transform: scale(1.1);
+        }
+
+        .multi-slot-info {
+            padding: 4px 6px;
+            font-size: 9px;
+            color: #94a3b8;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .multi-slot-btn {
+            margin: 2px 4px 6px 4px;
+            padding: 3px 6px;
+            font-size: 10px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            color: #c7d2fe;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.15s ease;
+        }
+
+        .multi-slot-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -1235,10 +1488,22 @@
                     </td>
                 `;
 
-                // Cột 2: Ảnh ghép mẫu - bỏ thẻ select, hiển thị ảnh mẫu trực quan; click mở Modal chọn ảnh nếu chưa hoàn thành
+                // Cột 2: Ảnh ghép mẫu - hiển thị đơn ảnh hoặc nhiều ảnh tùy công tắc
+                const isMulti = Boolean(item.is_multi_image);
+                const imgCount = item.image_count || 10;
                 const col2Html = `
-                    <td>
-                        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+                    <td class="col-image-config">
+                        <!-- Toggle Switch: Ghép nhiều ảnh -->
+                        <div class="multi-image-toggle-bar">
+                            <label class="switch-sm" title="Bật/Tắt chế độ ghép nhiều ảnh chạy slideshow">
+                                <input type="checkbox" id="multi-toggle-${item.id}" ${isMulti ? 'checked' : ''} ${isCompleted ? 'disabled' : ''} onchange="toggleMultiImageMode(${item.id})">
+                                <span class="slider-sm round"></span>
+                            </label>
+                            <span class="toggle-label">Nhiều ảnh</span>
+                        </div>
+
+                        <!-- Mode 1: Đơn ảnh (Mặc định) -->
+                        <div id="single-image-box-${item.id}" style="${isMulti ? 'display: none;' : 'display: flex; flex-direction: column; align-items: flex-start; gap: 4px;'}">
                             <img class="preview-image" 
                                  src="/media/image-by-name/${encodeURIComponent(item.image_name)}" 
                                  id="img-preview-${item.id}" 
@@ -1249,6 +1514,20 @@
                                     <i class="fa-solid fa-wand-magic-sparkles"></i> Đổi ảnh
                                 </span>
                             ` : ''}
+                        </div>
+
+                        <!-- Mode 2: Nhiều ảnh (Slideshow) -->
+                        <div id="multi-image-box-${item.id}" style="${isMulti ? 'display: flex; flex-direction: column; align-items: flex-start; gap: 6px;' : 'display: none;'}">
+                            <div class="stepper-controls">
+                                <button class="btn-step" ${isCompleted ? 'disabled' : ''} onclick="adjustImageCount(${item.id}, -1)" title="Giảm 1 ảnh">-</button>
+                                <span class="stepper-count-badge" id="stepper-count-${item.id}">${imgCount} ảnh</span>
+                                <button class="btn-step" ${isCompleted ? 'disabled' : ''} onclick="adjustImageCount(${item.id}, 1)" title="Tăng 1 ảnh">+</button>
+                            </div>
+                            <div class="multi-thumb-stack" onclick="${isCompleted ? '' : `openMultiImagePickerModal(${item.id})`}" title="${isCompleted ? 'Đã render' : 'Xem và tùy chỉnh danh sách ảnh'}">
+                                <span class="badge-slideshow" id="badge-slideshow-${item.id}">
+                                    <i class="fa-solid fa-layer-group"></i> Tùy chỉnh <strong id="badge-count-${item.id}">${imgCount}</strong> ảnh
+                                </span>
+                            </div>
                         </div>
                     </td>
                 `;
@@ -1651,6 +1930,316 @@
                 }
             } catch (err) {
                 alert('Lỗi kết nối khi đổi ảnh!');
+            } finally {
+                if (btn) btn.disabled = false;
+            }
+        }
+
+        // --- MULTI-IMAGE SLIDESHOW CLIENT HANDLERS ---
+        async function toggleMultiImageMode(id) {
+            const item = rawQueueData.find(x => x.id === id);
+            if (!item) return;
+
+            const toggleEl = document.getElementById(`multi-toggle-${id}`);
+            const isChecked = toggleEl ? toggleEl.checked : false;
+
+            try {
+                const res = await fetch('/api/toggle-multi-image', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, enabled: isChecked })
+                });
+                const data = await res.json();
+                if (data.success && data.item) {
+                    item.is_multi_image = Boolean(data.item.is_multi_image);
+                    item.image_count = data.item.image_count || 10;
+                    item.image_list = data.item.image_list || [];
+
+                    const singleBox = document.getElementById(`single-image-box-${id}`);
+                    const multiBox = document.getElementById(`multi-image-box-${id}`);
+                    const stepperCount = document.getElementById(`stepper-count-${id}`);
+                    const badgeCount = document.getElementById(`badge-count-${id}`);
+
+                    if (singleBox) singleBox.style.display = item.is_multi_image ? 'none' : 'flex';
+                    if (multiBox) multiBox.style.display = item.is_multi_image ? 'flex' : 'none';
+                    if (stepperCount) stepperCount.textContent = `${item.image_count} ảnh`;
+                    if (badgeCount) badgeCount.textContent = `${item.image_count}`;
+                } else {
+                    alert('Lỗi cập nhật chế độ nhiều ảnh: ' + (data.error || ''));
+                    if (toggleEl) toggleEl.checked = !isChecked;
+                }
+            } catch (err) {
+                alert('Lỗi kết nối khi bật/tắt nhiều ảnh!');
+                if (toggleEl) toggleEl.checked = !isChecked;
+            }
+        }
+
+        async function adjustImageCount(id, delta) {
+            const item = rawQueueData.find(x => x.id === id);
+            if (!item) return;
+            const currentCount = item.image_count || 10;
+            const nextCount = currentCount + delta;
+            if (nextCount < 2) {
+                alert('Tối thiểu là 2 ảnh để làm video slideshow!');
+                return;
+            }
+            if (nextCount > 50) {
+                alert('Tối đa là 50 ảnh cho mỗi video!');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/update-multi-count', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id, count: nextCount, delta: delta })
+                });
+                const data = await res.json();
+                if (data.success && data.item) {
+                    item.image_count = data.item.image_count;
+                    item.image_list = data.item.image_list;
+
+                    const stepperCount = document.getElementById(`stepper-count-${id}`);
+                    const badgeCount = document.getElementById(`badge-count-${id}`);
+                    if (stepperCount) stepperCount.textContent = `${item.image_count} ảnh`;
+                    if (badgeCount) badgeCount.textContent = `${item.image_count}`;
+                } else {
+                    alert('Lỗi cập nhật số lượng ảnh: ' + (data.error || ''));
+                }
+            } catch (err) {
+                alert('Lỗi kết nối khi tăng/giảm số lượng ảnh!');
+            }
+        }
+
+        let multiImagePickerSession = {
+            itemId: null,
+            imageList: [],
+            activeSlotIndex: null
+        };
+
+        function openMultiImagePickerModal(itemId) {
+            const item = rawQueueData.find(x => x.id === itemId);
+            if (!item) return;
+            if (item.status === 'Hoàn thành' || item.is_locked) return;
+
+            let currentList = (item.image_list && item.image_list.length > 0) ? [...item.image_list] : [];
+            if (currentList.length === 0 && item.image_name) {
+                currentList = [item.image_name];
+            }
+
+            multiImagePickerSession = {
+                itemId: itemId,
+                imageList: currentList,
+                activeSlotIndex: currentList.length > 0 ? 0 : null
+            };
+
+            const modal = document.getElementById('mediaModal');
+            const titleEl = document.getElementById('mediaModalTitle');
+            if (!modal || !titleEl) return;
+
+            const itemIdx = rawQueueData.findIndex(x => x.id === itemId) + 1;
+            titleEl.innerHTML = `<i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> Quản lý bộ ảnh Slideshow cho Video #${itemIdx}`;
+
+            renderMultiImagePickerModalContent();
+            modal.classList.add('active');
+        }
+
+        function renderMultiImagePickerModalContent() {
+            const bodyEl = document.getElementById('mediaModalBody');
+            if (!bodyEl) return;
+
+            const { imageList, activeSlotIndex } = multiImagePickerSession;
+            const count = imageList.length;
+
+            let candidateSlotHtml = '';
+            if (activeSlotIndex !== null && activeSlotIndex >= 0 && activeSlotIndex < count) {
+                const currentSlotImg = imageList[activeSlotIndex];
+                candidateSlotHtml = `
+                    <div class="modal-carousel-container" style="margin-top: 10px;">
+                        <div class="modal-carousel-label" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span><i class="fa-solid fa-arrow-right-arrow-left" style="color: var(--primary);"></i> Chọn ảnh thay thế cho Vị trí #${activeSlotIndex + 1} (hiện tại: <strong>${currentSlotImg}</strong>):</span>
+                            <span style="font-size: 10px; color: #94a3b8;">Nhấp vào ảnh để áp dụng ngay vào vị trí này</span>
+                        </div>
+                        <div class="modal-carousel-strip" id="multiModalCarouselStrip">
+                            ${availableImages.map(img => `
+                                <img class="modal-carousel-thumb ${img === currentSlotImg ? 'active' : ''}" 
+                                     src="/media/image-by-name/${encodeURIComponent(img)}" 
+                                     title="${img}" 
+                                     onclick="applyCandidateToActiveSlot('${img.replace(/'/g, "\\'")}')">
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            bodyEl.innerHTML = `
+                <div class="multi-modal-toolbar">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="badge-slideshow" style="cursor: default; font-size: 11px; padding: 4px 10px;">
+                            <i class="fa-solid fa-images"></i> Tổng cộng: <strong>${count}</strong> ảnh
+                        </span>
+                        <span style="font-size: 11px; color: #94a3b8;">(Thứ tự ảnh sẽ trượt ngang từ phải sang trái lần lượt từ #1 đến #${count})</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <button class="btn btn-secondary btn-sm" onclick="rerollMultiImageBatchModal()" title="Đổi ngẫu nhiên lại toàn bộ ảnh trong bộ">
+                            <i class="fa-solid fa-shuffle"></i> Đổi ngẫu nhiên bộ ảnh
+                        </button>
+                        <button class="btn btn-secondary btn-sm" onclick="addSlotToMultiImage()" title="Thêm 1 ảnh mới vào cuối danh sách">
+                            <i class="fa-solid fa-plus"></i> Thêm ảnh
+                        </button>
+                        <button class="btn btn-success btn-sm" id="btnConfirmMultiImage" onclick="confirmMultiImageChanges()" title="Lưu danh sách ảnh này cho video">
+                            <i class="fa-solid fa-check"></i> Lưu & Áp dụng
+                        </button>
+                    </div>
+                </div>
+
+                <div class="multi-gallery-grid" id="multiGalleryGrid">
+                    ${imageList.map((imgName, idx) => `
+                        <div class="multi-slot-card ${activeSlotIndex === idx ? 'active' : ''}" id="slot-card-${idx}">
+                            <span class="multi-slot-idx">#${idx + 1}</span>
+                            ${count > 2 ? `
+                                <button class="multi-slot-remove" onclick="removeMultiImageSlot(${idx})" title="Xóa ảnh #${idx + 1}">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            ` : ''}
+                            <img class="multi-slot-img" 
+                                 src="/media/image-by-name/${encodeURIComponent(imgName)}" 
+                                 alt="${imgName}" 
+                                 onclick="selectMultiSlotForSwap(${idx})"
+                                 title="Nhấp để đổi ảnh tại vị trí này">
+                            <div class="multi-slot-info" title="${imgName}">${imgName}</div>
+                            <button class="multi-slot-btn" onclick="selectMultiSlotForSwap(${idx})">
+                                <i class="fa-solid fa-pen-to-square"></i> Đổi ảnh
+                            </button>
+                        </div>
+                    `).join('')}
+                </div>
+
+                ${candidateSlotHtml}
+            `;
+
+            setTimeout(() => {
+                const strip = document.getElementById('multiModalCarouselStrip');
+                const activeThumb = strip?.querySelector('.modal-carousel-thumb.active');
+                if (activeThumb && strip) {
+                    activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+            }, 50);
+        }
+
+        function selectMultiSlotForSwap(idx) {
+            multiImagePickerSession.activeSlotIndex = idx;
+            renderMultiImagePickerModalContent();
+        }
+
+        function applyCandidateToActiveSlot(imgName) {
+            const { activeSlotIndex, imageList } = multiImagePickerSession;
+            if (activeSlotIndex === null || activeSlotIndex < 0 || activeSlotIndex >= imageList.length) return;
+            imageList[activeSlotIndex] = imgName;
+            renderMultiImagePickerModalContent();
+        }
+
+        function removeMultiImageSlot(idx) {
+            const { imageList } = multiImagePickerSession;
+            if (imageList.length <= 2) {
+                alert('Tối thiểu phải có 2 ảnh trong bộ video!');
+                return;
+            }
+            imageList.splice(idx, 1);
+            if (multiImagePickerSession.activeSlotIndex >= imageList.length) {
+                multiImagePickerSession.activeSlotIndex = imageList.length - 1;
+            }
+            renderMultiImagePickerModalContent();
+        }
+
+        async function addSlotToMultiImage() {
+            const { imageList } = multiImagePickerSession;
+            if (imageList.length >= 50) {
+                alert('Tối đa là 50 ảnh!');
+                return;
+            }
+
+            const candidates = availableImages.filter(x => !imageList.includes(x));
+            const pool = candidates.length > 0 ? candidates : availableImages;
+            if (!pool || pool.length === 0) {
+                alert('Không có ảnh nào trong thư mục!');
+                return;
+            }
+            const chosen = pool[Math.floor(Math.random() * pool.length)];
+            imageList.push(chosen);
+            multiImagePickerSession.activeSlotIndex = imageList.length - 1;
+            renderMultiImagePickerModalContent();
+        }
+
+        async function rerollMultiImageBatchModal() {
+            const { itemId, imageList } = multiImagePickerSession;
+            const count = Math.max(2, imageList.length || 10);
+
+            try {
+                const res = await fetch('/api/random-images-batch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ count: count, exclude: [] })
+                });
+                const data = await res.json();
+                if (data.success && data.images && data.images.length > 0) {
+                    multiImagePickerSession.imageList = data.images;
+                    multiImagePickerSession.activeSlotIndex = 0;
+                    renderMultiImagePickerModalContent();
+                } else {
+                    alert('Lỗi lấy ảnh ngẫu nhiên: ' + (data.error || ''));
+                }
+            } catch (e) {
+                alert('Lỗi kết nối khi đổi ngẫu nhiên bộ ảnh!');
+            }
+        }
+
+        async function confirmMultiImageChanges() {
+            const btn = document.getElementById('btnConfirmMultiImage');
+            if (btn) btn.disabled = true;
+
+            const { itemId, imageList } = multiImagePickerSession;
+            if (!imageList || imageList.length < 2) {
+                alert('Cần ít nhất 2 ảnh cho chế độ slideshow!');
+                if (btn) btn.disabled = false;
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/update-queue', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: itemId,
+                        is_multi_image: true,
+                        image_count: imageList.length,
+                        image_list: imageList,
+                        image_name: imageList[0]
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    const item = rawQueueData.find(x => x.id === itemId);
+                    if (item) {
+                        item.is_multi_image = true;
+                        item.image_count = imageList.length;
+                        item.image_list = imageList;
+                        item.image_name = imageList[0];
+
+                        const stepperCount = document.getElementById(`stepper-count-${itemId}`);
+                        const badgeCount = document.getElementById(`badge-count-${itemId}`);
+                        const previewThumb = document.getElementById(`img-preview-${itemId}`);
+
+                        if (stepperCount) stepperCount.textContent = `${item.image_count} ảnh`;
+                        if (badgeCount) badgeCount.textContent = `${item.image_count}`;
+                        if (previewThumb) previewThumb.src = `/media/image-by-name/${encodeURIComponent(imageList[0])}?t=${Date.now()}`;
+                    }
+                    closeMediaModal();
+                } else {
+                    alert('Lỗi lưu danh sách ảnh: ' + (data.error || ''));
+                }
+            } catch (err) {
+                alert('Lỗi kết nối khi lưu danh sách ảnh!');
             } finally {
                 if (btn) btn.disabled = false;
             }

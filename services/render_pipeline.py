@@ -3,7 +3,7 @@ import re
 import time
 import json
 from datetime import datetime
-from typing import Callable, Optional, Dict, Any
+from typing import Callable, Optional, Dict, Any, List
 
 from moviepy import ImageClip, AudioFileClip, VideoFileClip, ColorClip, CompositeVideoClip
 from PIL import Image, ImageEnhance, ImageDraw, ImageFont
@@ -12,6 +12,7 @@ import numpy as np
 from extract_lyrics import extract_raw_lyrics, clean_lyrics_with_ai, get_first_line
 from services.progress_manager import progress_manager
 from services.telemetry_manager import telemetry_manager
+from services.slideshow_service import SlideshowService
 
 VIDEOS_DB_FILE = 'videos_db.json'
 
@@ -92,7 +93,9 @@ class RenderPipeline:
         item_id: Any,
         video_path: str,
         image_path: str,
-        progress_callback: Optional[Callable[[str, str, Optional[str]], None]] = None
+        progress_callback: Optional[Callable[[str, str, Optional[str]], None]] = None,
+        is_multi_image: bool = False,
+        image_paths: Optional[List[str]] = None
     ) -> Dict[str, Any]:
         """
         Execute full render sequence with granular stage timing and observer updates.
@@ -196,33 +199,43 @@ class RenderPipeline:
             except AttributeError:
                 bg_clip.duration = audio_duration
 
-            pil_img = Image.open(image_path).convert("RGB")
-            enhancer = ImageEnhance.Brightness(pil_img)
-            dark_pil_img = enhancer.enhance(0.5)
+            if is_multi_image and image_paths and len(image_paths) >= 2:
+                print(f"[4/6] 🎬 Ghép slideshow {len(image_paths)} ảnh chuyển động mượt...")
+                slideshow_clip = SlideshowService.create_slideshow_clip(
+                    image_paths=image_paths,
+                    total_duration=audio_duration,
+                    width=target_width,
+                    height=target_height
+                )
+                clips_to_composite = [bg_clip, slideshow_clip]
+            else:
+                pil_img = Image.open(image_path).convert("RGB")
+                enhancer = ImageEnhance.Brightness(pil_img)
+                dark_pil_img = enhancer.enhance(0.5)
 
-            img_array = np.array(dark_pil_img)
-            image_clip = ImageClip(img_array)
-            try:
-                image_clip = image_clip.with_duration(audio_duration)
-            except AttributeError:
-                image_clip.duration = audio_duration
+                img_array = np.array(dark_pil_img)
+                image_clip = ImageClip(img_array)
+                try:
+                    image_clip = image_clip.with_duration(audio_duration)
+                except AttributeError:
+                    image_clip.duration = audio_duration
 
-            img_w, img_h = image_clip.size
-            ratio = min(target_width / img_w, target_height / img_h)
-            new_w = int(img_w * ratio)
-            new_h = int(img_h * ratio)
+                img_w, img_h = image_clip.size
+                ratio = min(target_width / img_w, target_height / img_h)
+                new_w = int(img_w * ratio)
+                new_h = int(img_h * ratio)
 
-            try:
-                image_clip = image_clip.resized(width=new_w, height=new_h)
-            except AttributeError:
-                image_clip.resize((new_w, new_h))
+                try:
+                    image_clip = image_clip.resized(width=new_w, height=new_h)
+                except AttributeError:
+                    image_clip.resize((new_w, new_h))
 
-            try:
-                image_clip = image_clip.with_position(('center', 'center'))
-            except AttributeError:
-                image_clip.position = ('center', 'center')
+                try:
+                    image_clip = image_clip.with_position(('center', 'center'))
+                except AttributeError:
+                    image_clip.position = ('center', 'center')
 
-            clips_to_composite = [bg_clip, image_clip]
+                clips_to_composite = [bg_clip, image_clip]
             logo_path = 'logo-text.png'
             if os.path.exists(logo_path):
                 try:

@@ -80,6 +80,30 @@ class ScannerService:
         return None
 
     @classmethod
+    def get_random_images_batch(cls, img_folder: str, count: int = 10, exclude: Optional[List[str]] = None) -> List[str]:
+        """
+        Samples up to `count` distinct random image filenames from the image directory.
+        If folder has fewer images than count, returns all available images (shuffled).
+        """
+        if not img_folder or not os.path.isdir(img_folder):
+            return []
+
+        try:
+            images = [f for f in os.listdir(img_folder) if f.lower().endswith(cls.IMAGE_EXTENSIONS)]
+            if not images:
+                return []
+            
+            exclude_set = set(exclude or [])
+            pool = [x for x in images if x not in exclude_set]
+            if len(pool) < count:
+                pool = images  # Fall back to full pool if excluded set is too restrictive
+
+            sample_size = min(count, len(pool))
+            return random.sample(pool, sample_size)
+        except Exception:
+            return []
+
+    @classmethod
     def estimate_fast_duration(cls, size_bytes: int) -> float:
         """
         Instantaneous duration heuristic based on video file size.

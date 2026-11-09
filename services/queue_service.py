@@ -49,6 +49,8 @@ class QueueService:
                     return item
         return None
 
+    get_item_by_id = get_item
+
     @classmethod
     def init_queue_from_folders(cls, img_folder: str, vid_folder: str) -> Tuple[bool, Optional[str], Dict[str, Any]]:
         """
@@ -91,7 +93,10 @@ class QueueService:
                 'output_file': '',
                 'output_folder': 'outputs',
                 'has_lyrics': True,
-                'is_locked': False
+                'is_locked': False,
+                'is_multi_image': False,
+                'image_count': 10,
+                'image_list': []
             })
 
         with cls._lock:
@@ -147,7 +152,10 @@ class QueueService:
                         'output_file': '',
                         'output_folder': 'outputs',
                         'has_lyrics': True,
-                        'is_locked': False
+                        'is_locked': False,
+                        'is_multi_image': False,
+                        'image_count': 10,
+                        'image_list': []
                     }
                     existing_queue.append(new_item)
                     new_items_added += 1
@@ -173,26 +181,206 @@ class QueueService:
         }
 
     @classmethod
-    def update_item_image(cls, item_id: int, image_name: str) -> Tuple[bool, Optional[str]]:
+    def update_item_image(
+        cls,
+        item_id: int,
+        image_name: Optional[str] = None,
+        is_multi_image: Optional[bool] = None,
+        image_count: Optional[int] = None,
+        image_list: Optional[List[str]] = None
+    ) -> Tuple[bool, Optional[str]]:
         """
-        Updates paired image for an existing queue item.
+        Updates image configuration (single image or multi-image) for a queue item.
         """
         img_folder, _ = cls.get_session_folders()
         if not img_folder:
             return False, 'Chưa cấu hình thư mục ảnh!'
 
-        new_image_path = os.path.join(img_folder, image_name)
-        if not os.path.exists(new_image_path):
-            return False, 'File ảnh không tồn tại!'
+        with cls._lock:
+            for item in cls._session_data.get('queue', []):
+                if item.get('id') == item_id:
+                    if image_name is not None and image_name.strip():
+                        new_image_path = os.path.join(img_folder, image_name)
+                        if os.path.exists(new_image_path):
+                            item['image_path'] = new_image_path
+                            item['image_name'] = image_name
+
+                    if is_multi_image is not None:
+                        item['is_multi_image'] = bool(is_multi_image)
+                        if item['is_multi_image'] and not item.get('image_list'):
+                            cnt = item.get('image_count', 10)
+                            sampled = ScannerService.get_random_images_batch(img_folder, count=cnt)
+                            item['image_list'] = sampled
+                            if sampled:
+                                item['image_name'] = sampled[0]
+                                item['image_path'] = os.path.join(img_folder, sampled[0])
+
+                    if image_count is not None:
+                        item['image_count'] = max(2, min(50, int(image_count)))
+
+                    if image_list is not None and isinstance(image_list, list):
+                        valid_list = [x for x in image_list if os.path.exists(os.path.join(img_folder, x))]
+                        item['image_list'] = valid_list
+                        item['image_count'] = len(valid_list)
+                        if valid_list:
+                            item['image_name'] = valid_list[0]
+                            item['image_path'] = os.path.join(img_folder, valid_list[0])
+
+                    return True, None
+
+        return False, 'Không tìm thấy video trong hàng đợi!'
+
+    @classmethod
+    def toggle_multi_image(cls, item_id: int, enabled: bool) -> Tuple[bool, Optional[str], Dict[str, Any]]:
+        """
+        Toggles multi-image mode for an item. If enabling and image_list is empty,
+        samples 10 random images automatically.
+        """
+        img_folder, _ = cls.get_session_folders()
+        if not img_folder:
+            return False, 'Chưa cấu hình thư mục ảnh!', {}
 
         with cls._lock:
             for item in cls._session_data.get('queue', []):
                 if item.get('id') == item_id:
-                    item['image_path'] = new_image_path
-                    item['image_name'] = image_name
-                    return True, None
+                    item['is_multi_image'] = bool(enabled)
+                    if item['is_multi_image']:
+                        cnt = item.get('image_count', 10)
+                        curr_list = item.get('image_list', [])
+                        if not curr_list or len(curr_list) < cnt:
+                            sampled = ScannerService.get_random_images_batch(img_folder, count=cnt)
+                            item['image_list'] = sampled
+                            if sampled:
+                                item['image_name'] = sampled[0]
+                                item['image_path'] = os.path.join(img_folder, sampled[0])
+                    item_dict = {
+                        'id': item_id,
+                        'is_multi_image': item['is_multi_image'],
+                        'image_count': item.get('image_count', 10),
+                        'image_list': item.get('image_list', [])
+                    }
+                    return True, None, {
+                        'item': item_dict,
+                        'is_multi_image': item['is_multi_image'],
+                        'image_count': item.get('image_count', 10),
+                        'image_list': item.get('image_list', [])
+                    }
 
-        return False, 'Không tìm thấy video trong hàng đợi!'
+        return False, 'Không tìm thấy video trong hàng đợi!', {}
+
+    @classmethod
+    def update_multi_image_count(cls, item_id: int, count: int) -> Tuple[bool, Optional[str], Dict[str, Any]]:
+        """
+        Updates the image count for an item, sampling new random images if increasing,
+        or trimming list if decreasing.
+        """
+        img_folder, _ = cls.get_session_folders()
+        if not img_folder:
+            return False, 'Chưa cấu hình thư mục ảnh!', {}
+
+        target_count = max(2, min(50, int(count)))
+
+        with cls._lock:
+            for item in cls._session_data.get('queue', []):
+                if item.get('id') == item_id:
+                    item['image_count'] = target_count
+                    curr_list = list(item.get('image_list', []))
+
+                    if len(curr_list) < target_count:
+                        diff = target_count - len(curr_list)
+                        more = ScannerService.get_random_images_batch(img_folder, count=diff, exclude=curr_list)
+                        curr_list.extend(more)
+                    elif len(curr_list) > target_count:
+                        curr_list = curr_list[:target_count]
+
+                    item['image_list'] = curr_list
+                    if curr_list:
+                        item['image_name'] = curr_list[0]
+                        item['image_path'] = os.path.join(img_folder, curr_list[0])
+
+                    item_dict = {
+                        'id': item_id,
+                        'is_multi_image': item.get('is_multi_image', False),
+                        'image_count': target_count,
+                        'image_list': curr_list
+                    }
+                    return True, None, {
+                        'item': item_dict,
+                        'image_count': target_count,
+                        'image_list': curr_list
+                    }
+
+        return False, 'Không tìm thấy video trong hàng đợi!', {}
+
+    @classmethod
+    def set_multi_image_list(cls, item_id: int, image_list: List[str]) -> Tuple[bool, Optional[str], Dict[str, Any]]:
+        """
+        Updates the complete ordered image list for a multi-image item.
+        """
+        img_folder, _ = cls.get_session_folders()
+        if not img_folder:
+            return False, 'Chưa cấu hình thư mục ảnh!', {}
+
+        valid_list = [x for x in image_list if os.path.exists(os.path.join(img_folder, x))]
+        if len(valid_list) < 2:
+            return False, 'Danh sách nhiều ảnh cần tối thiểu 2 ảnh hợp lệ!', {}
+
+        with cls._lock:
+            for item in cls._session_data.get('queue', []):
+                if item.get('id') == item_id:
+                    item['is_multi_image'] = True
+                    item['image_list'] = valid_list
+                    item['image_count'] = len(valid_list)
+                    item['image_name'] = valid_list[0]
+                    item['image_path'] = os.path.join(img_folder, valid_list[0])
+                    item_dict = {
+                        'id': item_id,
+                        'is_multi_image': True,
+                        'image_count': len(valid_list),
+                        'image_list': valid_list
+                    }
+                    return True, None, {
+                        'item': item_dict,
+                        'is_multi_image': True,
+                        'image_count': len(valid_list),
+                        'image_list': valid_list
+                    }
+
+        return False, 'Không tìm thấy video trong hàng đợi!', {}
+
+    @classmethod
+    def reroll_multi_images(cls, item_id: int) -> Tuple[bool, Optional[str], Dict[str, Any]]:
+        """
+        Resamples a brand-new random batch of images for the specified item.
+        """
+        img_folder, _ = cls.get_session_folders()
+        if not img_folder:
+            return False, 'Chưa cấu hình thư mục ảnh!', {}
+
+        with cls._lock:
+            for item in cls._session_data.get('queue', []):
+                if item.get('id') == item_id:
+                    cnt = item.get('image_count', 10)
+                    fresh = ScannerService.get_random_images_batch(img_folder, count=cnt)
+                    if not fresh:
+                        return False, 'Không đủ ảnh trong thư mục để bốc ngẫu nhiên!', {}
+                    item['image_list'] = fresh
+                    item['image_name'] = fresh[0]
+                    item['image_path'] = os.path.join(img_folder, fresh[0])
+                    item_dict = {
+                        'id': item_id,
+                        'is_multi_image': True,
+                        'image_count': len(fresh),
+                        'image_list': fresh
+                    }
+                    return True, None, {
+                        'item': item_dict,
+                        'is_multi_image': True,
+                        'image_count': len(fresh),
+                        'image_list': fresh
+                    }
+
+        return False, 'Không tìm thấy video trong hàng đợi!', {}
 
     @classmethod
     def get_progress_summary(cls, item_id: Optional[int] = None) -> Tuple[Dict[str, Any], Dict[str, Any]]:
@@ -301,6 +489,9 @@ class QueueService:
             'output_file': item.get('output_file', ''),
             'output_folder': item.get('output_folder', 'outputs'),
             'has_lyrics': item.get('has_lyrics', True),
-            'is_locked': item.get('is_locked', item.get('status') == 'Hoàn thành')
+            'is_locked': item.get('is_locked', item.get('status') == 'Hoàn thành'),
+            'is_multi_image': item.get('is_multi_image', False),
+            'image_count': item.get('image_count', 10),
+            'image_list': item.get('image_list', [])
         } for item in queue]
 
