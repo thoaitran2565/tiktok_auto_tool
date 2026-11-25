@@ -18,7 +18,7 @@ from services.ffmpeg_encoder import FFmpegEncoderService
 
 VIDEOS_DB_FILE = 'videos_db.json'
 
-def create_lyrics_image_pil(text: str, img_width: int = 1080, target_height: int = 1920, font_size: int = 20) -> Image.Image:
+def create_lyrics_image_pil(text: str, img_width: int = 1080, target_height: int = 1920, font_size: int = 30) -> Image.Image:
     """
     Generate transparent PIL Image containing full lyrics, bounded at max 90% of target video height.
     """
@@ -49,7 +49,7 @@ def create_lyrics_image_pil(text: str, img_width: int = 1080, target_height: int
     return txt_img.crop((0, 0, img_width, final_height))
 
 
-def create_lyrics_image_transparent(text: str, img_width: int = 1080, target_height: int = 1920, font_size: int = 20) -> np.ndarray:
+def create_lyrics_image_transparent(text: str, img_width: int = 1080, target_height: int = 1920, font_size: int = 30) -> np.ndarray:
     return np.array(create_lyrics_image_pil(text, img_width, target_height, font_size))
 
 
@@ -103,7 +103,7 @@ def compose_full_canvas_pil(
     # Add lyrics
     if full_lyrics and full_lyrics.strip():
         try:
-            lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=25)
+            lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=30)
             lw, lh = lyric_pil.size
             pos_y = max(0, (target_height - lh) // 2)
             canvas.paste(lyric_pil, (0, pos_y), mask=lyric_pil)
@@ -304,7 +304,7 @@ class RenderPipeline:
                                 pass
                         if has_lyrics and full_lyrics:
                             try:
-                                lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=25)
+                                lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=30)
                                 lw, lh = lyric_pil.size
                                 pos_y = max(0, (target_height - lh) // 2)
                                 fitted.paste(lyric_pil, (0, pos_y), mask=lyric_pil)
@@ -562,7 +562,7 @@ class RenderPipeline:
                                     pass
                             if has_lyrics and full_lyrics:
                                 try:
-                                    lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=25)
+                                    lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=30)
                                     lw, lh = lyric_pil.size
                                     pos_y = max(0, (target_height - lh) // 2)
                                     fitted.paste(lyric_pil, (0, pos_y), mask=lyric_pil)
@@ -671,7 +671,7 @@ class RenderPipeline:
 
                 if has_lyrics and full_lyrics:
                     try:
-                        lyric_array = create_lyrics_image_transparent(full_lyrics, img_width=target_width, font_size=25)
+                        lyric_array = create_lyrics_image_transparent(full_lyrics, img_width=target_width, font_size=30)
                         lyric_clip = ImageClip(lyric_array)
                         try:
                             lyric_clip = lyric_clip.with_duration(audio_duration)
