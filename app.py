@@ -1,7 +1,10 @@
 import os
+import time
 import threading
 import webbrowser
 from flask import Flask, render_template, request, jsonify, send_from_directory
+
+from extract_lyrics import extract_raw_lyrics, clean_lyrics_with_ai, get_first_line
 
 from services.config_service import ConfigService
 from services.scanner_service import ScannerService
@@ -51,6 +54,122 @@ def index():
 @app.route('/manage')
 def manage():
     return render_template('manage.html')
+
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
+
+
+@app.route('/api/test-scan-videos', methods=['POST'])
+def test_scan_videos():
+    data = request.json or {}
+    vid_folder = data.get('video_folder', '').strip()
+    if not vid_folder:
+        _, vid_folder = ConfigService.get_configured_folders()
+
+    if not vid_folder or not os.path.isdir(vid_folder):
+        return jsonify({'success': False, 'error': 'Thư mục video không hợp lệ hoặc không tồn tại!'}), 400
+
+    videos = ScannerService.scan_videos(vid_folder)
+    if not videos:
+        return jsonify({'success': False, 'error': 'Thư mục không chứa file video hợp lệ nào!'}), 400
+
+    queue = []
+    for idx, (v_name, v_path, v_size) in enumerate(videos):
+        size_mb = round(v_size / (1024 * 1024), 2)
+        fast_dur_s = ScannerService.estimate_fast_duration(v_size)
+        queue.append({
+            'id': idx,
+            'video_name': v_name,
+            'video_path': v_path,
+            'duration_s': fast_dur_s,
+            'size_mb': size_mb,
+            'status': 'Chờ test',
+            'raw_lyrics': '',
+            'refined_lyrics': '',
+            'lyric_source': '',
+            'first_line': '',
+            'has_lyrics': False,
+            'processing_time_s': 0.0
+        })
+
+    return jsonify({
+        'success': True,
+        'video_folder': vid_folder,
+        'total_videos': len(queue),
+        'queue': queue
+    })
+
+
+@app.route('/api/test-lyrics', methods=['POST'])
+def test_lyrics():
+    data = request.json or {}
+    item_id = data.get('id', data.get('item_id', 0))
+    video_path = data.get('video_path', '').strip()
+
+    if not video_path or not os.path.exists(video_path):
+        return jsonify({'success': False, 'item_id': item_id, 'error': 'Không tìm thấy file video nguồn!'}), 404
+
+    t0 = time.time()
+    temp_audio_path = os.path.join(app.config['OUTPUT_FOLDER'], f"temp_test_audio_{item_id}_{int(time.time()*1000)%100000}.mp3")
+    audio_duration = 0.0
+
+    try:
+        # Step 1: Extract Audio
+        from moviepy import VideoFileClip
+        video_clip = VideoFileClip(video_path)
+        if video_clip.audio is None:
+            video_clip.close()
+            return jsonify({'success': False, 'item_id': item_id, 'error': 'Video không có âm thanh!'}), 400
+
+        audio_duration = round(float(video_clip.audio.duration), 2)
+        video_clip.audio.write_audiofile(temp_audio_path, codec='mp3', logger=None)
+        video_clip.close()
+
+        # Step 2: Speech Transcription (Whisper warm singleton)
+        raw_lyrics = extract_raw_lyrics(video_path) or ""
+
+        # Step 3: AI Refinement (Gemini AI with 15s timeout guard)
+        full_lyrics, lyric_source = clean_lyrics_with_ai(raw_lyrics)
+
+        has_lyrics = bool(lyric_source in ("AI", "Original") and full_lyrics and full_lyrics.strip())
+        timestamp = int(time.time())
+        if has_lyrics:
+            lyric_title = get_first_line(full_lyrics, max_length=100)
+        else:
+            lyric_title = f"Cuộc sống chill {timestamp}"
+
+        elapsed = round(time.time() - t0, 2)
+
+        return jsonify({
+            'success': True,
+            'item_id': item_id,
+            'raw_lyrics': raw_lyrics,
+            'refined_lyrics': full_lyrics,
+            'lyric_source': lyric_source,
+            'first_line': lyric_title,
+            'has_lyrics': has_lyrics,
+            'duration_s': audio_duration,
+            'processing_time_s': elapsed
+        })
+
+    except Exception as e:
+        err_msg = str(e)
+        print(f"❌ [TestLyrics] Lỗi: {err_msg}")
+        return jsonify({
+            'success': False,
+            'item_id': item_id,
+            'error': err_msg
+        }), 500
+
+    finally:
+        # Defensive cleanup of scratch audio file per Constitution Principle III
+        if os.path.exists(temp_audio_path):
+            try:
+                os.remove(temp_audio_path)
+            except Exception:
+                pass
 
 
 @app.route('/api/get-config', methods=['GET'])

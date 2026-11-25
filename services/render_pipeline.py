@@ -103,7 +103,7 @@ def compose_full_canvas_pil(
     # Add lyrics
     if full_lyrics and full_lyrics.strip():
         try:
-            lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=20)
+            lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=25)
             lw, lh = lyric_pil.size
             pos_y = max(0, (target_height - lh) // 2)
             canvas.paste(lyric_pil, (0, pos_y), mask=lyric_pil)
@@ -259,19 +259,22 @@ class RenderPipeline:
             full_lyrics, lyric_source = clean_lyrics_with_ai(raw_lyrics)
             api_latency_ms = (time.time() - api_start) * 1000.0
 
-            lyric_title = get_first_line(full_lyrics, max_length=100)
-            if lyric_title:
-                safe_lyric = re.sub(r'[\\/*?:"<>|#]', "", lyric_title).strip()
-                file_prefix = safe_lyric if safe_lyric else "CuocSongChill"
-            else:
-                file_prefix = "CuocSongChill"
+            has_lyrics = bool(lyric_source in ("AI", "Original") and full_lyrics and full_lyrics.strip())
+            timestamp = int(time.time())
 
-            has_lyrics = bool(lyric_source == "AI" and full_lyrics and full_lyrics.strip())
-            target_folder_name = "outputs" if has_lyrics else "outputs-no-lyrics"
-            target_folder = self.output_folder if has_lyrics else self.no_lyrics_folder
+            if has_lyrics:
+                lyric_title = get_first_line(full_lyrics, max_length=100)
+                safe_lyric = re.sub(r'[\\/*?:"<>|#]', "", lyric_title).strip() if lyric_title else ""
+                file_prefix = safe_lyric if safe_lyric else f"Cuộc sống chill {timestamp}"
+                target_folder_name = "outputs"
+                target_folder = self.output_folder
+            else:
+                file_prefix = f"Cuộc sống chill {timestamp}"
+                target_folder_name = "outputs-no-lyrics"
+                target_folder = self.no_lyrics_folder
 
             existing_file_check = os.path.join(target_folder, f"{file_prefix}.mp4")
-            output_filename = f"{file_prefix}_{int(time.time()) % 10000}.mp4" if os.path.exists(existing_file_check) else f"{file_prefix}.mp4"
+            output_filename = f"{file_prefix}_{int(time.time() * 1000) % 10000}.mp4" if os.path.exists(existing_file_check) else f"{file_prefix}.mp4"
             output_path = os.path.join(target_folder, output_filename)
             s3_duration = time.time() - s3_start
             stage_durations["lyric_refinement"] = s3_duration
@@ -299,9 +302,9 @@ class RenderPipeline:
                                     fitted.paste(resized_logo, (target_width - target_lw - 100, 260), mask=resized_logo)
                             except Exception:
                                 pass
-                        if lyric_source == "AI" and full_lyrics:
+                        if has_lyrics and full_lyrics:
                             try:
-                                lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=20)
+                                lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=25)
                                 lw, lh = lyric_pil.size
                                 pos_y = max(0, (target_height - lh) // 2)
                                 fitted.paste(lyric_pil, (0, pos_y), mask=lyric_pil)
@@ -312,7 +315,7 @@ class RenderPipeline:
             else:
                 canvas_img = compose_full_canvas_pil(
                     image_path=image_path,
-                    full_lyrics=full_lyrics if lyric_source == "AI" else None,
+                    full_lyrics=full_lyrics if has_lyrics else None,
                     logo_path='logo-text.png',
                     target_width=target_width,
                     target_height=target_height
@@ -503,19 +506,22 @@ class RenderPipeline:
                 full_lyrics, lyric_source = clean_lyrics_with_ai(raw_lyrics)
                 api_latency_ms = (time.time() - api_call_start) * 1000.0
 
-                lyric_title = get_first_line(full_lyrics, max_length=100)
-                if lyric_title:
-                    safe_lyric = re.sub(r'[\\/*?:"<>|#]', "", lyric_title).strip()
-                    file_prefix = safe_lyric if safe_lyric else "CuocSongChill"
-                else:
-                    file_prefix = "CuocSongChill"
+                has_lyrics = bool(lyric_source in ("AI", "Original") and full_lyrics and full_lyrics.strip())
+                timestamp = int(time.time())
 
-                has_lyrics = bool(lyric_source == "AI" and full_lyrics and full_lyrics.strip())
-                target_folder_name = "outputs" if has_lyrics else "outputs-no-lyrics"
-                target_folder = self.output_folder if has_lyrics else self.no_lyrics_folder
+                if has_lyrics:
+                    lyric_title = get_first_line(full_lyrics, max_length=100)
+                    safe_lyric = re.sub(r'[\\/*?:"<>|#]', "", lyric_title).strip() if lyric_title else ""
+                    file_prefix = safe_lyric if safe_lyric else f"Cuộc sống chill {timestamp}"
+                    target_folder_name = "outputs"
+                    target_folder = self.output_folder
+                else:
+                    file_prefix = f"Cuộc sống chill {timestamp}"
+                    target_folder_name = "outputs-no-lyrics"
+                    target_folder = self.no_lyrics_folder
 
                 existing_file_check = os.path.join(target_folder, f"{file_prefix}.mp4")
-                output_filename = f"{file_prefix}_{int(time.time()) % 10000}.mp4" if os.path.exists(existing_file_check) else f"{file_prefix}.mp4"
+                output_filename = f"{file_prefix}_{int(time.time() * 1000) % 10000}.mp4" if os.path.exists(existing_file_check) else f"{file_prefix}.mp4"
                 output_path = os.path.join(target_folder, output_filename)
                 print(f"[3/6] ✨ Xử lý lyrics: \"{file_prefix}\" ({'🎵 Có lyrics' if has_lyrics else '🔇 Không lời'})")
 
@@ -528,7 +534,7 @@ class RenderPipeline:
                 # -----------------------------------------------------------------
                 s4_start = time.time()
                 notify("visual_generation", "active")
-                print("[4/6] 🎨 Ghép hình ảnh & canvas lyrics...")
+                print(f"[4/6] 🎨 Ghép hình ảnh & canvas {'lyrics' if has_lyrics else '(không có lyrics)'}...")
 
                 target_width = 1080
                 target_height = 1920
@@ -554,9 +560,9 @@ class RenderPipeline:
                                         fitted.paste(resized_logo, (target_width - target_lw - 100, 260), mask=resized_logo)
                                 except Exception:
                                     pass
-                            if lyric_source == "AI" and full_lyrics:
+                            if has_lyrics and full_lyrics:
                                 try:
-                                    lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=20)
+                                    lyric_pil = create_lyrics_image_pil(full_lyrics, img_width=target_width, target_height=target_height, font_size=25)
                                     lw, lh = lyric_pil.size
                                     pos_y = max(0, (target_height - lh) // 2)
                                     fitted.paste(lyric_pil, (0, pos_y), mask=lyric_pil)
@@ -567,7 +573,7 @@ class RenderPipeline:
                 else:
                     canvas_img = compose_full_canvas_pil(
                         image_path=image_path,
-                        full_lyrics=full_lyrics if lyric_source == "AI" else None,
+                        full_lyrics=full_lyrics if has_lyrics else None,
                         logo_path='logo-text.png',
                         target_width=target_width,
                         target_height=target_height
@@ -663,9 +669,9 @@ class RenderPipeline:
                     except Exception as ex:
                         print(f"⚠️ Logo overlay warning: {ex}")
 
-                if lyric_source == "AI" and full_lyrics:
+                if has_lyrics and full_lyrics:
                     try:
-                        lyric_array = create_lyrics_image_transparent(full_lyrics, img_width=target_width, font_size=20)
+                        lyric_array = create_lyrics_image_transparent(full_lyrics, img_width=target_width, font_size=25)
                         lyric_clip = ImageClip(lyric_array)
                         try:
                             lyric_clip = lyric_clip.with_duration(audio_duration)
@@ -746,6 +752,7 @@ class RenderPipeline:
             video_record = {
                 'id': f"vid_{int(datetime.now().timestamp() * 1000)}",
                 'filename': output_filename,
+                'title': file_prefix,
                 'path': os.path.abspath(output_path),
                 'output_folder': target_folder_name,
                 'has_lyrics': has_lyrics,

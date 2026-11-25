@@ -1,5 +1,2969 @@
 [
     {
+        "id": "vid_1795612991753",
+        "filename": "Hãy chì còn nói nhớ thương đầy vơ. Em ơi đêm nay, vâng chẳng kia như chứng minh.mp4",
+        "title": "Hãy chì còn nói nhớ thương đầy vơ. Em ơi đêm nay, vâng chẳng kia như chứng minh",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hãy chì còn nói nhớ thương đầy vơ. Em ơi đêm nay, vâng chẳng kia như chứng minh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-25 20:23:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795237994955",
+        "filename": "tortilla.mp4",
+        "title": "tortilla",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\tortilla.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-21 12:13:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795237543596",
+        "filename": "​.mp4",
+        "title": "​",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\​.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-21 12:05:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795189429803",
+        "filename": "Dưới cơn mưa con đường ngỡ như vô tình nhớ một nụ cười.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Dưới cơn mưa con đường ngỡ như vô tình nhớ một nụ cười.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:43:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795189290366",
+        "filename": "Đường vắng nơi bước chân đi trong lẻ loi. Yêu thương bao lâu chẳng mong manh như khói sương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đường vắng nơi bước chân đi trong lẻ loi. Yêu thương bao lâu chẳng mong manh như khói sương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:41:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795189225567",
+        "filename": "Trăng đẹp những ngôi sao thắp cao trên trời. Rực rỡ lung linh sáng như hoa hướng dương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Trăng đẹp những ngôi sao thắp cao trên trời. Rực rỡ lung linh sáng như hoa hướng dương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:40:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795189031218",
+        "filename": "Đã có gì mà không hỏi lạy. Nếu tôi có gì hỏi lạy thì anh phải kể cho em nghe. Bình yên cố anh thì....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đã có gì mà không hỏi lạy. Nếu tôi có gì hỏi lạy thì anh phải kể cho em nghe. Bình yên cố anh thì....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:37:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795189014375",
+        "filename": "Yêu là khi vì nhau nắng bắt tay bước hết kiếm này Đau là khi mất nhau vì những linh do chưa hiểu..._8983.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Yêu là khi vì nhau nắng bắt tay bước hết kiếm này Đau là khi mất nhau vì những linh do chưa hiểu..._8983.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:36:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188889311",
+        "filename": "Thân em như tấm lụa đào. Mà sao phận bạc chẳng được như ý.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thân em như tấm lụa đào. Mà sao phận bạc chẳng được như ý.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:34:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188866370",
+        "filename": "Tình thật tình yêu chó hát bình minh nhé Tình thật tình yêu thương hát bình minh Hoài suy nghĩ, hát....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tình thật tình yêu chó hát bình minh nhé Tình thật tình yêu thương hát bình minh Hoài suy nghĩ, hát....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:34:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188689279",
+        "filename": "Tình ngày qua em đã thấy. Nụ hôn anh trao nay đã không ngọt ngào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tình ngày qua em đã thấy. Nụ hôn anh trao nay đã không ngọt ngào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:31:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188637750",
+        "filename": "Tuyệt là thay mơ nhau, thì vẫn sẽ chung bầu được bình biệt Xin xong tôi đã bỏ mình mong thắng đắm....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tuyệt là thay mơ nhau, thì vẫn sẽ chung bầu được bình biệt Xin xong tôi đã bỏ mình mong thắng đắm....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:30:37",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188483186",
+        "filename": "Thật thà chất phác đậm tình chàng trai quê. Cần gì mà tính em ơi theo anh về.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thật thà chất phác đậm tình chàng trai quê. Cần gì mà tính em ơi theo anh về.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:28:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188432322",
+        "filename": "Một đời Thịt đưa nó Mà tình yêu hông Ta lời này Chỉ giành cho hôn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một đời Thịt đưa nó Mà tình yêu hông Ta lời này Chỉ giành cho hôn.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:27:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188315190",
+        "filename": "Một người xa đi anh, mua nước mắt anh, ngược vào tim để em quay lưng theo ai, em sẽ thấy nhé lòng.....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một người xa đi anh, mua nước mắt anh, ngược vào tim để em quay lưng theo ai, em sẽ thấy nhé lòng.....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:25:15",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188279714",
+        "filename": "Một lần, dẫn dẫn nhau đôi chúng ta Thương pha đi nói chia tay mà Và cứ sao em vẫn luôn là người đứa....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một lần, dẫn dẫn nhau đôi chúng ta Thương pha đi nói chia tay mà Và cứ sao em vẫn luôn là người đứa....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:24:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188089164",
+        "filename": "Có thể khi yêu không thể mang lại cho em một cuộc sống ấm êm.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Có thể khi yêu không thể mang lại cho em một cuộc sống ấm êm.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 22:21:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795188031057",
+        "filename": "WIS煌 Mấy ai bồn được, thì trái những yêu đẹp còn, và yêu đẹp đừng ngon Người mẹ nếu không gió tương....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\WIS煌 Mấy ai bồn được, thì trái những yêu đẹp còn, và yêu đẹp đừng ngon Người mẹ nếu không gió tương....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:20:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795187670114",
+        "filename": "Khi đã yêu bộ này, thật thật Đâu nói quên là quên và em không Khi người ta đã hết yêu rồi Thì nếu....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Khi đã yêu bộ này, thật thật Đâu nói quên là quên và em không Khi người ta đã hết yêu rồi Thì nếu....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:14:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795187625483",
+        "filename": "Khi bên anh nhắm thấy điều gì, Khi bên anh nhắm thấy yêu về lắm ác sôi, Đấm kê lành đi, Chẳng còn..._6080.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Khi bên anh nhắm thấy điều gì, Khi bên anh nhắm thấy yêu về lắm ác sôi, Đấm kê lành đi, Chẳng còn..._6080.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 22:13:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795185449020",
+        "filename": "Hứa với mình rằng em không được ngàn, anh muốn nhìn thấy em cười xùa cách xa. Anh sẽ vẫn tiết tốt....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Hứa với mình rằng em không được ngàn, anh muốn nhìn thấy em cười xùa cách xa. Anh sẽ vẫn tiết tốt....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:37:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795185408003",
+        "filename": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Hãy subscribe cho kênh Ghiền..._5371.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Hãy subscribe cho kênh Ghiền..._5371.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:36:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795185342585",
+        "filename": "Em ơi anh làm gì sai sao em nỡ buông câu dừng lại Em ơi anh làm gì sai sao em yêu thêm người thương..._4980.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Em ơi anh làm gì sai sao em nỡ buông câu dừng lại Em ơi anh làm gì sai sao em yêu thêm người thương..._4980.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:35:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795185296742",
+        "filename": "breathtaking of  notwend  extraordinary  unforgettable  enjoy  beautiful eyeshadow omial  noble....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\breathtaking of  notwend  extraordinary  unforgettable  enjoy  beautiful eyeshadow omial  noble....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:34:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795184599280",
+        "filename": "Tên cơ cập lại người xưa Cà phê quanh cu cùng vui với ai Cánh hoa rơi nhẹ vươn mắt ai Này lôi về....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tên cơ cập lại người xưa Cà phê quanh cu cùng vui với ai Cánh hoa rơi nhẹ vươn mắt ai Này lôi về....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:23:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795184531593",
+        "filename": "Có lúc buồn anh lặng cầm vì câu nói em hỏi anh Sao không cứ em mình đã hiểu nhau thật lâu thì tại..._4490.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Có lúc buồn anh lặng cầm vì câu nói em hỏi anh Sao không cứ em mình đã hiểu nhau thật lâu thì tại..._4490.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:22:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795184374964",
+        "filename": "Còn mời nơi cu đi chị, em bé chị lắm. Hmm, chào. Mé chị á, khi bà mô hết dịch nhá. Đi vô ngày à...._4317.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Còn mời nơi cu đi chị, em bé chị lắm. Hmm, chào. Mé chị á, khi bà mô hết dịch nhá. Đi vô ngày à...._4317.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:19:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795184289049",
+        "filename": "Cám ơn chơi, đã bắt đém một cô giáo tiến vời Chỉ muốn biết cô và theo cô, đến hết cuộc đời Hãy niềm....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Cám ơn chơi, đã bắt đém một cô giáo tiến vời Chỉ muốn biết cô và theo cô, đến hết cuộc đời Hãy niềm....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:18:09",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795184070318",
+        "filename": "CuocSongChill_3854.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill_3854.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:14:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795184007814",
+        "filename": "O ta'y gawin sa hany na mga mingeo Dua'y ba'y ba'y minge Si'y tu'n sa ba'y mingeo, tu'y nito sa....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\O ta'y gawin sa hany na mga mingeo Dua'y ba'y ba'y minge Si'y tu'n sa ba'y mingeo, tu'y nito sa....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:13:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795183747158",
+        "filename": "CuocSongChill.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:09:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795183721474",
+        "filename": "CuocSongChill.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:08:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795183325910",
+        "filename": "CuocSongChill_3308.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill_3308.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:02:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795183285778",
+        "filename": "Chị bóng em ra cho anh đúng đời, thật lòng thường nay em Bời em đã uống dây buồn vì vì thương yêu....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Chị bóng em ra cho anh đúng đời, thật lòng thường nay em Bời em đã uống dây buồn vì vì thương yêu....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:01:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795183210025",
+        "filename": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Em sẽ là người ra đi Em sẽ là....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Em sẽ là người ra đi Em sẽ là....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 21:00:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795182965843",
+        "filename": "Anh ơi em làm gì sai Sao anh đã buông câu dừng lại Anh ơi em làm gì sai Sao anh yêu thêm người..._2802.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh ơi em làm gì sai Sao anh đã buông câu dừng lại Anh ơi em làm gì sai Sao anh yêu thêm người..._2802.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 20:56:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795182933848",
+        "filename": "Anh không, bây giờ đây anh đã mất em rồi Anh không, bây giờ đây em đã xa anh rồi Anh nhớ, lời hèn..._2881.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh không, bây giờ đây anh đã mất em rồi Anh không, bây giờ đây em đã xa anh rồi Anh nhớ, lời hèn..._2881.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 20:55:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795182628383",
+        "filename": "Anh không muốn thấy niêu đâu, hai tai suốt tương hiệu nhau Cứ chạy đi tiền đôi mà em thấy em thơ em....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh không muốn thấy niêu đâu, hai tai suốt tương hiệu nhau Cứ chạy đi tiền đôi mà em thấy em thơ em....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 20:50:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795182605398",
+        "filename": "Ai mà còn nhớ bài này thì bây giờ cũng là một, vợ, hai con rồi đúng không Cái bài này thì nói thật..._2517.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Ai mà còn nhớ bài này thì bây giờ cũng là một, vợ, hai con rồi đúng không Cái bài này thì nói thật..._2517.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 20:50:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795133225394",
+        "filename": "Nơi khó mi này cũng chìm trái tim bên dưới phòng. Đời anh mỏi phá sao ngày xưa đã yêu mong.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nơi khó mi này cũng chìm trái tim bên dưới phòng. Đời anh mỏi phá sao ngày xưa đã yêu mong.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:07:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795133199417",
+        "filename": "Tình này anh trao người mãi mãi do vời vợi trôi, không có phai.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tình này anh trao người mãi mãi do vời vợi trôi, không có phai.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:06:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795133082046",
+        "filename": "Quen nhau đã lâu khi trong chiều ngập nhè. Ngày buồn mang gặp em, buồn mang yêu em.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Quen nhau đã lâu khi trong chiều ngập nhè. Ngày buồn mang gặp em, buồn mang yêu em.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:04:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795133042856",
+        "filename": "Một cuộc tình mà mình dành liền cho em. Từ năm tháng trước qua vẫn còn đây.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một cuộc tình mà mình dành liền cho em. Từ năm tháng trước qua vẫn còn đây.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:04:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132999139",
+        "filename": "Ngày xưa tôi cũng yêu người. Người yêu đẹp xinh như hoa, như đôi kiện vần.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Ngày xưa tôi cũng yêu người. Người yêu đẹp xinh như hoa, như đôi kiện vần.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:03:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132972172",
+        "filename": "Anh nói yêu cô ấy rất nhiều, anh tệ lắm, anh biết không.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh nói yêu cô ấy rất nhiều, anh tệ lắm, anh biết không.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:02:52",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132853902",
+        "filename": "Một mình anh trong đêm thâu ngắm vạn trời lung linh ánh sao.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một mình anh trong đêm thâu ngắm vạn trời lung linh ánh sao.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:00:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132823496",
+        "filename": "Đêm nay em nhớ anh, em ngước lên hỏi sao trên trời.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đêm nay em nhớ anh, em ngước lên hỏi sao trên trời.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 07:00:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132709862",
+        "filename": "Được ở bên em, yêu em đắm say trong hạnh phúc. Là một ước mơ bao nhiêu lâu anh thầm mong.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Được ở bên em, yêu em đắm say trong hạnh phúc. Là một ước mơ bao nhiêu lâu anh thầm mong.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:58:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132678616",
+        "filename": "Chiều hôm ấy bên lưng đồi vắng. Ngày khi thưa anh hay đùa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chiều hôm ấy bên lưng đồi vắng. Ngày khi thưa anh hay đùa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:57:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132519511",
+        "filename": "[Nhạc cụ]. Từng ô mai ngàn thước rừng dương. Anh đi trơ trọi, trở anh đi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\[Nhạc cụ]. Từng ô mai ngàn thước rừng dương. Anh đi trơ trọi, trở anh đi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:55:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132476357",
+        "filename": "Cố yêu anh muôn đời. Nhưng sao giờ đây mỗi người mỗi nơi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Cố yêu anh muôn đời. Nhưng sao giờ đây mỗi người mỗi nơi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:54:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132347028",
+        "filename": "Và sự như lý trí của anh thật mỏng manh. Không tin điều em đã từng dối hay anh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và sự như lý trí của anh thật mỏng manh. Không tin điều em đã từng dối hay anh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:52:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132309099",
+        "filename": "Tình ngày qua em đã thấy Nụ hôn anh sao, nơi đã không ngọn ngào Tình buồn tay, như xưa kia ấy Khi....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tình ngày qua em đã thấy Nụ hôn anh sao, nơi đã không ngọn ngào Tình buồn tay, như xưa kia ấy Khi....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:51:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132250346",
+        "filename": "Nhiều khi ta muốn anh tìm về chốn yên bình. Muốn đời phiêu du mỏi mòn, tìm câu giải thoát nhanh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nhiều khi ta muốn anh tìm về chốn yên bình. Muốn đời phiêu du mỏi mòn, tìm câu giải thoát nhanh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:50:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132189838",
+        "filename": "(Không có phần lời bài hát nào trong văn bản thô, chỉ chứa câu quảng cáo kêu gọi subscribe)..mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không có phần lời bài hát nào trong văn bản thô, chỉ chứa câu quảng cáo kêu gọi subscribe)..mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:49:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132163447",
+        "filename": "Nếu tình cờ anh với em gặp mặt. Nhìn nhau ta biết vui hay buồn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nếu tình cờ anh với em gặp mặt. Nhìn nhau ta biết vui hay buồn.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:49:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132124776",
+        "filename": "Nghe xưa tôi cũng yêu người, tôi yêu đẹp xinh như hoàn đổi thiên thần.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nghe xưa tôi cũng yêu người, tôi yêu đẹp xinh như hoàn đổi thiên thần.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:48:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132079499",
+        "filename": "Qua khổ để chăm lo một người con gái. Mong em nó hạnh phúc đến khi cuối đời.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Qua khổ để chăm lo một người con gái. Mong em nó hạnh phúc đến khi cuối đời.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:47:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132045239",
+        "filename": "Tối nay đôi mình còn giây phút để bơ vơ. Nói chi câu biệt ly em với anh ngậm ngùi ra đi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tối nay đôi mình còn giây phút để bơ vơ. Nói chi câu biệt ly em với anh ngậm ngùi ra đi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:47:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795132008747",
+        "filename": "Vì sao người lại đành rời xa. Cho anh ôm lấy nỗi đau này.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì sao người lại đành rời xa. Cho anh ôm lấy nỗi đau này.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:46:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131757751",
+        "filename": "Đừng buồn đừng hờn anh nha em và hãy cho anh thời gian.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đừng buồn đừng hờn anh nha em và hãy cho anh thời gian.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:42:37",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131729206",
+        "filename": "Nếu anh thấy những khoảng trống trong lòng. Thì đừng lo, nhẹ có em luôn đợi mong.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nếu anh thấy những khoảng trống trong lòng. Thì đừng lo, nhẹ có em luôn đợi mong.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:42:09",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131622676",
+        "filename": "Nếu mai sau anh và em có xa, đừng lo nhé có anh ở đây mà.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nếu mai sau anh và em có xa, đừng lo nhé có anh ở đây mà.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:40:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131587355",
+        "filename": "Cảm ơn em đã đến với anh. Vì anh đã chẳng được tươi cười rạng rỡ.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Cảm ơn em đã đến với anh. Vì anh đã chẳng được tươi cười rạng rỡ.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:39:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131545729",
+        "filename": "Một đời Thịt thương nó Mà tình yêu hông Ta lời này Chỉ giành cho hôn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một đời Thịt thương nó Mà tình yêu hông Ta lời này Chỉ giành cho hôn.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:39:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131519464",
+        "filename": "Anh ngồi đếm những vì sao trên cao. Mỗi ngôi sao là một ngày xa cách.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh ngồi đếm những vì sao trên cao. Mỗi ngôi sao là một ngày xa cách.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:38:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131475139",
+        "filename": "Người ta cần em khi nhớ giấc sinh tươi. Người ta cần em như nắng hạn trông mưa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người ta cần em khi nhớ giấc sinh tươi. Người ta cần em như nắng hạn trông mưa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:37:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131427796",
+        "filename": "Anh băng qua góc trời vượt ngàn núi cao. Thời gian trôi bạc màu tóc xanh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh băng qua góc trời vượt ngàn núi cao. Thời gian trôi bạc màu tóc xanh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:37:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131401748",
+        "filename": "Anh không, bây giờ đây anh đã mất em rồi Anh không, bây giờ đây em đã xa anh rồi Anh nhớ, lời hèn....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh không, bây giờ đây anh đã mất em rồi Anh không, bây giờ đây em đã xa anh rồi Anh nhớ, lời hèn....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:36:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131287035",
+        "filename": "Cảm ơn các bạn đã đón xem video này. Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Cảm ơn các bạn đã đón xem video này. Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:34:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131234299",
+        "filename": "CuocSongChill_1105.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill_1105.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:33:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131195855",
+        "filename": "Vì sao em còn thương anh. Mới những lúc đầu thì ai có hay.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì sao em còn thương anh. Mới những lúc đầu thì ai có hay.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:33:15",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795131011935",
+        "filename": "Nợ tình biết trả làm sao đây, liệu kiếp sau ta có còn gặp lại.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nợ tình biết trả làm sao đây, liệu kiếp sau ta có còn gặp lại.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:30:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130965323",
+        "filename": "Anh xin mời em đi về miền quê xa lắm đó. Đời quê hương anh có hàng dừa xanh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh xin mời em đi về miền quê xa lắm đó. Đời quê hương anh có hàng dừa xanh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:29:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130907034",
+        "filename": "Hôm qua ta chung đôi nhưng hôm nay em đi bên ai rồi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hôm qua ta chung đôi nhưng hôm nay em đi bên ai rồi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:28:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130878611",
+        "filename": "Đừng cố mất nhau vì những lý do chưa hiểu thấu. Em sợ lắm mỗi tối nỗi đắng cay cứ thế tuôn trào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đừng cố mất nhau vì những lý do chưa hiểu thấu. Em sợ lắm mỗi tối nỗi đắng cay cứ thế tuôn trào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:27:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130744759",
+        "filename": "Trọn đời này anh không thể để một ai thay thế. Dù rằng ngày mai muôn ngàn điều anh nhớ anh cũng....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Trọn đời này anh không thể để một ai thay thế. Dù rằng ngày mai muôn ngàn điều anh nhớ anh cũng....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:25:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130719734",
+        "filename": "Và anh muốn khép mi đi em hay buổi lên. Hãy cố vui cười lên.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và anh muốn khép mi đi em hay buổi lên. Hãy cố vui cười lên.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:25:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130694202",
+        "filename": "Yêu và thương cho thật lắng đọng. Vâng tình yêu say đắm.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Yêu và thương cho thật lắng đọng. Vâng tình yêu say đắm.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:24:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130664919",
+        "filename": "Vụt trôi tình bay theo làn gió. Cho lòng em mong đợi hoài.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vụt trôi tình bay theo làn gió. Cho lòng em mong đợi hoài.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:24:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130514532",
+        "filename": "Thật hạnh phúc, thật ý nghĩa khi thấy anh ngời. Mỗi lúc bên người, yêu thương như gió và mây.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thật hạnh phúc, thật ý nghĩa khi thấy anh ngời. Mỗi lúc bên người, yêu thương như gió và mây.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:21:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130456162",
+        "filename": "MAMA MO HAKADAT. NARAYA YARA MO. ARIYA MA LO GIT DE.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\MAMA MO HAKADAT. NARAYA YARA MO. ARIYA MA LO GIT DE.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:20:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130408638",
+        "filename": "Mày ta xa rồi chẳng thể nói nhau đôi lời. Ngờ đâu anh đã quá yêu em.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mày ta xa rồi chẳng thể nói nhau đôi lời. Ngờ đâu anh đã quá yêu em.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:20:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130383116",
+        "filename": "Một người không muốn ở lại. Giữ làm gì cuộc tình đã phai.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một người không muốn ở lại. Giữ làm gì cuộc tình đã phai.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:19:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130362775",
+        "filename": "Ánh mắt nằm nhiều xót ngọt đêm. Được em đi qua bao lằn sương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Ánh mắt nằm nhiều xót ngọt đêm. Được em đi qua bao lằn sương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:19:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130308965",
+        "filename": "CuocSongChill_228.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill_228.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:18:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130291039",
+        "filename": "Mình có thể nhận được một lần thật lòng. Xin em về đây vì cuộc đời này chỉ có em.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình có thể nhận được một lần thật lòng. Xin em về đây vì cuộc đời này chỉ có em.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:18:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130151356",
+        "filename": "Bỏ tâm này anh chưa từng nghĩ đến. Cảm giác trong em như thế nào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Bỏ tâm này anh chưa từng nghĩ đến. Cảm giác trong em như thế nào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:15:51",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130090891",
+        "filename": "Lặng nhìn anh quay lưng bước đi. Vội bay vào mang chuyện đâu không đâu.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Lặng nhìn anh quay lưng bước đi. Vội bay vào mang chuyện đâu không đâu.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:14:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130046549",
+        "filename": "Đời xanh ngát cùng người yêu dấu. Đường ta đi không ngại trời mây.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đời xanh ngát cùng người yêu dấu. Đường ta đi không ngại trời mây.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:14:06",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795130002806",
+        "filename": "Người yêu ơi, con tim đã hiểu khô. Một hò lơ xác xơ, những con đường phất phơ gió.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người yêu ơi, con tim đã hiểu khô. Một hò lơ xác xơ, những con đường phất phơ gió.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:13:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129949470",
+        "filename": "View 하지 không Olá Cho ai kresse altri là ine.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\View 하지 không Olá Cho ai kresse altri là ine.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 06:12:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129766255",
+        "filename": "Thời gian chẳng đợi chờ mình, nếu sẽ mình làm lại,.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thời gian chẳng đợi chờ mình, nếu sẽ mình làm lại,.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:09:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129729820",
+        "filename": "Một mặt của em, dù lúc khi say, anh vẫn yêu em đậm sâu, chứ không có một mảnh tình hay thế thân..mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một mặt của em, dù lúc khi say, anh vẫn yêu em đậm sâu, chứ không có một mảnh tình hay thế thân..mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:08:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129678758",
+        "filename": "Chẳng biết đã bao lâu rồi mình không có nhau. Chẳng biết đã bao đêm về lòng ta nao nặng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chẳng biết đã bao lâu rồi mình không có nhau. Chẳng biết đã bao đêm về lòng ta nao nặng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:07:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129604714",
+        "filename": "Đừng hỏi em vì sao nhớ anh từng đêm chết. Nhớ anh từng ngày tháng cầm lên tấm hình.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đừng hỏi em vì sao nhớ anh từng đêm chết. Nhớ anh từng ngày tháng cầm lên tấm hình.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:06:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129571445",
+        "filename": "Anh chẳng về nào hứa kiểu em. Vì nào buổi về ném quá ra.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh chẳng về nào hứa kiểu em. Vì nào buổi về ném quá ra.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:06:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129459510",
+        "filename": "Đã có những cố gắng mình tìm thấy nhau. Mà cứ vụt chẳng thành biến tan, rời xa rất lâu.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đã có những cố gắng mình tìm thấy nhau. Mà cứ vụt chẳng thành biến tan, rời xa rất lâu.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:04:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129405476",
+        "filename": "Lúc xa nhau để nỗi buồn cứ thế đến bao giờ. Và từ ngoài đường đêm gió lạnh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Lúc xa nhau để nỗi buồn cứ thế đến bao giờ. Và từ ngoài đường đêm gió lạnh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 06:03:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129179922",
+        "filename": "Đêm nay bước chân qua phố quen chợt buồn. Vắng anh em vẫn một bờ môi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đêm nay bước chân qua phố quen chợt buồn. Vắng anh em vẫn một bờ môi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:59:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795129144513",
+        "filename": "CuocSongChill_9108.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill_9108.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 05:59:04",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128941767",
+        "filename": "Em đã rất mạnh mẽ để cố gắng quên anh rồi. Em thật sự yêu anh nhưng chỉ là quá khứ thôi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em đã rất mạnh mẽ để cố gắng quên anh rồi. Em thật sự yêu anh nhưng chỉ là quá khứ thôi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:55:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128901550",
+        "filename": "Chỉ còn lại vài phút cuối anh nói không sao để thanh lời.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chỉ còn lại vài phút cuối anh nói không sao để thanh lời.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:55:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128856163",
+        "filename": "Một tình dùng năm xưa, dù 10 năm, 10 ngày, 10 năm. Có lẽ ta vẫn không thấu hương cho chân gián kia.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một tình dùng năm xưa, dù 10 năm, 10 ngày, 10 năm. Có lẽ ta vẫn không thấu hương cho chân gián kia.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:54:16",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128835812",
+        "filename": "Và rồi em đã khóc như chưa từng khóc bao giờ. Lệ nhòa khóe mi khi tiễn đưa một người đi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và rồi em đã khóc như chưa từng khóc bao giờ. Lệ nhòa khóe mi khi tiễn đưa một người đi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:53:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128700569",
+        "filename": "Vì mình sinh ra là dành cho nhau. Tìm cả thế giới chẳng có ai yêu em bằng anh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì mình sinh ra là dành cho nhau. Tìm cả thế giới chẳng có ai yêu em bằng anh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:51:40",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128653471",
+        "filename": "Đừng bắt anh phải mạnh mẽ để chúc em được hạnh phúc.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đừng bắt anh phải mạnh mẽ để chúc em được hạnh phúc.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:50:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128597263",
+        "filename": "Có lẽ ông trời đã cho mình quen biết nhau. Có lẽ ông trời muốn ta phải yêu nhau.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Có lẽ ông trời đã cho mình quen biết nhau. Có lẽ ông trời muốn ta phải yêu nhau.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:49:57",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128561752",
+        "filename": "Ngày tháng xa rồi, cho tôi nhắn nhau đôi lời ngây thơ, anh đã quá yêu em. Một mình cô đơn lại trôi,....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Ngày tháng xa rồi, cho tôi nhắn nhau đôi lời ngây thơ, anh đã quá yêu em. Một mình cô đơn lại trôi,....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:49:21",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128542463",
+        "filename": "Anh phải làm gì đây khi tình yêu sắp vỡ tan rồi. Chiều buồn giọt nước mắt đưa em đắng cay vào lòng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh phải làm gì đây khi tình yêu sắp vỡ tan rồi. Chiều buồn giọt nước mắt đưa em đắng cay vào lòng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:49:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128478280",
+        "filename": "Một lời yêu thương, bay theo cùng cơn gió. Đã mãi xa rồi, cười nhiều những chiếc lá mong manh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một lời yêu thương, bay theo cùng cơn gió. Đã mãi xa rồi, cười nhiều những chiếc lá mong manh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:47:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128446987",
+        "filename": "Người này Hằng Dạ anh em sẵnesty Duty S choosesrench.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người này Hằng Dạ anh em sẵnesty Duty S choosesrench.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:47:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128171093",
+        "filename": "Nghe nhé, một lần thôi nhé. Người đàn ông yếu đuối, tự cho mình là kẻ cao thượng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nghe nhé, một lần thôi nhé. Người đàn ông yếu đuối, tự cho mình là kẻ cao thượng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:42:51",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128136022",
+        "filename": "Người yêu ơi sao lại thế Em đã hứa với anh chung đường.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người yêu ơi sao lại thế Em đã hứa với anh chung đường.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:42:16",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128074774",
+        "filename": "Anh yêu em hơn thế, nhiều hơn lời anh vẫn nói. Để đến bên anh mang lại cả bình yên.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh yêu em hơn thế, nhiều hơn lời anh vẫn nói. Để đến bên anh mang lại cả bình yên.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:41:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795128028312",
+        "filename": "Thà rằng người đừng đến, để anh quay lưng vờ kỳ. Thà rằng người đừng níu kéo, để cho anh thôi hy....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thà rằng người đừng đến, để anh quay lưng vờ kỳ. Thà rằng người đừng níu kéo, để cho anh thôi hy....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:40:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127975993",
+        "filename": "Trái tim đã mang tổn thương, xước thêm cũng đâu nghĩa gì.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Trái tim đã mang tổn thương, xước thêm cũng đâu nghĩa gì.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:39:35",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127792752",
+        "filename": "Một mùa yêu vội giấu sâu trong mình. Thụy Mổi những tiếc nuối đã tan trong mưa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một mùa yêu vội giấu sâu trong mình. Thụy Mổi những tiếc nuối đã tan trong mưa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:36:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127732328",
+        "filename": "Em băng qua chiếc kia toán giữ em. Nẻm ngồi nhìn xanh sữa thôi ngắn ra về em.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em băng qua chiếc kia toán giữ em. Nẻm ngồi nhìn xanh sữa thôi ngắn ra về em.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:35:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127491526",
+        "filename": "Người ơi xin hãy thật lòng, đừng tìm sang em cho em thấy hy vọng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người ơi xin hãy thật lòng, đừng tìm sang em cho em thấy hy vọng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:31:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127434630",
+        "filename": "Và em ơi, yêu anh biết là. Mỗi khi em cười là bao nhiêu phiền lo trong đời biến tan.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và em ơi, yêu anh biết là. Mỗi khi em cười là bao nhiêu phiền lo trong đời biến tan.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:30:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127381409",
+        "filename": "xin hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\xin hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 05:29:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127205132",
+        "filename": "Từng ngày dài còn lại một mình nơi đây. Nhìn cánh chim bay đang khuất tận trời xa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Từng ngày dài còn lại một mình nơi đây. Nhìn cánh chim bay đang khuất tận trời xa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:26:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127147931",
+        "filename": "Chính phút giây từ đây cho em gọi anh nhé.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chính phút giây từ đây cho em gọi anh nhé.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:25:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127114825",
+        "filename": "Cạn tàu sao mang, nghĩa vợ chồng, giống như đông tan cho cựa lên xót xa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Cạn tàu sao mang, nghĩa vợ chồng, giống như đông tan cho cựa lên xót xa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:25:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127071759",
+        "filename": "Thà yêu lấy một người bình thường. Để đem về thì thầm nhớ thương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thà yêu lấy một người bình thường. Để đem về thì thầm nhớ thương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:24:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795127016904",
+        "filename": "Anh không thể đi tiếp cùng em. Không thể là người cùng em viết tiếp câu chuyện cuộc đời.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh không thể đi tiếp cùng em. Không thể là người cùng em viết tiếp câu chuyện cuộc đời.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:23:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126963189",
+        "filename": "Có bao giờ em nhớ thương một nửa. Chắc không phải anh để em rời xa đến thế.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Có bao giờ em nhớ thương một nửa. Chắc không phải anh để em rời xa đến thế.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:22:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126911930",
+        "filename": "Một chiều lạ anh mang nguôi thương anh em không cần quá bận tâm.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một chiều lạ anh mang nguôi thương anh em không cần quá bận tâm.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:21:51",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126889800",
+        "filename": "Vì em đã trao cho anh hết cả tuổi xuân. Nhưng đổi lại anh thờ ơ không nói một lời.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì em đã trao cho anh hết cả tuổi xuân. Nhưng đổi lại anh thờ ơ không nói một lời.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:21:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126682463",
+        "filename": "Một ngày nào đó, ước anh không còn buồn nữa đâu. Vứt hết đi nỗi buồn, chôn vùi vào trong hố sâu.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một ngày nào đó, ước anh không còn buồn nữa đâu. Vứt hết đi nỗi buồn, chôn vùi vào trong hố sâu.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:18:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126622856",
+        "filename": "Chẳng ngơ đâu xa mà cạnh anh. Em là cả thế gian đầy rồi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chẳng ngơ đâu xa mà cạnh anh. Em là cả thế gian đầy rồi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:17:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126591188",
+        "filename": "Chạy vào cơn mưa, dấu đôi buồn. Chợt nghe tiếng dương cũng đang buồn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chạy vào cơn mưa, dấu đôi buồn. Chợt nghe tiếng dương cũng đang buồn.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:16:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126447250",
+        "filename": "Và buổi sáng hôm sau bình yên như chưa yêu nhau. Giờ thì anh đã can đảm để giờ xa em rồi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và buổi sáng hôm sau bình yên như chưa yêu nhau. Giờ thì anh đã can đảm để giờ xa em rồi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:14:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126399726",
+        "filename": "Buông tay ra, chia tay tan vầy giấc mơ. Một lý do anh sẽ buông mộng vờ.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Buông tay ra, chia tay tan vầy giấc mơ. Một lý do anh sẽ buông mộng vờ.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:13:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126363754",
+        "filename": "Bởi vì duyên phận đôi người số kiếp đã an bài. Sao đem đêm nhớ thương mịt mờ bơ vơ.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Bởi vì duyên phận đôi người số kiếp đã an bài. Sao đem đêm nhớ thương mịt mờ bơ vơ.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:12:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126342531",
+        "filename": "5 tháng thương anh, em chưa từng rời ngó. Mà sao anh đã vô tình, đôi ba lời biện minh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\5 tháng thương anh, em chưa từng rời ngó. Mà sao anh đã vô tình, đôi ba lời biện minh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:12:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126218846",
+        "filename": "Mình đã đi quá xa. Vì thời gian cho đôi ta chỉ là thôi ngắn lắm.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình đã đi quá xa. Vì thời gian cho đôi ta chỉ là thôi ngắn lắm.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:10:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795126183774",
+        "filename": "Để xét chia và dù cho ai có lối. Sẽ là anh giữ chân em lại.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Để xét chia và dù cho ai có lối. Sẽ là anh giữ chân em lại.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:09:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125982839",
+        "filename": "Cherry, Cherry Lady. Going through emotion. Love is where you find it.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Cherry, Cherry Lady. Going through emotion. Love is where you find it.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:06:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125945086",
+        "filename": "Và buông tay hết tháng năm, bình yên như chưa yêu nhau.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và buông tay hết tháng năm, bình yên như chưa yêu nhau.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:05:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125709939",
+        "filename": "Chẳng thấy bóng hình tìm nhẹm vậy. Kiếm cách bồng anh vừa nào nhớ anh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chẳng thấy bóng hình tìm nhẹm vậy. Kiếm cách bồng anh vừa nào nhớ anh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:01:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125672359",
+        "filename": "Anh có lỗi làm em thấy yêu, dịp để người thứ ba xuất hiện.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh có lỗi làm em thấy yêu, dịp để người thứ ba xuất hiện.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 05:01:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125539427",
+        "filename": "Một tình yêu sai chỗ. Một câu ca lỡ đường. Hạt vô tình chạm vào trong trái tim em.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một tình yêu sai chỗ. Một câu ca lỡ đường. Hạt vô tình chạm vào trong trái tim em.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:58:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125521639",
+        "filename": "Làm con gái cứ phải bận lòng đắn đo. Khi hẹn hò làm thế nào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Làm con gái cứ phải bận lòng đắn đo. Khi hẹn hò làm thế nào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:58:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125370373",
+        "filename": "Ngày mà ta xa rồi chẳng thể nói nhau đôi lời. Ngày qua anh đã quá yêu em.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Ngày mà ta xa rồi chẳng thể nói nhau đôi lời. Ngày qua anh đã quá yêu em.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:56:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125333303",
+        "filename": "Một ngày xa nhau rồi, rời xa chuyến chẳng cùng anh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một ngày xa nhau rồi, rời xa chuyến chẳng cùng anh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:55:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125192435",
+        "filename": "Dù Việt Nam đã có ai kề cạnh, đưa em về. Mấy chia tay anh chưa kịp chăn gối hồi quy.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Dù Việt Nam đã có ai kề cạnh, đưa em về. Mấy chia tay anh chưa kịp chăn gối hồi quy.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:53:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125163114",
+        "filename": "Mình muốn có em ở trong cút sê này. Tại sao ta yêu nhau thế lại lì xì.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình muốn có em ở trong cút sê này. Tại sao ta yêu nhau thế lại lì xì.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:52:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125050096",
+        "filename": "Hẹn gặp lại anh lúc hoa chưa tan. Dòng người chưa tàn khi nắng chưa phai màu.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hẹn gặp lại anh lúc hoa chưa tan. Dòng người chưa tàn khi nắng chưa phai màu.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:50:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795125020871",
+        "filename": "Chẳng ước muốn sẽ sánh giàu. Quyền cao chức lớn, xe hơi với nhà lầu.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chẳng ước muốn sẽ sánh giàu. Quyền cao chức lớn, xe hơi với nhà lầu.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:50:20",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124876486",
+        "filename": "Ai rồi cũng khác, ai rồi cũng khác. Và cuộc tình này xé nát.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Ai rồi cũng khác, ai rồi cũng khác. Và cuộc tình này xé nát.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:47:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124847657",
+        "filename": "Mình chẳng có một giao ước, em có nhớ ngày đó không.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình chẳng có một giao ước, em có nhớ ngày đó không.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:47:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124726256",
+        "filename": "Một ngày xa, anh cũng sẽ rời xa. Cùng em bước đi cuộc đời, giờ em biết không.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một ngày xa, anh cũng sẽ rời xa. Cùng em bước đi cuộc đời, giờ em biết không.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:45:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124682489",
+        "filename": "Mình em thôi mưa lệ rơi, thiên đường vắng xa anh muôn lối.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình em thôi mưa lệ rơi, thiên đường vắng xa anh muôn lối.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:44:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124635863",
+        "filename": "CuocSongChill_4550.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill_4550.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 04:43:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124580361",
+        "filename": "(Không có phần lời bài hát nào được tìm thấy trong đoạn văn bản thô ngoài các câu quảng cáo đã....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không có phần lời bài hát nào được tìm thấy trong đoạn văn bản thô ngoài các câu quảng cáo đã....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:43:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124481027",
+        "filename": "Em vô tư hồn nhiên nào cũng chẳng quan tâm nhiều nữa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em vô tư hồn nhiên nào cũng chẳng quan tâm nhiều nữa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:41:21",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124448748",
+        "filename": "Các mây trời giăng lối quay về. Về lại chốn xưa sao em không thấy rào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Các mây trời giăng lối quay về. Về lại chốn xưa sao em không thấy rào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:40:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124316708",
+        "filename": "Vòng tay ấm thấy nhưng kỷ niệm xa vời. Dù nắm tay nhưng cảm giác không phải ngày xưa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vòng tay ấm thấy nhưng kỷ niệm xa vời. Dù nắm tay nhưng cảm giác không phải ngày xưa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:38:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124266034",
+        "filename": "Thôi em đừng nặng lòng anh ta. Muốn phiền làm chi sói trá.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thôi em đừng nặng lòng anh ta. Muốn phiền làm chi sói trá.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:37:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124127277",
+        "filename": "Bàn tay ta nắm chặt bàn tay. Cùng nhau vượt qua bao tháng năm này.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Bàn tay ta nắm chặt bàn tay. Cùng nhau vượt qua bao tháng năm này.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:35:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795124103668",
+        "filename": "Thật ra tất cả turning into sin of my life. Vì những heterodox bỏ trôi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thật ra tất cả turning into sin of my life. Vì những heterodox bỏ trôi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:35:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795123791238",
+        "filename": "(Không tìm thấy lời bài hát).mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không tìm thấy lời bài hát).mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:29:51",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795123772376",
+        "filename": "Chẳng thể giận, dẫu đợt người muốn xa. Người đã muốn xa, thì tình cảm bằng khói phá.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chẳng thể giận, dẫu đợt người muốn xa. Người đã muốn xa, thì tình cảm bằng khói phá.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:29:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795123540807",
+        "filename": "Lâu nay chỉ xem chúng ta như đôi bạn thường. Nhưng trong thâm tâm em vẫn mong được nhiều hơn thế.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Lâu nay chỉ xem chúng ta như đôi bạn thường. Nhưng trong thâm tâm em vẫn mong được nhiều hơn thế.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:25:40",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795123448126",
+        "filename": "I'm sorry for the love you gave me. If you don't love me as much as I do.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\I'm sorry for the love you gave me. If you don't love me as much as I do.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:24:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795123315440",
+        "filename": "Hết yêu anh, đâu ai thương vương sầu. Rồi về đâu đó, hoa tàn hay lá rơi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hết yêu anh, đâu ai thương vương sầu. Rồi về đâu đó, hoa tàn hay lá rơi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:21:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122986575",
+        "filename": "Đường ta đi theo con suối con kia. Qua đèo cao qua bao nhiêu tầng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đường ta đi theo con suối con kia. Qua đèo cao qua bao nhiêu tầng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:16:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122951125",
+        "filename": "Rồi anh đi theo người mới. Người ta cũng đã bỏ rơi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Rồi anh đi theo người mới. Người ta cũng đã bỏ rơi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:15:51",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122812732",
+        "filename": "Nào kẻ thuộc cuộc ở trong tình cảm, chỉ biết nức nở trong bóng tối.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nào kẻ thuộc cuộc ở trong tình cảm, chỉ biết nức nở trong bóng tối.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:13:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122780975",
+        "filename": "I'm a girl with a baby now. Go to the sun and show how.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\I'm a girl with a baby now. Go to the sun and show how.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:13:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122605091",
+        "filename": "Hồ sơ viết về những thức em từng hứa. Lời hứa là hố mà em từng hứa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hồ sơ viết về những thức em từng hứa. Lời hứa là hố mà em từng hứa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:10:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122558486",
+        "filename": "Đất bạc màu và vành áo em vá thêm. Chẳng mưa trên đồng, mưa sáng lối nhỏ em về.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đất bạc màu và vành áo em vá thêm. Chẳng mưa trên đồng, mưa sáng lối nhỏ em về.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:09:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122372354",
+        "filename": "Sợ người đó có còn thương khó, có còn yêu anh nồng nàn như thuở xưa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Sợ người đó có còn thương khó, có còn yêu anh nồng nàn như thuở xưa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:06:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122334874",
+        "filename": "Hai người hai đường, quay lưng không nhìn nhau. Một người ra đi, một người bóp thương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hai người hai đường, quay lưng không nhìn nhau. Một người ra đi, một người bóp thương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:05:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122168582",
+        "filename": "Rót mật vào tai em. Tắt ánh đèn, bật tên yêu lên nào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Rót mật vào tai em. Tắt ánh đèn, bật tên yêu lên nào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:02:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795122088486",
+        "filename": "Mảnh vỡ thôi, vá chằng vá đắp quá nhiều lần. Làm sao thể lành lại được nữa rồi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mảnh vỡ thôi, vá chằng vá đắp quá nhiều lần. Làm sao thể lành lại được nữa rồi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 04:01:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795121770055",
+        "filename": "Đôi môi xinh tuyệt vời. Để rồi buồn vợi, anh chẳng rời cơn gió.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đôi môi xinh tuyệt vời. Để rồi buồn vợi, anh chẳng rời cơn gió.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:56:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795121721069",
+        "filename": "Anh muốn hỏi Dẫu biết yêu nhau không thành, chia tay là điều dễ thấy.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh muốn hỏi Dẫu biết yêu nhau không thành, chia tay là điều dễ thấy.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:55:21",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795121474666",
+        "filename": "Thôi giã từ đi em ơi. Anh làm gì cho em từ ca đề sức chứ bằng nay.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thôi giã từ đi em ơi. Anh làm gì cho em từ ca đề sức chứ bằng nay.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:51:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795121438332",
+        "filename": "Đêm nay anh nhớ em, anh nhớ clip này sau chén trời.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đêm nay anh nhớ em, anh nhớ clip này sau chén trời.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:50:38",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795121141476",
+        "filename": "Hà Giang người sao mà yêu thế. Tiên phấn nơi xa mấy uốn ngà nhìn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hà Giang người sao mà yêu thế. Tiên phấn nơi xa mấy uốn ngà nhìn.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:45:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795121103325",
+        "filename": "Vẫn phải như mình vẫn còn như lúc đầu. Chẳng quan trọng những thứ xảy ra sau.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vẫn phải như mình vẫn còn như lúc đầu. Chẳng quan trọng những thứ xảy ra sau.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:45:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795120926514",
+        "filename": "Quán Kiều là người cắm tướng tủ. Quán Kiều là người chơi để biết tên.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Quán Kiều là người cắm tướng tủ. Quán Kiều là người chơi để biết tên.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:42:06",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795120893846",
+        "filename": "Vì quý anh cây dừa xanh mát. Trên bãi dâu đốn đắng mê mảng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì quý anh cây dừa xanh mát. Trên bãi dâu đốn đắng mê mảng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:41:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795120691235",
+        "filename": "Đưa nàng về rước nàng về dinh. Chẳng cần phải lo anh lo hết chúng mình.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đưa nàng về rước nàng về dinh. Chẳng cần phải lo anh lo hết chúng mình.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:38:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795120648075",
+        "filename": "Hôm nay anh phải công tác xa. Vợ hãy cứ yên tâm và cứ ngoan ngoãn nhé.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hôm nay anh phải công tác xa. Vợ hãy cứ yên tâm và cứ ngoan ngoãn nhé.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:37:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795120487840",
+        "filename": "Mình nói yêu nhau thì em yêu cho tròn. Mấy đất quê nghèo, đất mẹ dãi dầu chan chứa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình nói yêu nhau thì em yêu cho tròn. Mấy đất quê nghèo, đất mẹ dãi dầu chan chứa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:34:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795120443955",
+        "filename": "JUDONG BAI.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\JUDONG BAI.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:34:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795118717147",
+        "filename": "Chọn con tim anh bằng hoàng vỡ nát. Anh biết là cuộc đời này sẽ không có em bên cạnh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chọn con tim anh bằng hoàng vỡ nát. Anh biết là cuộc đời này sẽ không có em bên cạnh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:05:17",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795118683125",
+        "filename": "Nếu mai sau anh và em có xa, đừng lo anh vẫn có đây mà.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nếu mai sau anh và em có xa, đừng lo anh vẫn có đây mà.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:04:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795118520330",
+        "filename": "(Không có nội dung lời bài hát).mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không có nội dung lời bài hát).mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:02:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795118492786",
+        "filename": "(Phần âm thanh thô bạn cung cấp chỉ là các tiếng lầm bầm vô nghĩa, tiếng động hoặc lỗi nhận diện....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Phần âm thanh thô bạn cung cấp chỉ là các tiếng lầm bầm vô nghĩa, tiếng động hoặc lỗi nhận diện....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 03:01:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795118103812",
+        "filename": "Một thuở mơ màng, sương pha đẹp nhung hoa hào tìm. Chuyện tình vương vấn chuyện hoa xinh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một thuở mơ màng, sương pha đẹp nhung hoa hào tìm. Chuyện tình vương vấn chuyện hoa xinh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:55:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795118053495",
+        "filename": "(Đoạn âm thanh không chứa lời bài hát tiếng Việt hoặc tiếng Anh rõ ràng có ý nghĩa để nhận diện bài....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Đoạn âm thanh không chứa lời bài hát tiếng Việt hoặc tiếng Anh rõ ràng có ý nghĩa để nhận diện bài....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:54:13",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795117376711",
+        "filename": "[Đoạn văn bản cung cấp không chứa lời bài hát tiếng Việt hoặc ngôn ngữ phổ thông mà là các ký tự....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\[Đoạn văn bản cung cấp không chứa lời bài hát tiếng Việt hoặc ngôn ngữ phổ thông mà là các ký tự....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:42:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795117279044",
+        "filename": "Vì một tiếng đàn, để xừ chư lòng thào và xự xang.. Về vô mặt, vô mặt, vô mặt, xừ xang..mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì một tiếng đàn, để xừ chư lòng thào và xự xang.. Về vô mặt, vô mặt, vô mặt, xừ xang..mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:41:19",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795115994511",
+        "filename": "Vì cái thế giới này những nỗi đau đong đầy.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì cái thế giới này những nỗi đau đong đầy.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:19:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795115978491",
+        "filename": "Sao anh đành vội bước đi thế nào. Để nhung nhớ ôm ấp đầy tim này.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Sao anh đành vội bước đi thế nào. Để nhung nhớ ôm ấp đầy tim này.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:19:38",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795115580839",
+        "filename": "Mình cười em đã khắc sâu trái tim của anh. Phải làm sao cho quên đi bao nhớ thương ân tình.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mình cười em đã khắc sâu trái tim của anh. Phải làm sao cho quên đi bao nhớ thương ân tình.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:13:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795115535146",
+        "filename": "đi học được thầy gọi lên test mic, thầy gọi lên test mic.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\đi học được thầy gọi lên test mic, thầy gọi lên test mic.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:12:15",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795115294269",
+        "filename": "Một chút là em đang yêu ai, anh không cần quan tâm vì thời gian qua ta xa nếu mà anh đã đau anh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một chút là em đang yêu ai, anh không cần quan tâm vì thời gian qua ta xa nếu mà anh đã đau anh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:08:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795115246286",
+        "filename": "(Không có phần lời bài hát nào được tìm thấy trong đoạn văn bản thô, do nội dung chỉ chứa lời....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không có phần lời bài hát nào được tìm thấy trong đoạn văn bản thô, do nội dung chỉ chứa lời....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:07:26",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795114947761",
+        "filename": "Đang hay để lựa chính vần thơ ngâm chơi. Hoặc biết ai hòa, thì nhớ không đò.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đang hay để lựa chính vần thơ ngâm chơi. Hoặc biết ai hòa, thì nhớ không đò.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:02:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795114871701",
+        "filename": "Presto to make out.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Presto to make out.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 02:01:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795114525869",
+        "filename": "Thế giới bé thôi không to được bằng đôi mắt em. Được không em ơi hãy để bờ vai này anh gánh vác thay.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thế giới bé thôi không to được bằng đôi mắt em. Được không em ơi hãy để bờ vai này anh gánh vác thay.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:55:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795114468146",
+        "filename": "Thuyền xa sông, thuyền tìm ra biển lớn. Theo tiếng gọi ngàn con sóng khơi xa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thuyền xa sông, thuyền tìm ra biển lớn. Theo tiếng gọi ngàn con sóng khơi xa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:54:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795114246304",
+        "filename": "Mà giờ đau thương em bủa vây từ đằng sau lưng. Mắc ai lau khô cho em mơ ngày lâu nay.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mà giờ đau thương em bủa vây từ đằng sau lưng. Mắc ai lau khô cho em mơ ngày lâu nay.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:50:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795114206298",
+        "filename": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:50:06",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795113938088",
+        "filename": "Em biết tình em không bến bờ. Về thăm nay anh ngỡ ngàng em thưa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em biết tình em không bến bờ. Về thăm nay anh ngỡ ngàng em thưa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:45:38",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795113905665",
+        "filename": "Đừng vội để anh phải đau trong lặng lùa muôn đá trào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đừng vội để anh phải đau trong lặng lùa muôn đá trào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:45:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795113582866",
+        "filename": "Thế giới ngày hôm qua, cũng đã ở nơi không xa ấy. Giờ này em biết không.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thế giới ngày hôm qua, cũng đã ở nơi không xa ấy. Giờ này em biết không.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:39:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795113534759",
+        "filename": "Đăng đẹp nhưng ngồi xa hoa sắt cao trên trời Được bởi xin tơi sáng như hoa cướng sườn Lạnh hút em....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đăng đẹp nhưng ngồi xa hoa sắt cao trên trời Được bởi xin tơi sáng như hoa cướng sườn Lạnh hút em....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:38:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795113224967",
+        "filename": "Một người. Nhưng tại hai ta cố chấp kết thúc như vậy.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một người. Nhưng tại hai ta cố chấp kết thúc như vậy.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:33:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795113208321",
+        "filename": "Rằng thôi cô ấy như vậy. Gác lại sau hôm nay. Cuộc đời mình còn nhiều sóng gió.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Rằng thôi cô ấy như vậy. Gác lại sau hôm nay. Cuộc đời mình còn nhiều sóng gió.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:33:28",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795112897297",
+        "filename": "(Phần lời thô không nhận diện được bài hát gốc cụ thể do âm thanh bị lặp và nhiễu nặng, biên tập....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Phần lời thô không nhận diện được bài hát gốc cụ thể do âm thanh bị lặp và nhiễu nặng, biên tập....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:28:17",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795112833299",
+        "filename": "Nơi pherevers Người, em mê nhau, em trohl rephot.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nơi pherevers Người, em mê nhau, em trohl rephot.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:27:13",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795112335239",
+        "filename": "Mặt trời hồng lưng vách núi. Lửng lơ làn mây trắng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mặt trời hồng lưng vách núi. Lửng lơ làn mây trắng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:18:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795112301490",
+        "filename": "Yêu là khi vì nhau nắng bắt tay bước hết kiếm này Đau là khi mất nhau vì những linh do chưa hiểu....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Yêu là khi vì nhau nắng bắt tay bước hết kiếm này Đau là khi mất nhau vì những linh do chưa hiểu....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:18:21",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795112095756",
+        "filename": "Một cuộc tình mà em dành riêng cho anh. Dù năm tháng trôi qua vẫn còn đây.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một cuộc tình mà em dành riêng cho anh. Dù năm tháng trôi qua vẫn còn đây.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:14:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795112054864",
+        "filename": "Chị bóng em ra cho anh đúng người thật lòng thường nay em Bời em đã uống dây buồn vì vì tương yêu....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Chị bóng em ra cho anh đúng người thật lòng thường nay em Bời em đã uống dây buồn vì vì tương yêu....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:14:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111861130",
+        "filename": "Vậy mà anh có một tay em rồi Buồn đầu em khóc em thát với trời Cứa thất hồng sao em nhận lại bằng....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Vậy mà anh có một tay em rồi Buồn đầu em khóc em thát với trời Cứa thất hồng sao em nhận lại bằng....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:11:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111836352",
+        "filename": "Em mang phận liễu yếu nên thân em chịu nhiều sóng gió.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em mang phận liễu yếu nên thân em chịu nhiều sóng gió.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:10:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111690610",
+        "filename": "Đã bao lần tôi tìm về. Kỷ niệm năm xưa cuộc tình thơ dại đầu tiên của tôi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đã bao lần tôi tìm về. Kỷ niệm năm xưa cuộc tình thơ dại đầu tiên của tôi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 01:08:10",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111655112",
+        "filename": "Cám ơn chơi, đã bắt đém một cô giáo tiến vời Chỉ muốn biết cô và theo cô, đến hết cuộc đời Ngày....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Cám ơn chơi, đã bắt đém một cô giáo tiến vời Chỉ muốn biết cô và theo cô, đến hết cuộc đời Ngày....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:07:35",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111462549",
+        "filename": "Khi đã yêu bộ này thật thật Đâu nói quên là quên và em không Khi người ta đã hết yêu rồi Thì nếu....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Khi đã yêu bộ này thật thật Đâu nói quên là quên và em không Khi người ta đã hết yêu rồi Thì nếu....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:04:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111428887",
+        "filename": "CuocSongChill.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\CuocSongChill.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 01:03:48",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795111080066",
+        "filename": "Kẻ gieo chân tình thì thường gạt người ta thôi. Người ta rồi thì toàn son lướt đỏ môi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Kẻ gieo chân tình thì thường gạt người ta thôi. Người ta rồi thì toàn son lướt đỏ môi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 00:58:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795110967482",
+        "filename": "Ai mà còn nhớ bài này thì bây giờ cũng là một, vợ, hai con rồi đúng không Cái bài này thì nói thật....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Ai mà còn nhớ bài này thì bây giờ cũng là một, vợ, hai con rồi đúng không Cái bài này thì nói thật....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 00:56:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795110791994",
+        "filename": "Bỏ lại sau lưng bao gấm vóc lụa là. Vàng ngọc kim cương anh cũng không cần.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Bỏ lại sau lưng bao gấm vóc lụa là. Vàng ngọc kim cương anh cũng không cần.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-20 00:53:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795110392717",
+        "filename": "Có lúc buồn anh lặng cầm vì câu nói em hỏi anh Sao không cứ em mình đã hiểu nhau thật lâu thì tại....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Có lúc buồn anh lặng cầm vì câu nói em hỏi anh Sao không cứ em mình đã hiểu nhau thật lâu thì tại....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 00:46:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795109939735",
+        "filename": "Khi bên anh nhắm thấy điều gì, Khi bên anh nhắm thấy yêu về lắm ác sôi, Đấm kê lành đi, Chẳng còn....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Khi bên anh nhắm thấy điều gì, Khi bên anh nhắm thấy yêu về lắm ác sôi, Đấm kê lành đi, Chẳng còn....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-20 00:38:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795107353099",
+        "filename": "BYEEEEEE! Em sẽ là người ra đi Vì sao em không nói là hết yêu em xôi Thả đâu một lần đâu còn hơn....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\BYEEEEEE! Em sẽ là người ra đi Vì sao em không nói là hết yêu em xôi Thả đâu một lần đâu còn hơn....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:55:53",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795107205981",
+        "filename": "Tuyệt là thay đôi nhau, thì vẫn sẽ chung bầu được bình biệt Siêu xa của tôi đã bỏ mình, mong thắng....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tuyệt là thay đôi nhau, thì vẫn sẽ chung bầu được bình biệt Siêu xa của tôi đã bỏ mình, mong thắng....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:53:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795106852550",
+        "filename": "Một người xa đi anh, mua nước mắt hay ngược vào tim để em quay lưng theo ai Em sẽ thấy nhé lòng,....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một người xa đi anh, mua nước mắt hay ngược vào tim để em quay lưng theo ai Em sẽ thấy nhé lòng,....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:47:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795106746631",
+        "filename": "Còn mời nơi cu đi chị, em bé chị lắm. Hmm, chào. Mé chị á, khi bà mô hết dịch nhá. Đi vô ngày à.....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Còn mời nơi cu đi chị, em bé chị lắm. Hmm, chào. Mé chị á, khi bà mô hết dịch nhá. Đi vô ngày à.....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:45:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795106648779",
+        "filename": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Hãy subscribe cho kênh Ghiền....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn Hãy subscribe cho kênh Ghiền....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:44:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795106565256",
+        "filename": "Em ơi anh làm gì sai sao em nỡ buông câu dừng lại Em ơi anh làm gì sai sao em yêu thêm người thương....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Em ơi anh làm gì sai sao em nỡ buông câu dừng lại Em ơi anh làm gì sai sao em yêu thêm người thương....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:42:45",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795106463223",
+        "filename": "Mosστε Thành huyền thoại và phí thiết bao bài càng để ngắt nông thát mai Về người mẹ biết đếm ai....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Mosστε Thành huyền thoại và phí thiết bao bài càng để ngắt nông thát mai Về người mẹ biết đếm ai....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:41:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795106247054",
+        "filename": "Một lần, dẫn dẫn nhau đôi chúng ta Thương pha đi nói chia tay mà Và cứ sao em vẫn luôn là người thư....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một lần, dẫn dẫn nhau đôi chúng ta Thương pha đi nói chia tay mà Và cứ sao em vẫn luôn là người thư....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:37:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795105604473",
+        "filename": "Thật, thai chất phát lạnh, tình tràng trai quê Con gì mà tính em mới thôi Lên kêu quái giới anh Đời....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Thật, thai chất phát lạnh, tình tràng trai quê Con gì mà tính em mới thôi Lên kêu quái giới anh Đời....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:26:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795105505831",
+        "filename": "Anh ơi em làm gì sai Sao anh đã buông câu dừng lại Anh ơi em làm gì sai Sao anh yêu thêm người....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh ơi em làm gì sai Sao anh đã buông câu dừng lại Anh ơi em làm gì sai Sao anh yêu thêm người....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:25:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795105424404",
+        "filename": "Đứng giữa con đường ngứa anh vô tình nhớ một nụ cười. Đứng giữa con đường ngứa anh vô tình nhớ một....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đứng giữa con đường ngứa anh vô tình nhớ một nụ cười. Đứng giữa con đường ngứa anh vô tình nhớ một....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:23:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795105078192",
+        "filename": "Diana.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Diana.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:17:58",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795105034919",
+        "filename": "Đường vẫn ngay thức đi trong lễ lôi Yêu thương bao lâu chật mong anh như khói sương Chẳng gì có thể....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đường vẫn ngay thức đi trong lễ lôi Yêu thương bao lâu chật mong anh như khói sương Chẳng gì có thể....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 23:17:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795103336303",
+        "filename": "Hứa với mình rằng em không được một ngàn, anh muốn nhìn thấy em cười xùa cách xa. Anh sẽ vẫn tiết....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Hứa với mình rằng em không được một ngàn, anh muốn nhìn thấy em cười xùa cách xa. Anh sẽ vẫn tiết....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 22:48:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1795103269155",
+        "filename": "Mình chẳng có thể làm cho anh ngủ nông thêm Anh không nói ra vì nói ra em buồn thêm Hãy yêu cho....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Mình chẳng có thể làm cho anh ngủ nông thêm Anh không nói ra vì nói ra em buồn thêm Hãy yêu cho....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-19 22:47:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794264080297",
+        "filename": "Bình yên chẳng cần quá sớm, chỉ cần bên nhau. Một đời đâu cần hoàn hảo, chỉ cần một người thương....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Bình yên chẳng cần quá sớm, chỉ cần bên nhau. Một đời đâu cần hoàn hảo, chỉ cần một người thương....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 05:41:20",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794264050076",
+        "filename": "Anh có muốn thấy niêu đâu Hãy thay chút hồn hiểu nhau Cứ chạy đi tìm người mà em thấy em thật vẻ....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh có muốn thấy niêu đâu Hãy thay chút hồn hiểu nhau Cứ chạy đi tìm người mà em thấy em thật vẻ....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 05:40:50",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248502225",
+        "filename": "请.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\请.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:21:42",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248492500",
+        "filename": "(Không có nội dung lời bài hát).mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không có nội dung lời bài hát).mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:21:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248345559",
+        "filename": "Đời dạy ta đứng trước ngọn ngành. Bão giông không được gục ngã.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đời dạy ta đứng trước ngọn ngành. Bão giông không được gục ngã.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:19:05",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248302168",
+        "filename": "Đến khi nào mặt trời ngưng chiếu. Và nắng thôi soi cháy con đường.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đến khi nào mặt trời ngưng chiếu. Và nắng thôi soi cháy con đường.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:18:22",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248252331",
+        "filename": "Đưa bàn tay anh nắm, đi giật em trên đường đời. Đi đến nơi tuyệt vời là gia đình hình em ơi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đưa bàn tay anh nắm, đi giật em trên đường đời. Đi đến nơi tuyệt vời là gia đình hình em ơi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:17:32",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248214130",
+        "filename": "Đã đến lúc em phải thương lấy chính bản thân mình thôi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đã đến lúc em phải thương lấy chính bản thân mình thôi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:16:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248166758",
+        "filename": "Đã từ rất lâu rồi trong anh bỏ ngỏ hai tiếng yêu thương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đã từ rất lâu rồi trong anh bỏ ngỏ hai tiếng yêu thương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:16:06",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248125037",
+        "filename": "Đã từ rất lâu rồi trong anh định nghĩa hai tiếng yêu thương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đã từ rất lâu rồi trong anh định nghĩa hai tiếng yêu thương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:15:25",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248081693",
+        "filename": "Đã bao giờ mà chúng mình bắt đầu. Cảm ơn cả những ngày nắng băng qua.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đã bao giờ mà chúng mình bắt đầu. Cảm ơn cả những ngày nắng băng qua.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:14:41",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248047128",
+        "filename": "Đi hết những ngày giông bão. Chỉ cần người thương em tới thế.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Đi hết những ngày giông bão. Chỉ cần người thương em tới thế.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:14:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794248000092",
+        "filename": "Ví bạc anh không khó, giàu sang cũng chưa tường. Trầm chậm dâng trái tim giấu trong lòng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Ví bạc anh không khó, giàu sang cũng chưa tường. Trầm chậm dâng trái tim giấu trong lòng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:13:20",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247958046",
+        "filename": "Vì yêu anh, em đành ôm lấy những đớn đau đầy nhức nhối.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vì yêu anh, em đành ôm lấy những đớn đau đầy nhức nhối.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:12:38",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247932314",
+        "filename": "Và dòng thư tay em gửi cho anh này nào. Giờ còn lại hứa vô em gửi anh đây lời chào_7906.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và dòng thư tay em gửi cho anh này nào. Giờ còn lại hứa vô em gửi anh đây lời chào_7906.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:12:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247824918",
+        "filename": "Và dòng thư tay em gửi cho anh này nào. Giờ còn lại hứa vô em gửi anh đây lời chào.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Và dòng thư tay em gửi cho anh này nào. Giờ còn lại hứa vô em gửi anh đây lời chào.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:10:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247771816",
+        "filename": "Vui tươi ngày tháng đó đây. Vẫn bình yên giữa bao thăng trầm.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vui tươi ngày tháng đó đây. Vẫn bình yên giữa bao thăng trầm.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:09:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247735522",
+        "filename": "Tự hỏi anh sao mọi nỗi đau. Chẳng để mình lưu bước.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tự hỏi anh sao mọi nỗi đau. Chẳng để mình lưu bước.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:08:55",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247681627",
+        "filename": "Từng là lời hứa của cả thanh xuân. Sao giờ nói quên là quên.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Từng là lời hứa của cả thanh xuân. Sao giờ nói quên là quên.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:08:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794247529470",
+        "filename": "Từ từ khi gặp em, chỉ nhớ hơi bật em. Những món ăn thân quen sao này bỗng dưng chẳng thèm, dù bụng....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Từ từ khi gặp em, chỉ nhớ hơi bật em. Những món ăn thân quen sao này bỗng dưng chẳng thèm, dù bụng....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 01:05:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246856029",
+        "filename": "Vậy thôi ta trả cho nhau từ xa. Đời ai nấy giữ chẳng phải đò đưa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Vậy thôi ta trả cho nhau từ xa. Đời ai nấy giữ chẳng phải đò đưa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:54:16",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246809726",
+        "filename": "Tôi ước được một mai trở về thăm cố hương. Tìm lại bóng dáng xưa bấy lâu nay không gặp.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tôi ước được một mai trở về thăm cố hương. Tìm lại bóng dáng xưa bấy lâu nay không gặp.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:53:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246764008",
+        "filename": "Tình yêu tình thương gửi trao đến em, càng thêm vô vàng_6736.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tình yêu tình thương gửi trao đến em, càng thêm vô vàng_6736.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:52:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246716575",
+        "filename": "Tình yêu tình thương gửi trao đến em, càng thêm vô vàng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tình yêu tình thương gửi trao đến em, càng thêm vô vàng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:51:56",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246661753",
+        "filename": "Tình nào ngày tháng mà êm dịu không. Còn chưa nắm tay chưa về chung phòng.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Tình nào ngày tháng mà êm dịu không. Còn chưa nắm tay chưa về chung phòng.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:51:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246633673",
+        "filename": "Thì dẫu tình yêu vốn như mây chẳng cần phải xé đôi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thì dẫu tình yêu vốn như mây chẳng cần phải xé đôi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:50:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246601709",
+        "filename": "Thôi tìm về bình yên như làn mây bay khắp nơi. Cứ đẹp lòng thanh thơi, gác xé với nỗi buồn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Thôi tìm về bình yên như làn mây bay khắp nơi. Cứ đẹp lòng thanh thơi, gác xé với nỗi buồn.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:50:01",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246546446",
+        "filename": "Rồi mưa giông đến đây thấu chăng một bóng hình. Vội vàng hai đứa ai ngóng trông khắp trong đêm dài.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Rồi mưa giông đến đây thấu chăng một bóng hình. Vội vàng hai đứa ai ngóng trông khắp trong đêm dài.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:49:06",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246498129",
+        "filename": "Nhìn gió với én mây bay. Cứ vui say giữa bầu trời xanh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Nhìn gió với én mây bay. Cứ vui say giữa bầu trời xanh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:48:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246454010",
+        "filename": "Người như anh không thuộc về giang sơn, hạnh phúc nữa rồi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người như anh không thuộc về giang sơn, hạnh phúc nữa rồi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:47:34",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246403441",
+        "filename": "Người lạ ơi cho tôi mượn một bờ vai. Tựa đầu gục ngã giữa dòng đời vội vã đảo điên.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người lạ ơi cho tôi mượn một bờ vai. Tựa đầu gục ngã giữa dòng đời vội vã đảo điên.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:46:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246354780",
+        "filename": "Lựa dùm anh một dòng tin nhắn. Hay lựa dùm anh câu nói yêu thương.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Lựa dùm anh một dòng tin nhắn. Hay lựa dùm anh câu nói yêu thương.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:45:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246320352",
+        "filename": "Một đời người đàn bà, có mấy khi được sống cho ta. Tuổi xuân đã đi qua, những ước mơ cũng hóa nhạt....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một đời người đàn bà, có mấy khi được sống cho ta. Tuổi xuân đã đi qua, những ước mơ cũng hóa nhạt....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:45:20",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246263409",
+        "filename": "Người ta thường nói khi mới yêu thương thường hay thề hứa.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Người ta thường nói khi mới yêu thương thường hay thề hứa.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:44:23",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794246242004",
+        "filename": "Mất em rồi anh mới biết, bình yên là đâu. Khi chúng ta xa rời anh mới thấu, cõi lòng mù sầu.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mất em rồi anh mới biết, bình yên là đâu. Khi chúng ta xa rời anh mới thấu, cõi lòng mù sầu.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:44:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245952128",
+        "filename": "Lòng này đã muốn rời xa để quên hết nỗi đau mà ai chôn lòng ta.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Lòng này đã muốn rời xa để quên hết nỗi đau mà ai chôn lòng ta.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:39:12",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245910259",
+        "filename": "Hạnh phúc người anh đã từng có. Nhưng giờ hóa ngó của người ta.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Hạnh phúc người anh đã từng có. Nhưng giờ hóa ngó của người ta.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:38:30",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245866585",
+        "filename": "(Không có lời bài hát nào được cung cấp trong phần lời thô ngoài các câu quảng cáo)..mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\(Không có lời bài hát nào được cung cấp trong phần lời thô ngoài các câu quảng cáo)..mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:37:46",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245844927",
+        "filename": "Giờ em nhận ra em là người chịu thiệt thòi. Khứa dài nhật ký em, giả vờ mình hạnh phúc.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Giờ em nhận ra em là người chịu thiệt thòi. Khứa dài nhật ký em, giả vờ mình hạnh phúc.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:37:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245796723",
+        "filename": "Em ơi cứ nói ra để tính ta ra nói tình tang. Rồi anh sẽ đưa em lên đồi.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em ơi cứ nói ra để tính ta ra nói tình tang. Rồi anh sẽ đưa em lên đồi.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:36:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245769781",
+        "filename": "Em đứng ngay đây lúc này là bờ biển đầy nắng. Dòng người và cát trắng anh có dám nắm tay cùng em....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Em đứng ngay đây lúc này là bờ biển đầy nắng. Dòng người và cát trắng anh có dám nắm tay cùng em....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:36:09",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245744328",
+        "filename": "Sống hơn thua vì tiền. Này chẳng có chữ nghĩa chữ tình.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Sống hơn thua vì tiền. Này chẳng có chữ nghĩa chữ tình.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:35:44",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245600246",
+        "filename": "Có một lần em chẳng qua nữa cứ thế xa xa mãi nơi anh.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Có một lần em chẳng qua nữa cứ thế xa xa mãi nơi anh.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:33:20",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245559629",
+        "filename": "Có lẽ bố biết là con xa nhà. Nên 20 năm rồi bố chưa về.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Có lẽ bố biết là con xa nhà. Nên 20 năm rồi bố chưa về.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:32:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245403500",
+        "filename": "Cuộc đời giàu sang đã cuốn mất em đi theo người. Với những đồng tiền phù du đã khiến con tim em đổi....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Cuộc đời giàu sang đã cuốn mất em đi theo người. Với những đồng tiền phù du đã khiến con tim em đổi....mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:30:03",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245334188",
+        "filename": "Dành hết tháng năm bao ngày, đổi lại là nước mắt. Trái tim anh hao gầy, nhường em chút bình yên.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Dành hết tháng năm bao ngày, đổi lại là nước mắt. Trái tim anh hao gầy, nhường em chút bình yên.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:28:54",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245287850",
+        "filename": "Trở về ngày ôm bao mơ mộng trong tim. Khoảng trời hồng trở nên lặng im.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Trở về ngày ôm bao mơ mộng trong tim. Khoảng trời hồng trở nên lặng im.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:28:07",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794245111709",
+        "filename": "Chúng ta sẽ không bao giờ quay lại đúng độ tuổi này nữa..mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Chúng ta sẽ không bao giờ quay lại đúng độ tuổi này nữa..mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:25:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794244751416",
+        "filename": "Bình yên chẳng cần giúp sớm, chỉ cần bên nhau Một đời đâu cần hoàn hấu, chỉ cần một người thương....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Bình yên chẳng cần giúp sớm, chỉ cần bên nhau Một đời đâu cần hoàn hấu, chỉ cần một người thương....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:19:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794244720948",
+        "filename": "Anh dừng chân ngước nhìn trời cao vạn môn. Níu em sao để buồn thôi phụ đành bờ vai áo gầy.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh dừng chân ngước nhìn trời cao vạn môn. Níu em sao để buồn thôi phụ đành bờ vai áo gầy.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:18:40",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794244360823",
+        "filename": "Anh có muốn về niêu đâu Hai tai chút hồn hiếu nhau Cư chạy đi tìm đôi mà em thấy em thua bè Mặc kề....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh có muốn về niêu đâu Hai tai chút hồn hiếu nhau Cư chạy đi tìm đôi mà em thấy em thua bè Mặc kề....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:12:40",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794244187596",
+        "filename": "Anh vẫn bên em thế nhưng em vẫn chưa vơi hết những nghĩ suy.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Anh vẫn bên em thế nhưng em vẫn chưa vơi hết những nghĩ suy.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:09:47",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794244157196",
+        "filename": "Một người chịu đi tới dẫu trước mắt là cây khô cằn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Một người chịu đi tới dẫu trước mắt là cây khô cằn.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:09:17",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794244009217",
+        "filename": "Cũng đã lâu anh đã không thấy mặt em. Anh đã không quay lại lúc đôi ta gặp khó.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Cũng đã lâu anh đã không thấy mặt em. Anh đã không quay lại lúc đôi ta gặp khó.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-10 00:06:49",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243978017",
+        "filename": "Tự lời anh sao, mọi nối đau Chẳng là mình lưu bước Em tình tin phía xa, có anh ra vòng thân Vâng,....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tự lời anh sao, mọi nối đau Chẳng là mình lưu bước Em tình tin phía xa, có anh ra vòng thân Vâng,....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:06:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243921813",
+        "filename": "Tình đào ngày tha mà em đúng không Còn chưa nắm tay chưa về tay phòng Mình còn trong ngắm biết....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tình đào ngày tha mà em đúng không Còn chưa nắm tay chưa về tay phòng Mình còn trong ngắm biết....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:05:21",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243908531",
+        "filename": "鄉罢, 啦啦啦啦啦啦啊啦啦啦sigh走走走走, 走到等.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\鄉罢, 啦啦啦啦啦啦啊啦啦啦sigh走走走走, 走到等.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:05:08",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243804908",
+        "filename": "Đã lý do mà chúng mình bắt đầu, cảm ơn cả những ngày nắng vang mai Tao đã yêu vào hạt mưa giờ tao....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đã lý do mà chúng mình bắt đầu, cảm ơn cả những ngày nắng vang mai Tao đã yêu vào hạt mưa giờ tao....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:03:24",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243791702",
+        "filename": "參.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\參.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:03:11",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243660789",
+        "filename": "Thế giới thành yêu vốn như này, chẳng cần phải xé đôi Chào đi nghe những trân tình để nắng cho bài....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Thế giới thành yêu vốn như này, chẳng cần phải xé đôi Chào đi nghe những trân tình để nắng cho bài....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:01:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243643356",
+        "filename": "Anh có muốn thấy niêu đâu Hãy thay chứ tương hiệu nhau Cứ chạy đi tìm đôi mà em thấy em thua bè....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Anh có muốn thấy niêu đâu Hãy thay chứ tương hiệu nhau Cứ chạy đi tìm đôi mà em thấy em thua bè....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-10 00:00:43",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243553474",
+        "filename": "Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Hãy subscribe cho kênh Ghiền Mì Gõ Để không bỏ lỡ những video hấp dẫn.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:59:13",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243539437",
+        "filename": "Em ơi, khứ nói ra để tính ta ra nói thình hoa rồi anh sẽ đưa em đến đôi Mà chỉ có ta ra nền cát anh....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Em ơi, khứ nói ra để tính ta ra nói thình hoa rồi anh sẽ đưa em đến đôi Mà chỉ có ta ra nền cát anh....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:58:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243513921",
+        "filename": "Lòng này đã muốn rơi xa để quên hết nỗi đau mà ai trong lòng ta Cầu mong em sẽ hạnh phúc còn anh....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Lòng này đã muốn rơi xa để quên hết nỗi đau mà ai trong lòng ta Cầu mong em sẽ hạnh phúc còn anh....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:58:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243494106",
+        "filename": "Tính yêu tính thương gửi trao đến em, càng thêm vô vàng Lồi mắt em như ngọc ngà, lạm lòng anh say..._3472.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tính yêu tính thương gửi trao đến em, càng thêm vô vàng Lồi mắt em như ngọc ngà, lạm lòng anh say..._3472.mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:58:14",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243453900",
+        "filename": "Ngày xa cớ không còn tiền trong tay Bạn bé xa lạnh không ai ngó ai nhìn Giờ lúc giấc xuân hổ hiệu....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Ngày xa cớ không còn tiền trong tay Bạn bé xa lạnh không ai ngó ai nhìn Giờ lúc giấc xuân hổ hiệu....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:57:33",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243419490",
+        "filename": "Rồi mưa rồng đến đây thiếu vững một bóng hình không phải Bàn chân hai đợi ai nghe tiếc húp trong....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Rồi mưa rồng đến đây thiếu vững một bóng hình không phải Bàn chân hai đợi ai nghe tiếc húp trong....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:56:59",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243389417",
+        "filename": "Tính yêu tính thương gửi trao đến em, càng thêm vô vàng Lồi mắt em như ngọc ngà, lạm lòng anh say....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tính yêu tính thương gửi trao đến em, càng thêm vô vàng Lồi mắt em như ngọc ngà, lạm lòng anh say....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:56:29",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243351671",
+        "filename": "Cũng sống hơn thua vì tiền Này chẳng có chữ nghĩa chữ tình Hôm nay có tiền là vua Ngheo quay lưng....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Cũng sống hơn thua vì tiền Này chẳng có chữ nghĩa chữ tình Hôm nay có tiền là vua Ngheo quay lưng....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:55:51",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243302778",
+        "filename": "Một thế giới anh là... Là nơi em anh không nghĩ người Là nơi bình yên lũi tư Không phải đông đứa....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Một thế giới anh là... Là nơi em anh không nghĩ người Là nơi bình yên lũi tư Không phải đông đứa....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:55:02",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243267628",
+        "filename": "Mây cuối trời có lẽ cứ để gió cuốn đi. Em vì ai bước đi, em xa anh hay trong suy nghĩ.mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs\\Mây cuối trời có lẽ cứ để gió cuốn đi. Em vì ai bước đi, em xa anh hay trong suy nghĩ.mp4",
+        "output_folder": "outputs",
+        "has_lyrics": true,
+        "created_at": "2026-11-09 23:54:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243240016",
+        "filename": "Vào dòng thứ Tây em gửi cháo anh này nào Giờ còn lại hứa vô em gửi anh đây lời chào Và những người....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Vào dòng thứ Tây em gửi cháo anh này nào Giờ còn lại hứa vô em gửi anh đây lời chào Và những người....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:54:00",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243147651",
+        "filename": "Đưa bạn tay anh nắm, anh giặt em trên đường đời Đi đến đời tuyệt vời là gia đình hình em mới Nơi có....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đưa bạn tay anh nắm, anh giặt em trên đường đời Đi đến đời tuyệt vời là gia đình hình em mới Nơi có....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:52:27",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243126741",
+        "filename": "Cuộc đơn giàu sang đã cuốn mất em đi theo người với những đồng tiền phù dụ đã khiến con tim em đổi....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Cuộc đơn giàu sang đã cuốn mất em đi theo người với những đồng tiền phù dụ đã khiến con tim em đổi....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:52:06",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243036563",
+        "filename": "Vặng bạc anh không khó, dầu sang cũng chưa tròn Trầm chậm giấc trái tim dấu trong lòng Một người sẽ....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Vặng bạc anh không khó, dầu sang cũng chưa tròn Trầm chậm giấc trái tim dấu trong lòng Một người sẽ....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:50:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794243018299",
+        "filename": "Và dòng thứ tây em gửi cháo anh này nào Giờ còn lại hứa vô em gửi anh đây lời chào Và những người....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Và dòng thứ tây em gửi cháo anh này nào Giờ còn lại hứa vô em gửi anh đây lời chào Và những người....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:50:18",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794242971198",
+        "filename": "Đến khi nào mặt trời đứng chiếu Và nắng thôi xói trên con đường Đến khi nào ta không còn đến nhau....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đến khi nào mặt trời đứng chiếu Và nắng thôi xói trên con đường Đến khi nào ta không còn đến nhau....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:49:31",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794242919588",
+        "filename": "Tôi ước đào một mãi trở về thầm cố hương Tìm lại bóng giang xưa bây lâu nay không gặp Bạn bè thầm....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tôi ước đào một mãi trở về thầm cố hương Tìm lại bóng giang xưa bây lâu nay không gặp Bạn bè thầm....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:48:39",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794242897535",
+        "filename": "Tầy thôi ta trả cho nhau từ xo Đời ai nấy dữ chẳng phải đắn đỏ Cũng thôi bận lòng Nhưng thứ dưới....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Tầy thôi ta trả cho nhau từ xo Đời ai nấy dữ chẳng phải đắn đỏ Cũng thôi bận lòng Nhưng thứ dưới....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:48:17",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794242856823",
+        "filename": "Đã từ rất bâu rồi trong anh định nghĩa hai tiếng yêu thương anh không thể cho cho ai kìa từ khi anh....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đã từ rất bâu rồi trong anh định nghĩa hai tiếng yêu thương anh không thể cho cho ai kìa từ khi anh....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:47:36",
+        "status": "Chờ duyệt"
+    },
+    {
+        "id": "vid_1794242834213",
+        "filename": "Có một lần em chẳng qua nữa cứ thế xa xa mãi nơi anh Để những mùa nhuộng màu thương nhớ Phố xa xôi....mp4",
+        "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Có một lần em chẳng qua nữa cứ thế xa xa mãi nơi anh Để những mùa nhuộng màu thương nhớ Phố xa xôi....mp4",
+        "output_folder": "outputs-no-lyrics",
+        "has_lyrics": false,
+        "created_at": "2026-11-09 23:47:14",
+        "status": "Chờ duyệt"
+    },
+    {
         "id": "vid_1794233613479",
         "filename": "Đã từ rất nâu rồi trong anh định nghĩa hai tiếng yêu thương anh không thể cho cho ai kể từ khi anh....mp4",
         "path": "D:\\Code\\tools\\tiktok_auto_render_tool\\outputs-no-lyrics\\Đã từ rất nâu rồi trong anh định nghĩa hai tiếng yêu thương anh không thể cho cho ai kể từ khi anh....mp4",

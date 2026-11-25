@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Thử Lyrics Video - TikTok Auto Render</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #0a0c10;
+            --panel-bg: rgba(22, 27, 34, 0.75);
+            --panel-border: rgba(255, 255, 255, 0.1);
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-main);
+            background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            width: 1280px;
+            max-width: 100%;
+            height: calc(100vh - 40px);
+            border: 1px solid var(--panel-border);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* --- Header & Actions --- */
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 14px;
+            flex-shrink: 0;
+        }
+
+        .header-title h2 {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-success { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .btn-success:hover { background: #059669; }
+        .btn-danger { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-secondary { background: rgba(255, 255, 255, 0.08); color: var(--text-main); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--panel-border);
+            color: var(--text-muted);
+        }
+        .btn-outline:hover {
+            color: var(--text-main);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 11px;
+            border-radius: 6px;
+        }
+
+        /* --- Streamlined Setup Bar --- */
+        .setup-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .setup-input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .setup-input-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #cbd5e1;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .setup-input-group input {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f1f5f9;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .setup-input-group input:focus {
+            border-color: var(--primary);
+        }
+
+        /* --- Summary Stats Bar --- */
+        .summary-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .summary-stats {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .summary-stat-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #cbd5e1;
+        }
+
+        .summary-stat-item strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* --- Queue Table Container --- */
+        .table-container {
+            flex: 1;
+            overflow-y: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(10, 14, 23, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #111827;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            padding: 12px 16px;
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(99, 102, 241, 0.04);
+        }
+
+        td {
+            padding: 12px 16px;
+            vertical-align: middle;
+        }
+
+        /* --- Status Badges --- */
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .status-wait {
+            background-color: rgba(156, 163, 175, 0.15);
+            color: #9ca3af;
+            border: 1px solid rgba(156, 163, 175, 0.3);
+        }
+
+        .status-running {
+            background-color: rgba(99, 102, 241, 0.18);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+        }
+
+        .status-done {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-error {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        /* --- Source Badges --- */
+        .badge-source {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-transform: uppercase;
+        }
+
+        .badge-ai {
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+
+        .badge-original {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .badge-none {
+            background: rgba(100, 116, 139, 0.2);
+            color: #94a3b8;
+            border: 1px solid rgba(100, 116, 139, 0.4);
+        }
+
+        .video-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- Lyrics Inspection Modal --- */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            width: 1000px;
+            max-width: 95vw;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            animation: modalFadeIn 0.2s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .modal-header h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 20px;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.15s;
+        }
+
+        .modal-close-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-meta-bar {
+            padding: 10px 20px;
+            background: rgba(30, 41, 59, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 16px 20px;
+            overflow: hidden;
+        }
+
+        .lyrics-col {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.5);
+            overflow: hidden;
+        }
+
+        .lyrics-col-header {
+            padding: 10px 14px;
+            background: rgba(30, 41, 59, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        .lyrics-text-box {
+            flex: 1;
+            padding: 14px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: rgba(10, 14, 23, 0.6);
+        }
+
+        .lyrics-text-box.ai-box {
+            color: #f1f5f9;
+            background: rgba(99, 102, 241, 0.03);
+            border-left: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.15s;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* --- Toast Notification --- */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #1e293b;
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            animation: fadeInToast 0.2s ease-out;
+        }
+
+        @keyframes fadeInToast {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header & Action Controls Bar -->
+        <div class="header-nav">
+            <div class="header-title">
+                <h2><i class="fa-solid fa-flask" style="color: #6366f1;"></i> Kiểm Thử Lyrics Video</h2>
+            </div>
+            <div class="header-actions">
+                <button id="startTestBtn" class="btn btn-success" onclick="startBatchTest()" disabled>
+                    <i class="fa-solid fa-rocket"></i> <span id="startTestBtnText">Bắt Đầu Test Tất Cả</span>
+                </button>
+                <button id="stopTestBtn" class="btn btn-danger" onclick="stopBatchTest()" style="display: none;">
+                    <i class="fa-solid fa-hand"></i> <span>Dừng Lại</span>
+                </button>
+                <button id="reloadBtn" class="btn btn-secondary" onclick="scanVideos()" title="Quét lại thư mục video">
+                    <i class="fa-solid fa-rotate-right"></i> <span>Làm Mới</span>
+                </button>
+                <a href="/" class="btn btn-outline" title="Chuyển sang trang tạo video chính">
+                    <i class="fa-solid fa-film"></i> <span>Trang Render Chính</span>
+                </a>
+                <a href="/manage" class="btn btn-outline" title="Quản lý video thành phẩm">
+                    <i class="fa-solid fa-list-check"></i> <span>Quản Lý Video</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Streamlined Setup Bar (Video Folder Only) -->
+        <div class="setup-card">
+            <div class="setup-input-group">
+                <label><i class="fa-solid fa-folder-open" style="color: var(--primary);"></i> Thư mục Video nguồn:</label>
+                <input type="text" id="videoFolderPath" placeholder="Ví dụ: D:\Media\Videos" />
+            </div>
+            <button id="scanBtn" class="btn" onclick="scanVideos()">
+                <i id="scanIcon" class="fa-solid fa-magnifying-glass"></i> <span id="scanText">Quét Video</span>
+            </button>
+        </div>
+
+        <!-- Summary Stats Bar -->
+        <div class="summary-bar">
+            <div class="summary-stats">
+                <span class="summary-stat-item"><i class="fa-solid fa-list"></i> Tổng: <strong id="statTotal">0</strong></span>
+                <span class="summary-stat-item"><i class="fa-solid fa-circle-check" style="color: var(--success);"></i> Đã test: <strong id="statDone">0</strong></span>
+                <span class="summary-stat-item"><i class="fa-solid fa-hourglass-half" style="color: var(--warning);"></i> Chờ test: <strong id="statPending">0</strong></span>
+                <span class="summary-stat-item"><i class="fa-solid fa-triangle-exclamation" style="color: var(--danger);"></i> Lỗi: <strong id="statFailed">0</strong></span>
+            </div>
+            <div>
+                <span style="color: #94a3b8; font-size: 11px;">
+                    <i class="fa-solid fa-shield-halved" style="color: #6366f1;"></i> Chế độ test độc lập (0 MB video xuất ra)
+                </span>
+            </div>
+        </div>
+
+        <!-- Table Container -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 34%;">Video Nguồn</th>
+                        <th style="width: 18%;">Trạng Thái</th>
+                        <th style="width: 33%;">Kết Quả Lyrics</th>
+                        <th style="width: 15%; text-align: center;">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody id="queueTbody">
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 40px;">
+                            <i class="fa-solid fa-film" style="font-size: 28px; margin-bottom: 8px; display: block; opacity: 0.3;"></i>
+                            Vui lòng nhập đường dẫn thư mục video và bấm <strong>Quét Video</strong> để bắt đầu kiểm thử.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Lyrics Comparison Modal (Side-by-side) -->
+    <div id="lyricsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-music" style="color: var(--primary);"></i> <span id="modalSongTitle">Chi Tiết Lời Bài Hát</span></h3>
+                <button class="modal-close-btn" onclick="closeLyricsModal()">&times;</button>
+            </div>
+            <div class="modal-meta-bar">
+                <span><i class="fa-solid fa-file-video"></i> Video: <strong id="modalVideoName" style="color: #fff;">-</strong></span>
+                <span><i class="fa-solid fa-clock"></i> Thời gian xử lý: <strong id="modalProcessingTime" style="color: #34d399;">-</strong></span>
+                <span id="modalSourceBadge"></span>
+            </div>
+            <div class="modal-body">
+                <!-- Cột trái: Lời thô từ Whisper -->
+                <div class="lyrics-col">
+                    <div class="lyrics-col-header">
+                        <span><i class="fa-solid fa-microphone-lines"></i> Lời Thô (Whisper STT)</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span id="rawWordCount" style="font-size: 10px; color: #94a3b8;">0 từ</span>
+                            <button class="btn-copy" onclick="copyText('rawLyricsText')"><i class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div id="rawLyricsText" class="lyrics-text-box"></div>
+                </div>
+
+                <!-- Cột phải: Lời hoàn chỉnh từ Gemini AI -->
+                <div class="lyrics-col">
+                    <div class="lyrics-col-header">
+                        <span><i class="fa-solid fa-wand-magic-sparkles" style="color: #c4b5fd;"></i> Lời Hoàn Chỉnh (Gemini AI)</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span id="refinedWordCount" style="font-size: 10px; color: #94a3b8;">0 từ</span>
+                            <button class="btn-copy" onclick="copyText('refinedLyricsText')"><i class="fa-regular fa-copy"></i> Copy</button>
+                        </div>
+                    </div>
+                    <div id="refinedLyricsText" class="lyrics-text-box ai-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Đã sao chép vào bộ nhớ tạm!</span>
+    </div>
+
+    <script>
+        let testQueue = [];
+        let isBatchTesting = false;
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('/api/get-config');
+                const data = await res.json();
+                if (data.success && data.config && data.config.video_folder) {
+                    document.getElementById('videoFolderPath').value = data.config.video_folder;
+                    scanVideos();
+                }
+            } catch (err) {
+                console.error("Lỗi tải cấu hình:", err);
+            }
+        });
+
+        // Đóng modal bằng phím ESC
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLyricsModal();
+        });
+
+        async function scanVideos() {
+            const vidFolder = document.getElementById('videoFolderPath').value.trim();
+            if (!vidFolder) {
+                alert('Vui lòng nhập đường dẫn thư mục video!');
+                return;
+            }
+
+            const scanBtn = document.getElementById('scanBtn');
+            const scanIcon = document.getElementById('scanIcon');
+            const scanText = document.getElementById('scanText');
+
+            scanBtn.disabled = true;
+            scanIcon.className = "fa-solid fa-spinner fa-spin";
+            scanText.innerText = "Đang quét...";
+
+            try {
+                const res = await fetch('/api/test-scan-videos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ video_folder: vidFolder })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    testQueue = data.queue;
+                    renderTable();
+                    updateStats();
+                    document.getElementById('startTestBtn').disabled = testQueue.length === 0;
+                } else {
+                    alert('Lỗi: ' + (data.error || 'Không thể quét thư mục video'));
+                }
+            } catch (err) {
+                alert('Không thể kết nối đến server!');
+                console.error(err);
+            } finally {
+                scanBtn.disabled = false;
+                scanIcon.className = "fa-solid fa-magnifying-glass";
+                scanText.innerText = "Quét Video";
+            }
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('queueTbody');
+            tbody.innerHTML = '';
+
+            if (testQueue.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 40px;">
+                            Thư mục không chứa file video hợp lệ nào (.mp4, .mkv, .avi, .mov)!
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            testQueue.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.id = `row-${item.id}`;
+
+                // Cột 1: Video Nguồn
+                const col1 = `
+                    <td>
+                        <div style="font-weight: 600; color: #f1f5f9; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-file-video" style="color: var(--primary);"></i>
+                            <span>${escapeHtml(item.video_name)}</span>
+                        </div>
+                        <div class="video-meta">
+                            <span><i class="fa-regular fa-clock"></i> ~${Math.round(item.duration_s)}s</span>
+                            <span>•</span>
+                            <span><i class="fa-solid fa-hard-drive"></i> ${item.size_mb} MB</span>
+                            <span>•</span>
+                            <button class="btn btn-sm btn-outline" style="padding: 2px 6px; font-size: 10px;" onclick="toggleInlineVideo(${item.id}, '${encodeURIComponent(item.video_path)}')">
+                                <i class="fa-solid fa-play"></i> Xem video
+                            </button>
+                        </div>
+                        <div id="video-preview-box-${item.id}" style="display: none; margin-top: 8px;">
+                            <video id="inline-video-${item.id}" controls style="width: 100%; max-width: 320px; border-radius: 6px; background: #000;"></video>
+                        </div>
+                    </td>
+                `;
+
+                // Cột 2: Trạng Thái Test
+                const col2 = `
+                    <td>
+                        <span id="status-badge-${item.id}" class="status-badge ${getStatusBadgeClass(item.status)}">
+                            ${getStatusBadgeIcon(item.status)} ${item.status}
+                        </span>
+                        <div id="proc-time-${item.id}" style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+                            ${item.processing_time_s > 0 ? `Xử lý trong: ${item.processing_time_s}s` : ''}
+                        </div>
+                    </td>
+                `;
+
+                // Cột 3: Kết Quả Lyrics
+                let col3Content = `<span style="color: var(--text-muted); font-size: 12px;">Chưa kiểm thử</span>`;
+                if (item.status === 'Hoàn thành') {
+                    const badge = getSourceBadge(item.lyric_source);
+                    col3Content = `
+                        <div style="display: flex; flex-direction: column; gap: 4px;">
+                            <div>${badge}</div>
+                            <div style="font-weight: 600; color: #e2e8f0; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 360px;" title="${escapeHtml(item.first_line || '')}">
+                                "${escapeHtml(item.first_line || 'Không có tiêu đề')}"
+                            </div>
+                            <button class="btn btn-sm btn-secondary" onclick="openLyricsModal(${item.id})" style="align-self: flex-start; margin-top: 2px;">
+                                <i class="fa-solid fa-eye"></i> Xem Chi Tiết Lyrics
+                            </button>
+                        </div>
+                    `;
+                } else if (item.status === 'Lỗi') {
+                    col3Content = `<span style="color: var(--danger); font-size: 12px;"><i class="fa-solid fa-circle-xmark"></i> ${escapeHtml(item.error_message || 'Lỗi không xác định')}</span>`;
+                }
+
+                const col3 = `<td id="result-col-${item.id}">${col3Content}</td>`;
+
+                // Cột 4: Thao Tác
+                const isRunning = item.status === 'Đang xử lý';
+                const col4 = `
+                    <td style="text-align: center;">
+                        <button id="btn-test-${item.id}" class="btn btn-sm btn-secondary" onclick="testSingleVideo(${item.id})" ${isRunning ? 'disabled' : ''}>
+                            <i class="fa-solid fa-flask"></i> Test Lyrics
+                        </button>
+                    </td>
+                `;
+
+                tr.innerHTML = col1 + col2 + col3 + col4;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getStatusBadgeClass(status) {
+            if (status === 'Đang xử lý') return 'status-running';
+            if (status === 'Hoàn thành') return 'status-done';
+            if (status === 'Lỗi') return 'status-error';
+            return 'status-wait';
+        }
+
+        function getStatusBadgeIcon(status) {
+            if (status === 'Đang xử lý') return '<i class="fa-solid fa-spinner fa-spin"></i>';
+            if (status === 'Hoàn thành') return '<i class="fa-solid fa-circle-check"></i>';
+            if (status === 'Lỗi') return '<i class="fa-solid fa-circle-exclamation"></i>';
+            return '<i class="fa-regular fa-clock"></i>';
+        }
+
+        function getSourceBadge(source) {
+            if (source === 'AI') {
+                return '<span class="badge-source badge-ai"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Refined</span>';
+            } else if (source === 'Original') {
+                return '<span class="badge-source badge-original"><i class="fa-solid fa-file-lines"></i> Lời gốc (Whisper)</span>';
+            }
+            return '<span class="badge-source badge-none"><i class="fa-solid fa-volume-xmark"></i> Không lời</span>';
+        }
+
+        function updateStats() {
+            const total = testQueue.length;
+            const done = testQueue.filter(x => x.status === 'Hoàn thành').length;
+            const failed = testQueue.filter(x => x.status === 'Lỗi').length;
+            const pending = total - done - failed;
+
+            document.getElementById('statTotal').innerText = total;
+            document.getElementById('statDone').innerText = done;
+            document.getElementById('statPending').innerText = Math.max(0, pending);
+            document.getElementById('statFailed').innerText = failed;
+        }
+
+        async function testSingleVideo(id) {
+            const item = testQueue.find(x => x.id === id);
+            if (!item) return;
+
+            item.status = 'Đang xử lý';
+            const badge = document.getElementById(`status-badge-${id}`);
+            if (badge) {
+                badge.className = 'status-badge status-running';
+                badge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xử lý...';
+            }
+            const testBtn = document.getElementById(`btn-test-${id}`);
+            if (testBtn) testBtn.disabled = true;
+
+            const resCol = document.getElementById(`result-col-${id}`);
+            if (resCol) {
+                resCol.innerHTML = '<span style="color: #818cf8; font-size: 12px;"><i class="fa-solid fa-spinner fa-spin"></i> Đang nhận diện Whisper & AI...</span>';
+            }
+
+            try {
+                const res = await fetch('/api/test-lyrics', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: item.id, video_path: item.video_path })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    item.status = 'Hoàn thành';
+                    item.raw_lyrics = data.raw_lyrics || '';
+                    item.refined_lyrics = data.refined_lyrics || '';
+                    item.lyric_source = data.lyric_source || 'None';
+                    item.first_line = data.first_line || '';
+                    item.processing_time_s = data.processing_time_s || 0.0;
+
+                    if (badge) {
+                        badge.className = 'status-badge status-done';
+                        badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> Hoàn thành';
+                    }
+                    const procEl = document.getElementById(`proc-time-${id}`);
+                    if (procEl) procEl.innerText = `Xử lý trong: ${item.processing_time_s}s`;
+
+                    if (resCol) {
+                        const badgeHtml = getSourceBadge(item.lyric_source);
+                        resCol.innerHTML = `
+                            <div style="display: flex; flex-direction: column; gap: 4px;">
+                                <div>${badgeHtml}</div>
+                                <div style="font-weight: 600; color: #e2e8f0; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 360px;" title="${escapeHtml(item.first_line || '')}">
+                                    "${escapeHtml(item.first_line || 'Không có tiêu đề')}"
+                                </div>
+                                <button class="btn btn-sm btn-secondary" onclick="openLyricsModal(${item.id})" style="align-self: flex-start; margin-top: 2px;">
+                                    <i class="fa-solid fa-eye"></i> Xem Chi Tiết Lyrics
+                                </button>
+                            </div>
+                        `;
+                    }
+                } else {
+                    item.status = 'Lỗi';
+                    item.error_message = data.error || 'Lỗi không xác định';
+                    if (badge) {
+                        badge.className = 'status-badge status-error';
+                        badge.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Lỗi';
+                    }
+                    if (resCol) {
+                        resCol.innerHTML = `<span style="color: var(--danger); font-size: 12px;"><i class="fa-solid fa-circle-xmark"></i> ${escapeHtml(item.error_message)}</span>`;
+                    }
+                }
+            } catch (err) {
+                item.status = 'Lỗi';
+                item.error_message = 'Lỗi kết nối server';
+                if (badge) {
+                    badge.className = 'status-badge status-error';
+                    badge.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Lỗi mạng';
+                }
+                if (resCol) {
+                    resCol.innerHTML = `<span style="color: var(--danger); font-size: 12px;"><i class="fa-solid fa-circle-xmark"></i> Không kết nối được server</span>`;
+                }
+            } finally {
+                if (testBtn) testBtn.disabled = false;
+                updateStats();
+            }
+        }
+
+        async function startBatchTest() {
+            isBatchTesting = true;
+            document.getElementById('startTestBtn').style.display = 'none';
+            document.getElementById('stopTestBtn').style.display = 'inline-flex';
+
+            for (let i = 0; i < testQueue.length; i++) {
+                if (!isBatchTesting) break;
+                const item = testQueue[i];
+                if (item.status === 'Hoàn thành') continue;
+
+                // Cuộn hàng đang test vào khung nhìn
+                const rowEl = document.getElementById(`row-${item.id}`);
+                if (rowEl) rowEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                await testSingleVideo(item.id);
+            }
+
+            isBatchTesting = false;
+            document.getElementById('startTestBtn').style.display = 'inline-flex';
+            document.getElementById('stopTestBtn').style.display = 'none';
+        }
+
+        function stopBatchTest() {
+            isBatchTesting = false;
+            document.getElementById('startTestBtn').style.display = 'inline-flex';
+            document.getElementById('stopTestBtn').style.display = 'none';
+        }
+
+        function openLyricsModal(id) {
+            const item = testQueue.find(x => x.id === id);
+            if (!item) return;
+
+            document.getElementById('modalSongTitle').innerText = item.first_line || item.video_name;
+            document.getElementById('modalVideoName').innerText = item.video_name;
+            document.getElementById('modalProcessingTime').innerText = `${item.processing_time_s}s`;
+            document.getElementById('modalSourceBadge').innerHTML = getSourceBadge(item.lyric_source);
+
+            const rawText = item.raw_lyrics ? item.raw_lyrics.trim() : '[Không có nội dung lời thô]';
+            const refinedText = item.refined_lyrics ? item.refined_lyrics.trim() : '[Không có nội dung lời làm sạch]';
+
+            document.getElementById('rawLyricsText').innerText = rawText;
+            document.getElementById('refinedLyricsText').innerText = refinedText;
+
+            // Đếm từ
+            const rawWords = rawText ? rawText.split(/\s+/).filter(Boolean).length : 0;
+            const refWords = refinedText ? refinedText.split(/\s+/).filter(Boolean).length : 0;
+            document.getElementById('rawWordCount').innerText = `${rawWords} từ`;
+            document.getElementById('refinedWordCount').innerText = `${refWords} từ`;
+
+            document.getElementById('lyricsModal').classList.add('active');
+        }
+
+        function closeLyricsModal() {
+            document.getElementById('lyricsModal').classList.remove('active');
+        }
+
+        function copyText(elementId) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const text = el.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Đã sao chép vào bộ nhớ tạm!");
+            }).catch(err => {
+                console.error("Lỗi sao chép:", err);
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.style.display = 'flex';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2500);
+        }
+
+        function toggleInlineVideo(id, encodedPath) {
+            const box = document.getElementById(`video-preview-box-${id}`);
+            const vid = document.getElementById(`inline-video-${id}`);
+            if (!box || !vid) return;
+
+            if (box.style.display === 'none') {
+                if (!vid.src) vid.src = `/media/video?path=${encodedPath}`;
+                box.style.display = 'block';
+                vid.play().catch(() => {});
+            } else {
+                box.style.display = 'none';
+                vid.pause();
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    </script>
+</body>
+</html>

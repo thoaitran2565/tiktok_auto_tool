@@ -147,9 +147,14 @@
             <div class="header-title">
                 <h2><i class="fa-solid fa-folder-kanban"></i> Quản Lý Video Thành Phẩm</h2>
             </div>
-            <a href="/" class="btn">
-                <i class="fa-solid fa-arrow-left"></i> Quay Lại Trang Render
-            </a>
+            <div style="display: flex; gap: 10px;">
+                <a href="/test" class="btn" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4);">
+                    <i class="fa-solid fa-flask"></i> Test Lyrics
+                </a>
+                <a href="/" class="btn">
+                    <i class="fa-solid fa-arrow-left"></i> Quay Lại Trang Render
+                </a>
+            </div>
         </div>
 
         <!-- Các Tab lọc và Nút Duyệt Tất Cả -->
@@ -272,7 +277,7 @@
                 tr.innerHTML = `
                     <td>
                         <div style="font-weight: 600; color: #fff; margin-bottom: 4px;">
-                            <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 6px;"></i>${vid.filename}
+                            <i class="fa-regular fa-file-video" style="color: var(--primary); margin-right: 6px;"></i>${vid.title || vid.filename}
                         </div>
                         <div>${badgeHtml}</div>
                     </td>
